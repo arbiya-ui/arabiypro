@@ -1,0 +1,6 @@
+{
+  "name": "ArabiyPro",
+  "description": "Platform pembelajaran Bahasa Arab premium dari nol hingga mahir untuk semua umur, dengan UI mewah berestetika Islamic Art modern, sistem gamifikasi, latihan interaktif, dan tutor percakapan berbasis AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
