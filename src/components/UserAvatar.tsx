@@ -32,7 +32,7 @@ export function UstadzAhmadAvatar({ className = "w-12 h-12" }: AvatarProps) {
       </defs>
 
       {/* Background Circle with glow and border */}
-      <circle cx="60" cy="60" r="54" fill="#D4A359" stroke="#B8960C" strokeWidth="2" filter="url(#subtleGlowAhmad)" />
+      <circle cx="60" cy="60" r="54" fill="#C9A84C" stroke="#B68641" strokeWidth="2" filter="url(#subtleGlowAhmad)" />
 
       {/* Character Group Clipped */}
       <g clipPath="url(#circleClipAhmad)">
@@ -118,7 +118,7 @@ export function UstadzahFatimahAvatar({ className = "w-12 h-12" }: AvatarProps) 
       </defs>
 
       {/* Background Circle with glow and border */}
-      <circle cx="60" cy="60" r="54" fill="#D4A359" stroke="#B8960C" strokeWidth="2" filter="url(#subtleGlowFatimah)" />
+      <circle cx="60" cy="60" r="54" fill="#C9A84C" stroke="#B68641" strokeWidth="2" filter="url(#subtleGlowFatimah)" />
 
       {/* Character Group Clipped */}
       <g clipPath="url(#circleClipFatimah)">

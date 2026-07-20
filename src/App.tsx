@@ -559,7 +559,7 @@ export default function App() {
           </div>
 
           {/* Smartphone Frame Container */}
-          <div className="w-full h-[100dvh] md:h-[840px] md:max-h-[95vh] md:w-[420px] md:border-[12px] md:border-[#1e1e2e] md:rounded-[3.5rem] md:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9),0_0_0_2px_rgba(201,168,76,0.3)] flex flex-col relative overflow-hidden bg-app-background md:ring-1 md:ring-white/10 shrink-0 z-10 transition-all duration-500 ease-in-out shadow-accent/5">
+          <div className="w-full h-[100dvh] md:h-[840px] md:max-h-[95vh] md:w-[420px] md:border-[12px] md:border-primary md:rounded-[3.5rem] md:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.9),0_0_0_2px_rgba(201,168,76,0.3)] flex flex-col relative overflow-hidden bg-app-background md:ring-1 md:ring-white/10 shrink-0 z-10 transition-all duration-500 ease-in-out shadow-accent/5">
             
             {/* Simulated Speaker Notch (Desktop only) */}
             <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 w-36 h-7 bg-[#1e1e2e] rounded-b-3xl z-[100] items-center justify-center shadow-lg border-x border-b border-white/5">
@@ -597,7 +597,7 @@ export default function App() {
             </header>
 
             {/* SCROLLABLE MAIN BODY CONTAINER */}
-            <main className="flex-1 overflow-y-auto relative min-w-0 pb-24 pt-1 bg-geometric-dark">
+            <main className="flex-1 overflow-y-auto relative min-w-0 pb-20 pt-1 bg-geometric-dark">
               <div className="p-3 sm:p-4">
                 {renderContent()}
               </div>
@@ -656,7 +656,7 @@ export default function App() {
           <div className="hidden md:flex fixed bottom-6 right-6 z-50">
             <button
               onClick={() => setIsMobileFirstView(false)}
-              className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black rounded-xl text-xs uppercase tracking-widest transition-all shadow-xl flex items-center gap-2 cursor-pointer"
+              className="px-4 py-2.5 bg-accent hover:brightness-110 text-primary font-black rounded-xl text-xs uppercase tracking-widest transition-all shadow-xl flex items-center gap-2 cursor-pointer border border-accent/30"
             >
               <Monitor className="w-4 h-4" />
               Tampilan Penuh

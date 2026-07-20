@@ -250,7 +250,7 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 scrollbar-none bg-gradient-to-b from-transparent to-black/20 pb-32 md:pb-6">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 scrollbar-none bg-gradient-to-b from-transparent to-black/20 pb-10 md:pb-6">
         {messages.map((m, i) => (
           <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div className={`flex items-start gap-2 md:gap-3 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}>
@@ -327,17 +327,17 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
         <div ref={chatEndRef} />
       </div>
 
-      {/* Input Area: Fixed Bottom on Mobile, 2 Rows on Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 md:relative p-3 md:p-5 border-t border-white/10 bg-primary/95 md:bg-primary/90 backdrop-blur-xl md:backdrop-blur-md z-30 glass">
-        <div className="max-w-3xl mx-auto flex flex-col md:flex-row gap-2 md:gap-3">
-          {/* Row 1: Input Field */}
+      {/* Input Area: Adjusted for Mobile Navigation - Fixed above bottom nav */}
+      <div className="relative p-2 md:p-5 border-t border-white/10 bg-primary/95 md:bg-primary/90 backdrop-blur-xl md:backdrop-blur-md z-40 glass">
+        <div className="max-w-3xl mx-auto flex items-center gap-2 md:gap-3">
+          {/* Input Field */}
           <div className="flex-1 relative">
             <input 
               value={input} 
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
               placeholder={isRecording ? "Mendengarkan..." : "Ketik Bahasa Arab..."}
-              className={`w-full bg-white/[0.05] border p-3.5 md:p-4 rounded-xl md:rounded-2xl text-white text-sm md:text-base placeholder:text-white/20 focus:outline-none transition-all glass-dark ${
+              className={`w-full bg-white/[0.05] border p-2.5 md:p-4 rounded-xl md:rounded-2xl text-white text-xs md:text-base placeholder:text-white/20 focus:outline-none transition-all glass-dark ${
                 isRecording 
                   ? 'border-ruby/50 ring-2 ring-ruby/20' 
                   : 'border-white/10 focus:ring-2 focus:ring-accent/50 focus:border-accent/50'
@@ -345,33 +345,33 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
             />
           </div>
 
-          {/* Row 2 (Mobile Only) / Inline (Desktop): Action Buttons */}
-          <div className="flex items-center gap-2">
+          {/* Action Buttons: Compact on Mobile */}
+          <div className="flex items-center gap-1.5 md:gap-2">
             <button 
               onClick={toggleRecording}
-              className={`flex-1 md:flex-none p-3.5 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 flex items-center justify-center shadow-lg transform active:scale-90 glass ${
+              className={`p-2.5 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 flex items-center justify-center shadow-lg transform active:scale-90 glass ${
                 isRecording 
                   ? 'bg-ruby text-white animate-pulse shadow-[0_0_20px_rgba(233,69,96,0.4)]' 
                   : 'bg-white/5 text-accent hover:bg-accent/10 border border-white/10'
               }`}
               title={isRecording ? 'Berhenti' : 'Rekam Suara'}
             >
-              {isRecording ? <MicOff size={20} /> : <Mic size={20} />}
-              <span className="md:hidden ml-2 text-xs font-black">{isRecording ? 'Berhenti' : 'Suara'}</span>
+              {isRecording ? <MicOff size={18} /> : <Mic size={18} />}
+              <span className="hidden md:inline ml-2 text-xs font-black">{isRecording ? 'Berhenti' : 'Suara'}</span>
             </button>
 
             <button 
               onClick={sendMessage} 
               disabled={loading || !input.trim()} 
-              className="flex-[2] md:flex-none p-3.5 md:p-4 bg-accent text-primary rounded-xl md:rounded-2xl hover:brightness-110 hover:shadow-[0_0_25px_rgba(201,168,76,0.5)] disabled:opacity-30 disabled:hover:shadow-none transition-all duration-300 transform active:scale-95 shadow-lg flex items-center justify-center gap-2 border border-accent/50 font-black"
+              className="p-2.5 md:p-4 bg-accent text-primary rounded-xl md:rounded-2xl hover:brightness-110 hover:shadow-[0_0_25px_rgba(201,168,76,0.5)] disabled:opacity-30 disabled:hover:shadow-none transition-all duration-300 transform active:scale-95 shadow-lg flex items-center justify-center gap-2 border border-accent/50 font-black"
             >
-              {loading ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
-              <span className="md:hidden text-xs font-black uppercase tracking-wider">Kirim</span>
+              {loading ? <Loader2 className="animate-spin" size={18} /> : <Send size={18} />}
+              <span className="hidden md:inline text-xs font-black uppercase tracking-wider">Kirim</span>
             </button>
           </div>
         </div>
         {/* Safe Area Spacer for iOS */}
-        <div className="h-2 md:hidden" />
+        <div className="h-1 md:hidden" />
       </div>
     </div>
   );

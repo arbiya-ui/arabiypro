@@ -62,8 +62,7 @@ const FEATURES_GRID_ITEMS = [
   { tab: "learn", params: null, title: "Kurikulum", name: "kurikulum", desc: "Materi lengkap", icon: "🗺️", bgCircle: "bg-secondary text-white shadow-xl shadow-secondary/20" },
   { tab: "tajwid", params: null, title: "Tajwid", name: "tajwid", desc: "Belajar tajwid", icon: "🕌", bgCircle: "bg-accent/80 text-white shadow-xl shadow-accent/20" },
   { tab: "dictionary", params: null, title: "Kamus Saku", name: "kamus saku", desc: "Cari arti kata", icon: "📚", bgCircle: "bg-primary/80 text-white shadow-xl shadow-primary/20" },
-  { tab: "progress", params: null, title: "Analitik", name: "analitik", desc: "Pantau kemajuan", icon: "📈", bgCircle: "bg-teal/70 text-white shadow-xl shadow-teal/20" },
-  { tab: "certificate", params: null, title: "Sertifikat", name: "sertifikat", desc: "Raih sertifikat", icon: "🏅", bgCircle: "bg-accent/90 text-white shadow-xl shadow-accent/20" }
+  { tab: "progress", params: null, title: "Analitik", name: "analitik", desc: "Pantau kemajuan", icon: "📈", bgCircle: "bg-teal/70 text-white shadow-xl shadow-teal/20" }
 ];
 
 interface DashboardProps {
@@ -819,95 +818,19 @@ export default function Dashboard({
         </div>
       </div>
 
-      {/* SECTION SERTIFIKAT DIGITAL */}
-      <div id="certificate-section" className="bg-[#0B3D2E] rounded-[2.5rem] p-8 sm:p-12 border-2 border-[#D4AF37]/40 shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-          <Award className="w-32 h-32 text-[#D4AF37]" />
-        </div>
-        
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 relative z-10">
-          <div className="space-y-2 text-left">
-            <h3 className="text-3xl font-black text-white flex items-center gap-3 tracking-tight">
-              Sertifikat Digital
-            </h3>
-            <p className="text-white/70 text-sm max-w-md font-medium">
-              Raih pengakuan resmi setiap Anda menyelesaikan tingkatan kurikulum ArabiyPro. Sertifikat dapat diunduh dalam format PDF & Gambar.
-            </p>
-          </div>
-          <button 
-            onClick={() => onNavigate("certificate")}
-            className="px-6 py-3 bg-[#D4AF37] hover:brightness-110 text-[#0B3D2E] font-black text-xs uppercase tracking-widest rounded-2xl transition-all shadow-xl shadow-gold/20 cursor-pointer"
-          >
-            Lihat Semua Sertifikat
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10">
-          {CURRICULUM_DATA.map((level) => {
-            const total = level.lessons.length;
-            const completed = level.lessons.filter(l => (completedLessons || []).includes(l.id)).length;
-            const progress = total > 0 ? Math.round((completed / total) * 100) : 0;
-            const isFinished = progress === 100;
-            const isHidden = (level as any).isHidden;
-
-            if (isHidden) return null;
-
-            return (
-              <div 
-                key={level.id}
-                className={`p-6 rounded-3xl border transition-all ${isFinished ? 'bg-white/10 border-[#D4AF37]/50 shadow-lg' : 'bg-black/20 border-white/10'}`}
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isFinished ? 'bg-[#D4AF37] text-[#0B3D2E]' : 'bg-white/5 text-white/30'}`}>
-                    {isFinished ? <Award className="w-6 h-6" /> : <Lock className="w-5 h-5" />}
-                  </div>
-                  {isFinished && <CheckCircle2 className="w-5 h-5 text-emerald-400" />}
-                </div>
-                
-                <h4 className="font-black text-white text-sm mb-1">{level.name}</h4>
-                <p className="text-[10px] text-white/50 font-bold mb-4 uppercase tracking-wider">{isFinished ? 'Sudah Lulus' : 'Dalam Proses'}</p>
-                
-                <div className="space-y-2">
-                  <div className="flex justify-between text-[9px] font-black text-white/40 uppercase">
-                    <span>Progress</span>
-                    <span>{progress}%</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                    <div 
-                      className={`h-full transition-all duration-1000 ${isFinished ? 'bg-[#D4AF37]' : 'bg-white/20'}`}
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                </div>
-
-                <button
-                  disabled={!isFinished}
-                  onClick={() => onNavigate("certificate")}
-                  className={`mt-6 w-full py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all
-                    ${isFinished 
-                      ? 'bg-white text-[#0B3D2E] hover:bg-[#D4AF37] hover:text-white cursor-pointer' 
-                      : 'bg-white/5 text-white/20 cursor-not-allowed border border-white/5'}`}
-                >
-                  {isFinished ? 'Unduh Sekarang' : 'Terkunci'}
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      </div>
 
       {/* FOOTER SECTION */}
       <footer className="pt-10 pb-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white w-full">
         <div className="text-left">
           <h3 className="font-black text-white flex items-center gap-2">
-            🎓 <span className="text-white">Arabiy</span><span className="text-[#D4AF37] drop-shadow-[0_0_8px_rgba(212,175,55,0.4)]">Pro</span> <span className="text-[10px] px-2 py-0.5 rounded bg-[#D4AF37]/25 text-[#D4AF37] font-mono border border-[#D4AF37]/20">PRO</span>
+            🎓 <span className="text-white">Arabiy</span><span className="text-accent drop-shadow-[0_0_8px_rgba(201,168,76,0.4)]">Pro</span> <span className="text-[10px] px-2 py-0.5 rounded bg-accent/25 text-accent font-mono border border-accent/20">PRO</span>
           </h3>
           <p className="text-[10px] text-white/80 mt-1 font-semibold">Platform Belajar Bahasa Arab Modern Berbasis AI • Versi 2.0.4</p>
         </div>
         
         <div className="flex gap-4">
           {["Bantuan", "Privasi", "Syarat", "Kontak"].map(link => (
-            <button key={link} className="text-[11px] font-extrabold text-[#D4AF37] hover:text-white transition-colors cursor-pointer">{link}</button>
+            <button key={link} className="text-[11px] font-extrabold text-accent hover:text-white transition-colors cursor-pointer">{link}</button>
           ))}
         </div>
         

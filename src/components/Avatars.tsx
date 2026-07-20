@@ -7,7 +7,7 @@ export interface AvatarProps {
 
 const getAvatarClasses = (className: string = "", isActive: boolean = false) => {
   const baseClasses = "transition-transform duration-300 hover:scale-105";
-  const activeClasses = isActive ? "ring-4 ring-[#D4A359] ring-offset-2 shadow-[0_0_15px_rgba(212,175,55,0.6)] rounded-full" : "";
+  const activeClasses = isActive ? "ring-4 ring-accent ring-offset-2 shadow-[0_0_15px_rgba(201,168,76,0.6)] rounded-full" : "";
   return `${baseClasses} ${activeClasses} ${className}`.trim();
 };
 
@@ -16,7 +16,7 @@ export function AhmadAvatar({ className, isActive }: AvatarProps) {
   return (
     <svg viewBox="0 0 80 80" className={getAvatarClasses(className, isActive)} fill="none" xmlns="http://www.w3.org/2000/svg">
       {/* Background Circle */}
-      <circle cx="40" cy="40" r="38" fill="#D4A359" />
+      <circle cx="40" cy="40" r="38" fill="#C9A84C" />
       
       {/* Character Group */}
       <g clipPath="url(#clipAhmad)">
