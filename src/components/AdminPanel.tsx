@@ -33,7 +33,7 @@ import {
 } from "lucide-react";
 import { UserProfile, PaymentProof, PremiumToken } from "../types";
 import { generatePremiumToken, formatIndoDate } from "../lib/payment";
-import { resetTrial, simulateExpiredTrial } from "../lib/trial";
+import { resetTrial, simulateExpiredTrial, updateSupabasePremium } from "../lib/trial";
 
 interface AdminPanelProps {
   onClose: () => void;
@@ -130,11 +130,23 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
 
     // 1. Generate Token
     const newToken = generatePremiumToken(payment.userName, payment.package);
+    // If we have a userId, associate it with the token
+    if (payment.userId) {
+      newToken.userId = payment.userId;
+    }
     
     // 2. Update Premium Tokens Storage
     const tokens = [...premiumTokens, newToken];
     setPremiumTokens(tokens);
     localStorage.setItem("premiumTokens", JSON.stringify(tokens));
+
+    // Sync to Supabase if userId is present
+    if (payment.userId) {
+      const days = payment.package === 'annual' ? 365 : 30;
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + days);
+      updateSupabasePremium(payment.userId, true, expiryDate.toISOString());
+    }
 
     // 3. Update Payment Status
     const allPayments: PaymentProof[] = JSON.parse(localStorage.getItem("pendingPayments") || "[]");

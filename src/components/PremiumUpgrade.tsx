@@ -100,6 +100,7 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
     setTimeout(() => {
       const newProof: PaymentProof = {
         id: `PAY-${Date.now()}`,
+        userId: userProfile.id, // Save userId if available (Supabase UID)
         userName: formData.fullName,
         phone: formData.phone,
         package: selectedPlan,

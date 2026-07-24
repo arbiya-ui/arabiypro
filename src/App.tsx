@@ -7,7 +7,7 @@ import { useState, useEffect, useCallback, useMemo, lazy, Suspense } from "react
 import { Moon, Sun, Menu, Flame, LayoutDashboard, BookOpen, Dumbbell, MessageSquare, Gamepad2, User, Smartphone, Monitor } from "lucide-react";
 import { UserProfile, UserLevelType } from "./types";
 import { CURRICULUM_DATA } from "./data/curriculum";
-import { checkTrialStatus } from "./lib/trial";
+import { checkTrialStatus, getSupabaseProfile, syncUserProfileToSupabase } from "./lib/trial";
 
 // Lazy loaded UI subcomponents
 const LandingPage = lazy(() => import("./components/LandingPage"));
@@ -101,6 +101,40 @@ function AppContent() {
 
   const { user, loading: authLoading } = useAuth();
   const [showAuthModal, setShowAuthModal] = useState(false);
+
+  // Sync profile with Supabase on login/auth change
+  useEffect(() => {
+    if (authLoading) return;
+
+    const syncWithSupabase = async () => {
+      if (user) {
+        const supabaseProfile = await getSupabaseProfile(user.id);
+        if (supabaseProfile) {
+          setUserProfile(prev => {
+            const merged = {
+              ...prev,
+              id: user.id,
+              name: user.user_metadata?.full_name || prev.name,
+              email: user.email,
+              ...supabaseProfile
+            };
+            return { ...merged, ...checkTrialStatus(merged) };
+          });
+          
+          // Also load completed lessons from profile if available
+          if (supabaseProfile.completedLessons) {
+            setCompletedLessons(supabaseProfile.completedLessons);
+            localStorage.setItem("arabiyPro_completedLessons", JSON.stringify(supabaseProfile.completedLessons));
+          }
+        }
+      } else {
+        // Guest mode fallback
+        setUserProfile(prev => ({ ...prev, id: undefined }));
+      }
+    };
+
+    syncWithSupabase();
+  }, [user, authLoading]);
 
   // Global Admin Access (Keyboard shortcut & Hash)
   useEffect(() => {
@@ -252,6 +286,11 @@ function AppContent() {
     localStorage.setItem("arabiyPro_profile", JSON.stringify(updated));
     if (updated.name && updated.name.trim()) {
       localStorage.setItem("userName", updated.name);
+    }
+    
+    // Sync to Supabase if logged in
+    if (user) {
+      syncUserProfileToSupabase(user.id, updated);
     }
   };
 

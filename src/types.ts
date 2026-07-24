@@ -12,6 +12,7 @@ export enum UserLevelType {
 }
 
 export interface UserProfile {
+  id?: string;
   name: string;
   avatar: string; // ID avatar atau URL
   level: UserLevelType;
@@ -192,6 +193,7 @@ export interface DailyHadits {
 
 export interface PaymentProof {
   id: string;
+  userId?: string; // ID user dari Supabase (opsional)
   userName: string;
   phone: string;
   package: "monthly" | "annual";
@@ -204,6 +206,7 @@ export interface PaymentProof {
 
 export interface PremiumToken {
   tokenCode: string; // AA-XXXX-XXXX
+  userId?: string; // ID target user jika spesifik
   userName: string;
   package: "monthly" | "annual";
   durationDays: number;
