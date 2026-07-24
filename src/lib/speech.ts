@@ -36,10 +36,11 @@ export const speakArabic = (text: string, speed?: number, gender: 'male' | 'fema
       return;
     }
 
-    // Clean text: remove quotes, brackets, and extra symbols that shouldn't be read
+    // Clean text: remove quotes, markdown, brackets, and extra symbols that shouldn't be read
     const cleanText = String(text)
-      .replace(/["'""'«»]/g, '')
-      .replace(/[()\[\]{}]/g, '')
+      .replace(/[*_#~`>]/g, '') // Remove Markdown symbols
+      .replace(/["'«»“”‘’]/g, '') // Remove various quotes
+      .replace(/[()\[\]{}]/g, ' ') // Replace brackets with space
       .replace(/\s+/g, ' ')
       .trim();
 
@@ -48,35 +49,110 @@ export const speakArabic = (text: string, speed?: number, gender: 'male' | 'fema
       return;
     }
 
-    const utterance = new SpeechSynthesisUtterance(cleanText);
-    currentUtterance = utterance;
-    
-    // Set language first
-    utterance.lang = 'ar-SA';
-    utterance.rate = speed || getAudioSpeed();
-    utterance.pitch = 1.0;
-    utterance.volume = 1.0;
+    // Helper to split text into language segments
+    const splitTextByLanguage = (input: string) => {
+      const segments: { text: string; lang: 'ar' | 'id' }[] = [];
+      // This regex identifies Arabic blocks including basic punctuation
+      const arabicRegex = /[\u0600-\u06FF\u060C\u061B\u061F]+/g;
+      
+      let lastIndex = 0;
+      let match;
+      
+      while ((match = arabicRegex.exec(input)) !== null) {
+        if (match.index > lastIndex) {
+          const before = input.substring(lastIndex, match.index).trim();
+          if (before) segments.push({ text: before, lang: 'id' });
+        }
+        segments.push({ text: match[0], lang: 'ar' });
+        lastIndex = arabicRegex.lastIndex;
+      }
+      
+      if (lastIndex < input.length) {
+        const after = input.substring(lastIndex).trim();
+        if (after) segments.push({ text: after, lang: 'id' });
+      }
+      
+      return segments;
+    };
 
-    // Simplified voice selection to improve compatibility
-    const voices = window.speechSynthesis.getVoices();
-    const arVoices = voices.filter(v => v.lang.startsWith('ar'));
-    if (arVoices.length > 0) {
-      utterance.voice = arVoices[0];
+    const segments = splitTextByLanguage(cleanText);
+    if (segments.length === 0) {
+      resolve();
+      return;
     }
 
-    utterance.onend = () => {
-      currentUtterance = null;
-      if (onEnd) onEnd();
-      resolve();
+    let currentSegmentIndex = 0;
+
+    const playNextSegment = () => {
+      if (currentSegmentIndex >= segments.length) {
+        currentUtterance = null;
+        if (onEnd) onEnd();
+        resolve();
+        return;
+      }
+
+      const segment = segments[currentSegmentIndex];
+      // Final sanitization: ensure there's actually something to say
+      if (!segment.text.replace(/[^\w\u0600-\u06FF]/g, '').trim()) {
+        currentSegmentIndex++;
+        playNextSegment();
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(segment.text);
+      currentUtterance = utterance;
+
+      utterance.rate = speed || getAudioSpeed();
+      utterance.pitch = 1.0;
+      utterance.volume = 1.0;
+
+      const loadVoicesAndSpeak = () => {
+        const voices = window.speechSynthesis.getVoices();
+        if (segment.lang === 'ar') {
+          utterance.lang = 'ar-SA';
+          const arVoices = voices.filter(v => v.lang.toLowerCase().includes('ar'));
+          if (arVoices.length > 0) {
+            utterance.voice = arVoices.find(v => v.name.includes('Google') || v.name.includes('Natural')) || arVoices[0];
+          }
+        } else {
+          utterance.lang = 'id-ID';
+          const idVoices = voices.filter(v => v.lang.toLowerCase().includes('id'));
+          if (idVoices.length > 0) {
+            utterance.voice = idVoices.find(v => v.name.includes('Google') || v.name.includes('Natural')) || idVoices[0];
+          }
+        }
+
+        utterance.onend = () => {
+          currentSegmentIndex++;
+          playNextSegment();
+        };
+
+        utterance.onerror = (e: any) => {
+          console.error(`Speech segment error (${segment.lang}):`, e.error, e);
+          // If it was interrupted by another speak call, don't continue the queue
+          if (e.error === 'interrupted' || e.error === 'canceled') {
+            currentUtterance = null;
+            resolve();
+            return;
+          }
+          currentSegmentIndex++;
+          playNextSegment();
+        };
+
+        window.speechSynthesis.speak(utterance);
+      };
+
+      if (window.speechSynthesis.getVoices().length === 0) {
+        window.speechSynthesis.onvoiceschanged = () => {
+          window.speechSynthesis.onvoiceschanged = null;
+          loadVoicesAndSpeak();
+        };
+      } else {
+        loadVoicesAndSpeak();
+      }
     };
 
-    utterance.onerror = (e) => {
-      console.error('Speech error:', e);
-      currentUtterance = null;
-      resolve();
-    };
-
-    window.speechSynthesis.speak(utterance);
+    playNextSegment();
   });
 };
 

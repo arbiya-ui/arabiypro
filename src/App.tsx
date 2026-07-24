@@ -26,6 +26,9 @@ const PremiumUpgrade = lazy(() => import("./components/PremiumUpgrade"));
 const Tajwid = lazy(() => import("./components/Tajwid"));
 const Certificate = lazy(() => import("./components/Certificate"));
 
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import AuthModal from "./components/AuthModal";
+
 const PageLoader = () => (
   <div className="flex flex-col items-center justify-center h-screen bg-background bg-geometric-dark gap-6">
     <div className="w-20 h-20 bg-accent/10 rounded-3xl border border-accent/30 flex items-center justify-center animate-pulse shadow-[0_0_30px_rgba(201,168,76,0.15)]">
@@ -61,6 +64,14 @@ type AppTab =
   | "certificate";
 
 export default function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
+}
+
+function AppContent() {
   const [currentTab, setCurrentTab] = useState<AppTab>("landing");
   const [tabParams, setTabParams] = useState<any>(null);
   const [activeLessonId, setActiveLessonId] = useState<string | null>(null);
@@ -87,6 +98,9 @@ export default function App() {
     trialStatus: "active",
     trialDaysLeft: 7
   });
+
+  const { user, loading: authLoading } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   // Global Admin Access (Keyboard shortcut & Hash)
   useEffect(() => {
@@ -739,6 +753,12 @@ export default function App() {
           onUpdateProfile={handleUpdateProfile}
         />
       )}
+
+      {/* AUTH MODAL */}
+      <AuthModal 
+        isOpen={showAuthModal} 
+        onClose={() => setShowAuthModal(false)} 
+      />
     </Suspense>
   );
 }

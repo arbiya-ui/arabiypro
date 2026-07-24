@@ -185,8 +185,14 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-app-primary dark:text-app-accent tracking-tighter">Upgrade Ke Premium</h2>
           <p className="text-app-text-main-muted text-xs md:text-sm max-w-lg mx-auto leading-relaxed font-medium">
-            Kuasai bahasa Al-Qur'an secara lebih cepat, terstruktur, dan terdidik bersama asisten tutor AI bersertifikasi tinggi. Buka konten Level 3 & Level 4!
+            Kuasai bahasa Al-Qur'an secara lebih cepat, terstruktur, dan terdidik bersama asisten tutor AI bersertifikasi tinggi. Buka konten Level 2, 3 & 4!
           </p>
+
+          {userProfile.trialStatus === 'active' && userProfile.trialDaysLeft !== undefined && (
+            <div className="mt-2 inline-flex items-center gap-2 px-4 py-1.5 bg-amber-100 dark:bg-app-accent/20 text-app-primary dark:text-app-accent rounded-full border border-app-accent/30 text-[10px] font-black uppercase tracking-widest animate-pulse shadow-sm">
+              <Zap className="w-3.5 h-3.5 fill-current" /> Trial Anda: {userProfile.trialDaysLeft} Hari Lagi
+            </div>
+          )}
         </div>
 
         {/* URGENCY TIMER */}
@@ -211,7 +217,7 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
           <span className="text-4xl animate-pulse inline-block">🌟</span>
           <h3 className="text-xl font-bold">Anda Adalah Anggota Premium!</h3>
           <p className="text-xs text-white/80 max-w-sm mx-auto leading-relaxed">
-            Terima kasih atas dukungannya. Seluruh fitur tutor AI percakapan, kurikulum Level 3 & 4, dan sertifikat digital kini telah terbuka penuh secara permanen.
+            Terima kasih atas dukungannya. Seluruh fitur tutor AI percakapan, kurikulum Level 2, 3 & 4, dan sertifikat digital kini telah terbuka penuh secara permanen.
           </p>
         </div>
       ) : (
@@ -232,7 +238,8 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
               </div>
 
               <div className="space-y-3 pt-2">
-                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Akses Level 1 & 2</span>
+                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Akses Bab 1-5 Level 1</span>
+                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Trial 7 Hari Akses Penuh Level 1-4</span>
                 <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Kuota AI Terbatas (10/hari)</span>
                 <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Iklan di aplikasi</span>
               </div>
@@ -263,7 +270,7 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
               </div>
 
               <div className="space-y-3 pt-2">
-                <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Akses penuh Level 3 & 4</span>
+                <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Buka Akses Penuh Level 2, 3 & 4</span>
                 <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Tutor AI Tanpa Batas</span>
                 <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Laporan PDF & Sertifikat</span>
               </div>
@@ -278,8 +285,10 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
           </div>
           
           {/* TIER 3: TAHUNAN (LUXURY) */}
-          <div className="p-8 rounded-[2.5rem] bg-gradient-to-br from-app-primary to-emerald-950 border-2 border-app-accent flex flex-col justify-between relative shadow-[0_20px_60px_rgba(201,168,76,0.15)] transform lg:-translate-y-4 group overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-app-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          <div className="p-8 rounded-[2.5rem] bg-gradient-to-br from-app-primary to-emerald-950 border-2 border-app-accent flex flex-col justify-between relative shadow-[0_20px_60px_rgba(201,168,76,0.15)] transform lg:-translate-y-4 group">
+            <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden pointer-events-none">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-app-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+            </div>
             
             {/* Best Value Badge */}
             <span className="absolute -top-4 right-6 text-[10px] font-extrabold font-mono tracking-wider px-4 py-1.5 bg-gradient-to-r from-rose-600 to-rose-500 text-white rounded-full uppercase shadow-lg border-2 border-app-primary animate-pulse z-20">

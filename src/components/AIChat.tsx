@@ -68,6 +68,7 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
     { role: 'ai', content: `السلام عليكم ${userProfile.name}! Saya Ustadz Ahmad. Mari kita belajar Bahasa Arab hari ini.` }
   ]);
   const [input, setInput] = useState('');
+  const [inputLang, setInputLang] = useState<'id-ID' | 'ar-SA'>('id-ID');
   const [loading, setLoading] = useState(false);
   const [voice, setVoice] = useState<'Ahmad' | 'Fatimah'>('Ahmad');
   const [selectedScenario, setSelectedScenario] = useState<string | null>(initialScenarioId || null);
@@ -116,7 +117,7 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
       recognitionRef.current = new SpeechRecognition();
       recognitionRef.current.continuous = false;
       recognitionRef.current.interimResults = false;
-      recognitionRef.current.lang = 'ar-SA'; // Default to Arabic
+      recognitionRef.current.lang = inputLang;
 
       recognitionRef.current.onresult = (event: any) => {
         const transcript = event.results[0][0].transcript;
@@ -138,6 +139,9 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
     if (isRecording) {
       recognitionRef.current?.stop();
     } else {
+      if (recognitionRef.current) {
+        recognitionRef.current.lang = inputLang;
+      }
       setIsRecording(true);
       recognitionRef.current?.start();
     }
@@ -177,12 +181,20 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
           scenarioPrompt: currentScenario?.prompt || null
         })
       });
+      
       const data = await res.json();
+      
+      if (!res.ok) {
+        setMessages((prev) => [...prev, { role: 'ai', content: data.error || "Maaf, terjadi kesalahan teknis. Coba lagi nanti." }]);
+        return;
+      }
+
       const aiMsg = { role: 'ai' as const, content: data.response };
       setMessages((prev) => [...prev, aiMsg]);
       speak(data.response, messages.length + 1);
     } catch (error) {
       console.error(error);
+      setMessages((prev) => [...prev, { role: 'ai', content: "Koneksi terputus. Pastikan internet Anda aktif." }]);
     } finally {
       setLoading(false);
     }
@@ -347,6 +359,30 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
 
           {/* Action Buttons: Compact on Mobile */}
           <div className="flex items-center gap-1.5 md:gap-2">
+            {/* Language Toggle */}
+            <div className="flex bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-1 glass overflow-hidden">
+              <button
+                onClick={() => setInputLang('id-ID')}
+                className={`px-2 md:px-3 py-1 text-[10px] md:text-xs font-black transition-all rounded-lg ${
+                  inputLang === 'id-ID' 
+                    ? 'bg-accent text-primary shadow-sm' 
+                    : 'text-white/40 hover:text-white'
+                }`}
+              >
+                ID
+              </button>
+              <button
+                onClick={() => setInputLang('ar-SA')}
+                className={`px-2 md:px-3 py-1 text-[10px] md:text-xs font-black transition-all rounded-lg ${
+                  inputLang === 'ar-SA' 
+                    ? 'bg-accent text-primary shadow-sm' 
+                    : 'text-white/40 hover:text-white'
+                }`}
+              >
+                AR
+              </button>
+            </div>
+
             <button 
               onClick={toggleRecording}
               className={`p-2.5 md:p-4 rounded-xl md:rounded-2xl transition-all duration-300 flex items-center justify-center shadow-lg transform active:scale-90 glass ${

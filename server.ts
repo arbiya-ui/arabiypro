@@ -67,7 +67,7 @@ ${scenarioContext}
 Jangan pernah berikan transliterasi latin.`;
 
       const chat = ai.chats.create({
-        model: "gemini-2.0-flash",
+        model: "gemini-3.5-flash",
         config: {
           systemInstruction,
         },
@@ -80,13 +80,22 @@ Jangan pernah berikan transliterasi latin.`;
     } catch (error: any) {
       console.error("Gemini API Error:", error);
       
-      if (error.status === 503 || error.message?.includes("503")) {
+      const status = error.status || 500;
+      const message = error.message || "";
+      
+      if (status === 429 || message.includes("429") || message.includes("quota")) {
+        return res.status(429).json({ 
+          error: "Kuota AI harian telah habis atau terlalu banyak permintaan. Mohon tunggu sebentar atau coba lagi besok." 
+        });
+      }
+
+      if (status === 503 || message.includes("503") || message.includes("overloaded")) {
         return res.status(503).json({ 
           error: "Sistem AI sedang padat (High Demand). Mohon tunggu 1-2 menit dan coba lagi." 
         });
       }
       
-      res.status(500).json({ error: "Gagal terhubung dengan Ustadz Digital. Coba lagi nanti." });
+      res.status(status).json({ error: "Gagal terhubung dengan Ustadz Digital. Pastikan koneksi internet stabil dan coba lagi." });
     }
   });
 

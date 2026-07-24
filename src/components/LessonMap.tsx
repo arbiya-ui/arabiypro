@@ -630,7 +630,7 @@ export default function LessonMap({ userProfile, completedLessons, onSelectLesso
               <p className="text-white/80 text-lg font-medium leading-relaxed">
                 Materi Level ini sedang disiapkan. Insya Allah akan segera hadir! 🕌
                 <br /><br />
-                <span className="text-accent/80">Fokus dulu kuasai Level 1 & 2 yang sudah tersedia lengkap.</span>
+                <span className="text-accent/80">Fokus dulu kuasai level yang sudah tersedia lengkap.</span>
               </p>
             </div>
 

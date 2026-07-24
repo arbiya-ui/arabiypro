@@ -36,6 +36,7 @@ import {
   Target,
   Lock
 } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 import { UserProfile, UserLevelType, PaymentProof } from "../types";
 import { DAILY_HADITS_LIST, CURRICULUM_DATA } from "../data/curriculum";
 import UserAvatar, { UstadzAhmadAvatar } from "./UserAvatar";
@@ -87,6 +88,7 @@ export default function Dashboard({
   } | null>(null);
   const [pendingPayment, setPendingPayment] = useState<PaymentProof | null>(null);
   const [expiredNotif, setExpiredNotif] = useState(false);
+  const [activeInfoModal, setActiveInfoModal] = useState<string | null>(null);
 
   // Placement Test State
   const [showPlacementModal, setShowPlacementModal] = useState(false);
@@ -820,22 +822,73 @@ export default function Dashboard({
 
 
       {/* FOOTER SECTION */}
-      <footer className="pt-10 pb-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white w-full">
-        <div className="text-left">
+      <footer className="mt-12 pt-10 pb-10 border-t border-[#0B3D2E]/10 flex flex-col md:flex-row justify-between items-center gap-8 w-full">
+        <div className="text-left flex flex-col items-center md:items-start gap-2">
           <h3 className="font-black text-white flex items-center gap-2">
-            🎓 <span className="text-white">Arabiy</span><span className="text-accent drop-shadow-[0_0_8px_rgba(201,168,76,0.4)]">Pro</span> <span className="text-[10px] px-2 py-0.5 rounded bg-accent/25 text-accent font-mono border border-accent/20">PRO</span>
+            🎓 <span className="text-[#0B3D2E]">Arabiy</span><span className="text-accent drop-shadow-[0_0_8px_rgba(201,168,76,0.4)]">Pro</span> <span className="text-[10px] px-2 py-0.5 rounded bg-accent/25 text-accent font-mono border border-accent/20">PRO</span>
           </h3>
-          <p className="text-[10px] text-white/80 mt-1 font-semibold">Platform Belajar Bahasa Arab Modern Berbasis AI • Versi 2.0.4</p>
+          <p className="text-[11px] text-[#0B3D2E]/70 mt-1 font-semibold text-center md:text-left max-w-xs leading-relaxed">
+            Platform Belajar Bahasa Arab Modern Berbasis AI • Versi 2.0.4
+          </p>
         </div>
         
-        <div className="flex gap-4">
+        <div className="flex gap-6">
           {["Bantuan", "Privasi", "Syarat", "Kontak"].map(link => (
-            <button key={link} className="text-[11px] font-extrabold text-accent hover:text-white transition-colors cursor-pointer">{link}</button>
+            <button 
+              key={link} 
+              onClick={() => setActiveInfoModal(link)}
+              className="text-[11px] font-extrabold text-accent hover:text-[#0B3D2E] transition-colors cursor-pointer"
+            >
+              {link}
+            </button>
           ))}
         </div>
         
-        <p className="text-[10px] text-white/60 font-bold">© 2026 ArabiyPro. All rights reserved.</p>
+        <p className="text-[10px] text-[#0B3D2E]/40 font-bold">© 2026 ArabiyPro. All rights reserved.</p>
       </footer>
+
+      {/* INFO MODAL GENERIK */}
+      <AnimatePresence>
+        {activeInfoModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveInfoModal(null)}
+              className="absolute inset-0 bg-[#0B3D2E]/40 backdrop-blur-sm"
+            />
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative bg-[#F8F9F8] border-2 border-[#D4AF37]/30 w-full max-w-md p-8 rounded-[2rem] shadow-2xl overflow-hidden"
+            >
+              <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#D4AF37]/5 rounded-full blur-3xl" />
+              
+              <div className="relative z-10 text-center space-y-6">
+                <div className="w-16 h-16 bg-[#0B3D2E]/5 rounded-2xl flex items-center justify-center mx-auto text-3xl mb-2">
+                  {activeInfoModal === 'Bantuan' ? '🎧' : activeInfoModal === 'Privasi' ? '🔒' : activeInfoModal === 'Syarat' ? '📝' : '📞'}
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="text-2xl font-black text-[#0B3D2E] tracking-tight">Halaman {activeInfoModal}</h3>
+                  <p className="text-[#0B3D2E]/60 font-medium">
+                    Konten untuk bagian <span className="text-[#0B3D2E] font-bold">{activeInfoModal}</span> akan segera hadir dalam pembaruan berikutnya. Terima kasih atas kesabaran Anda.
+                  </p>
+                </div>
+
+                <button 
+                  onClick={() => setActiveInfoModal(null)}
+                  className="w-full py-4 bg-[#0B3D2E] hover:bg-[#0B3D2E]/90 text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl transition-all shadow-xl shadow-[#0B3D2E]/20 cursor-pointer"
+                >
+                  Tutup
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* CORE STATISTIK OVERVIEW GRID */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
