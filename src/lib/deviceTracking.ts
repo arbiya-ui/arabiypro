@@ -125,7 +125,7 @@ export const checkDeviceBlocked = async (): Promise<{ isBlocked: boolean; reason
       .from('device_activity')
       .select('is_blocked, blocked_reason')
       .eq('device_id', deviceId)
-      .order('created_at', { ascending: false })
+      .order('id', { ascending: false })
       .limit(1)
       .maybeSingle();
 

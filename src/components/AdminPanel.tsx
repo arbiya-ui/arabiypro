@@ -130,11 +130,13 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
     setSupportLeads(leads);
 
     // Load Payments & Tokens
-    const payments = JSON.parse(localStorage.getItem("pendingPayments") || "[]");
-    setPendingPayments(payments.filter((p: PaymentProof) => p.status === "pending"));
-    setTransactionHistory(payments.filter((p: PaymentProof) => p.status !== "pending"));
+    const paymentsRaw = JSON.parse(localStorage.getItem("pendingPayments") || "[]");
+    const payments = Array.isArray(paymentsRaw) ? paymentsRaw : [];
+    setPendingPayments(payments.filter((p: any) => p?.status === "pending"));
+    setTransactionHistory(payments.filter((p: any) => p?.status !== "pending"));
 
-    const tokens = JSON.parse(localStorage.getItem("premiumTokens") || "[]");
+    const tokensRaw = JSON.parse(localStorage.getItem("premiumTokens") || "[]");
+    const tokens = Array.isArray(tokensRaw) ? tokensRaw : [];
     setPremiumTokens(tokens);
 
     if (activeTab === 'devices') {
@@ -186,8 +188,8 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
   };
 
   const handleUpdateCodeExpiry = (codeId: number, newDate: string) => {
-    const updated = generatedCodes.map(c => {
-      if (c.id === codeId) {
+    const updated = (generatedCodes ?? []).map(c => {
+      if (c?.id === codeId) {
         return { ...c, expiresAt: newDate, duration: `Hingga ${formatIndoDate(newDate)}` };
       }
       return c;
@@ -198,8 +200,8 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
   };
 
   const handleUpdateUserExpiry = (userId: string, newDate: string, type: 'materi' | 'chat') => {
-    const updated = savedUsers.map(u => {
-      if (u.id === userId || u.userId === userId) {
+    const updated = (savedUsers ?? []).map(u => {
+      if (u?.id === userId || u?.userId === userId) {
         if (type === 'materi') {
           return { ...u, isPremium: true, premiumExpiresAt: newDate };
         } else {
@@ -260,7 +262,7 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
   };
 
   const handleConfirmPayment = (paymentId: string) => {
-    const payment = pendingPayments.find(p => p.id === paymentId);
+    const payment = (pendingPayments ?? []).find(p => p?.id === paymentId);
     if (!payment) return;
 
     const isChat = payment.purchaseType === 'chat' || payment.package === 'chat_addon';
@@ -299,8 +301,8 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
 
     // 3. Update Payment Status
     const allPayments: PaymentProof[] = JSON.parse(localStorage.getItem("pendingPayments") || "[]");
-    const updatedPayments = allPayments.map(p => 
-      p.id === paymentId ? { ...p, status: "confirmed" as const } : p
+    const updatedPayments = (allPayments ?? []).map(p => 
+      p?.id === paymentId ? { ...p, status: "confirmed" as const } : p
     );
     localStorage.setItem("pendingPayments", JSON.stringify(updatedPayments));
     
@@ -321,15 +323,15 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
     if (reason === null) return;
 
     const allPayments: PaymentProof[] = JSON.parse(localStorage.getItem("pendingPayments") || "[]");
-    const updatedPayments = allPayments.map(p => 
-      p.id === paymentId ? { ...p, status: "rejected" as const, rejectionReason: reason } : p
+    const updatedPayments = (allPayments ?? []).map(p => 
+      p?.id === paymentId ? { ...p, status: "rejected" as const, rejectionReason: reason } : p
     );
     localStorage.setItem("pendingPayments", JSON.stringify(updatedPayments));
     
-    setPendingPayments(updatedPayments.filter(p => p.status === "pending"));
-    setTransactionHistory(updatedPayments.filter(p => p.status !== "pending"));
+    setPendingPayments(updatedPayments.filter(p => p?.status === "pending"));
+    setTransactionHistory(updatedPayments.filter(p => p?.status !== "pending"));
     
-    const payment = allPayments.find(p => p.id === paymentId);
+    const payment = (allPayments ?? []).find(p => p?.id === paymentId);
     if (payment) {
       const waMsg = encodeURIComponent(`Mohon maaf, bukti pembayaran ArabiyPro Anda ditolak.\nAlasan: ${reason}\nSilakan hubungi admin jika ada kendala.`);
       window.open(`https://wa.me/${payment.phone.replace(/^0/, '62')}?text=${waMsg}`, '_blank');
@@ -349,7 +351,7 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
 
   const calculateRevenue = (period: "today" | "week" | "month") => {
     const now = new Date();
-    const confirmed = transactionHistory.filter(p => p.status === "confirmed");
+    const confirmed = (transactionHistory ?? []).filter(p => p?.status === "confirmed");
     
     return confirmed.reduce((acc, curr) => {
       const payDate = new Date(curr.timestamp);
@@ -444,13 +446,13 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
         <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
           {[
             { id: "owner", label: "Owner Account", icon: Crown },
-            { id: "payments", label: "Pembayaran Masuk", icon: Banknote, badge: pendingPayments.length },
+            { id: "payments", label: "Pembayaran Masuk", icon: Banknote, badge: (pendingPayments ?? []).length },
             { id: "users", label: "Manajemen User", icon: Users },
             { id: "global", label: "Kontrol Global", icon: Globe },
             { id: "codes", label: "Kode Akses", icon: Key },
             { id: "devices", label: "Monitoring Device", icon: Smartphone },
             { id: "stats", label: "Statistik", icon: BarChart3 },
-            { id: "leads", label: "Pesan Masuk", icon: MessageSquare, badge: supportLeads.filter(l => l.status === 'unread').length },
+            { id: "leads", label: "Pesan Masuk", icon: MessageSquare, badge: (supportLeads ?? []).filter(l => l?.status === 'unread').length },
             { id: "settings", label: "Pengaturan", icon: Settings },
           ].map((item) => (
             <button
@@ -639,11 +641,11 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                            </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-50">
-                           {pendingPayments.length === 0 ? (
+                           {(pendingPayments ?? []).length === 0 ? (
                              <tr><td colSpan={5} className="px-6 py-12 text-center text-gray-400 text-xs italic">Semua pembayaran sudah diproses. ☕</td></tr>
                            ) : (
-                             pendingPayments.map(p => (
-                               <tr key={p.id} className="hover:bg-app-background/50 transition-colors">
+                             (pendingPayments ?? []).map(p => (
+                               <tr key={p?.id} className="hover:bg-app-background/50 transition-colors">
                                   <td className="px-6 py-4">
                                      <div className="flex flex-col">
                                         <span className="text-sm font-bold text-app-text-main">{p.userName}</span>
@@ -709,11 +711,11 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                            </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-50">
-                           {transactionHistory.length === 0 ? (
+                           {(transactionHistory ?? []).length === 0 ? (
                              <tr><td colSpan={5} className="px-6 py-4 text-center text-gray-400 italic">Belum ada riwayat.</td></tr>
                            ) : (
-                             transactionHistory.sort((a,b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).map(p => (
-                               <tr key={p.id}>
+                             [...(transactionHistory ?? [])].sort((a,b) => new Date(b?.timestamp).getTime() - new Date(a?.timestamp).getTime()).map(p => (
+                               <tr key={p?.id}>
                                   <td className="px-6 py-3 font-bold">{p.userName}</td>
                                   <td className="px-6 py-3">{p.package.toUpperCase()}</td>
                                   <td className="px-6 py-3 font-mono">Rp{p.nominal.toLocaleString()}</td>
@@ -757,17 +759,17 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-50">
-                      {savedUsers.length === 0 ? (
+                      {(savedUsers ?? []).length === 0 ? (
                         <tr>
                           <td colSpan={4} className="px-6 py-12 text-center text-gray-400 text-xs italic">Belum ada user lain yang terdaftar di device ini.</td>
                         </tr>
                       ) : (
-                        savedUsers.map((user, idx) => (
+                        (savedUsers ?? []).map((user, idx) => (
                           <tr key={idx} className="hover:bg-app-background/50 transition-colors">
                             <td className="px-6 py-4">
                               <div className="flex items-center gap-3">
-                                <div className="w-8 h-8 rounded-lg bg-app-primary/10 flex items-center justify-center text-app-primary text-xs font-bold">{user.name?.[0] || "U"}</div>
-                                <span className="text-sm font-bold text-app-text-main">{user.name || "Unknown User"}</span>
+                                <div className="w-8 h-8 rounded-lg bg-app-primary/10 flex items-center justify-center text-app-primary text-xs font-bold">{user?.name?.[0] || "U"}</div>
+                                <span className="text-sm font-bold text-app-text-main">{user?.name || "Unknown User"}</span>
                               </div>
                             </td>
                             <td className="px-6 py-4">
@@ -907,14 +909,14 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-50">
-                        {generatedCodes.length === 0 ? (
+                        {(generatedCodes ?? []).length === 0 ? (
                           <tr><td colSpan={4} className="px-6 py-8 text-center text-gray-400 italic">Belum ada kode yang di-generate.</td></tr>
                         ) : (
-                          generatedCodes.map((code) => (
-                            <tr key={code.id}>
-                              <td className="px-6 py-3 font-mono font-black text-app-primary">{code.code}</td>
-                              <td className="px-6 py-3 font-bold">{code.assignedTo}</td>
-                              <td className="px-6 py-3"><span className="px-2 py-0.5 rounded bg-app-accent/20 text-app-accent text-[9px] font-bold">{code.duration}</span></td>
+                          (generatedCodes ?? []).map((code) => (
+                            <tr key={code?.id}>
+                              <td className="px-6 py-3 font-mono font-black text-app-primary">{code?.code}</td>
+                              <td className="px-6 py-3 font-bold">{code?.assignedTo}</td>
+                              <td className="px-6 py-3"><span className="px-2 py-0.5 rounded bg-app-accent/20 text-app-accent text-[9px] font-bold">{code?.duration}</span></td>
                               <td className="px-6 py-3">
                                 <div className="flex items-center gap-2">
                                   <input 
@@ -967,7 +969,7 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                       <tbody className="divide-y divide-gray-50 dark:divide-white/5">
                         {isFetchingActivities ? (
                           <tr><td colSpan={6} className="px-6 py-20 text-center text-gray-400 italic">Memuat data aktivitas dari database...</td></tr>
-                        ) : deviceActivities.length === 0 ? (
+                        ) : (deviceActivities ?? []).length === 0 ? (
                           <tr>
                             <td colSpan={6} className="px-6 py-20 text-center space-y-4">
                               <p className="text-gray-400 italic">Belum ada data aktivitas terdeteksi.</p>
@@ -982,14 +984,14 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                             </td>
                           </tr>
                         ) : (
-                          deviceActivities.map((device) => {
-                            const isSuspicious = device.open_count > 50 || device.ai_chat_count > 60; 
+                          (deviceActivities ?? []).map((device) => {
+                            const isSuspicious = (device?.open_count ?? 0) > 50 || (device?.ai_chat_count ?? 0) > 60; 
                             return (
-                              <tr key={device.id} className={`hover:bg-app-background/30 transition-colors ${isSuspicious ? 'bg-amber-500/5' : ''}`}>
+                              <tr key={device?.id} className={`hover:bg-app-background/30 transition-colors ${isSuspicious ? 'bg-amber-500/5' : ''}`}>
                                 <td className="px-6 py-4">
                                   <div className="flex flex-col">
-                                    <span className="text-xs font-mono font-black text-app-primary dark:text-app-accent">#{device.device_id.substring(0, 8)}</span>
-                                    <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">{new Date(device.activity_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                    <span className="text-xs font-mono font-black text-app-primary dark:text-app-accent">#{device?.device_id?.substring(0, 8)}</span>
+                                    <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">{new Date(device?.activity_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                                   </div>
                                 </td>
                                 <td className="px-6 py-4">
@@ -1134,7 +1136,7 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-xl font-black text-app-primary dark:text-white">Daftar Pesan Bantuan</h3>
-                    <p className="text-[10px] text-app-text-muted font-bold uppercase tracking-widest mt-1">Total {supportLeads.length} Pesan dari User</p>
+                    <p className="text-[10px] text-app-text-muted font-bold uppercase tracking-widest mt-1">Total {(supportLeads ?? []).length} Pesan dari User</p>
                   </div>
                   <button 
                     onClick={() => {
@@ -1157,7 +1159,7 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                     </div>
                     <div>
                       <span className="text-[9px] text-gray-400 font-black uppercase tracking-wider block">Total Pesan</span>
-                      <span className="text-lg font-black text-app-text-main font-mono">{supportLeads.length}</span>
+                      <span className="text-lg font-black text-app-text-main font-mono">{(supportLeads ?? []).length}</span>
                     </div>
                   </div>
                   <div className="p-5 bg-app-surface rounded-3xl border border-app-border shadow-sm flex items-center gap-4">
@@ -1166,7 +1168,7 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                     </div>
                     <div>
                       <span className="text-[9px] text-gray-400 font-black uppercase tracking-wider block">Belum Dibaca</span>
-                      <span className="text-lg font-black text-app-text-main font-mono">{supportLeads.filter(l => l.status === 'unread').length}</span>
+                      <span className="text-lg font-black text-app-text-main font-mono">{(supportLeads ?? []).filter(l => l?.status === 'unread').length}</span>
                     </div>
                   </div>
                   <div className="p-5 bg-app-surface rounded-3xl border border-app-border shadow-sm flex items-center gap-4">
@@ -1176,14 +1178,14 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                     <div>
                       <span className="text-[9px] text-gray-400 font-black uppercase tracking-wider block">Pesan Hari Ini</span>
                       <span className="text-lg font-black text-app-text-main font-mono">
-                        {supportLeads.filter(l => new Date(l.timestamp).toDateString() === new Date().toDateString()).length}
+                        {(supportLeads ?? []).filter(l => l?.timestamp && new Date(l.timestamp).toDateString() === new Date().toDateString()).length}
                       </span>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-4">
-                  {supportLeads.length === 0 ? (
+                  {(supportLeads ?? []).length === 0 ? (
                     <div className="p-20 text-center space-y-4 bg-app-surface rounded-[2.5rem] border border-app-border border-dashed">
                       <div className="w-16 h-16 bg-app-accent/5 rounded-full flex items-center justify-center mx-auto text-app-accent/30">
                         <MessageSquare className="w-8 h-8" />
@@ -1191,24 +1193,24 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                       <p className="text-sm font-bold text-gray-400">Belum ada pesan bantuan masuk.</p>
                     </div>
                   ) : (
-                    supportLeads.map((lead) => (
+                    (supportLeads ?? []).map((lead) => (
                       <div 
-                        key={lead.id} 
-                        className={`p-6 bg-app-surface rounded-[2.5rem] border transition-all ${lead.status === 'unread' ? 'border-app-accent bg-app-accent/[0.02]' : 'border-app-border'}`}
+                        key={lead?.id} 
+                        className={`p-6 bg-app-surface rounded-[2.5rem] border transition-all ${lead?.status === 'unread' ? 'border-app-accent bg-app-accent/[0.02]' : 'border-app-border'}`}
                       >
                         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                           <div className="space-y-4 flex-1">
                             <div className="flex items-center gap-3">
                               <div className="w-10 h-10 rounded-2xl bg-app-accent/10 flex items-center justify-center text-app-accent font-black">
-                                {lead.name.charAt(0)}
+                                {lead?.name?.charAt(0) || "?"}
                               </div>
                               <div>
-                                <h4 className="text-sm font-black text-app-primary dark:text-white">{lead.name}</h4>
+                                <h4 className="text-sm font-black text-app-primary dark:text-white">{lead?.name || "User"}</h4>
                                 <div className="flex items-center gap-3 mt-0.5">
                                   <span className="flex items-center gap-1 text-[10px] text-app-text-muted font-bold">
-                                    <Clock className="w-3 h-3" /> {new Date(lead.timestamp).toLocaleString('id-ID')}
+                                    <Clock className="w-3 h-3" /> {lead?.timestamp ? new Date(lead.timestamp).toLocaleString('id-ID') : "N/A"}
                                   </span>
-                                  {lead.status === 'unread' && (
+                                  {lead?.status === 'unread' && (
                                     <span className="px-2 py-0.5 rounded-full bg-app-accent text-white text-[8px] font-black uppercase">BARU</span>
                                   )}
                                 </div>
@@ -1220,27 +1222,27 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                                 <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest flex items-center gap-1.5">
                                   <Phone className="w-3 h-3" /> WhatsApp
                                 </p>
-                                <p className="text-xs font-bold text-app-primary dark:text-app-accent">{lead.phone}</p>
+                                <p className="text-xs font-bold text-app-primary dark:text-app-accent">{lead?.phone || "-"}</p>
                               </div>
                               <div className="p-3 bg-app-background/50 rounded-xl space-y-1">
                                 <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest flex items-center gap-1.5">
                                   <MapPin className="w-3 h-3" /> Lokasi
                                 </p>
-                                <p className="text-xs font-bold text-app-primary dark:text-white truncate">{lead.address || "-"}</p>
+                                <p className="text-xs font-bold text-app-primary dark:text-white truncate">{lead?.address || "-"}</p>
                               </div>
                             </div>
 
                             <div className="p-4 bg-app-background rounded-2xl border border-app-border">
                               <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1.5">Pesan:</p>
-                              <p className="text-xs leading-relaxed text-app-text-main font-medium">{lead.message}</p>
+                              <p className="text-xs leading-relaxed text-app-text-main font-medium">{lead?.message || "-"}</p>
                             </div>
                           </div>
 
                           <div className="flex flex-row md:flex-col gap-2 shrink-0">
-                            {lead.status === 'unread' && (
+                            {lead?.status === 'unread' && (
                               <button 
                                 onClick={() => {
-                                  const newLeads = supportLeads.map(l => l.id === lead.id ? {...l, status: 'read'} : l);
+                                  const newLeads = (supportLeads ?? []).map(l => l?.id === lead?.id ? {...l, status: 'read'} : l);
                                   setSupportLeads(newLeads);
                                   localStorage.setItem("support_leads", JSON.stringify(newLeads));
                                 }}

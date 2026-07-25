@@ -29,6 +29,7 @@ const Certificate = lazy(() => import("./components/Certificate"));
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import AuthModal from "./components/AuthModal";
 import { logAppOpen, checkDeviceBlocked } from "./lib/deviceTracking";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const PageLoader = () => (
   <div className="flex flex-col items-center justify-center h-screen bg-background bg-geometric-dark gap-6">
@@ -66,9 +67,11 @@ type AppTab =
 
 export default function App() {
   return (
-    <AuthProvider>
-      <AppContent />
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <AppContent />
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
 
