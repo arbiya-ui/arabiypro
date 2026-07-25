@@ -52,13 +52,10 @@ export default function LessonMap({ userProfile, completedLessons, onSelectLesso
     babIndex: number
   ): boolean {
     
-    // Ambil status dari localStorage
-    const ownerMode = localStorage
-      .getItem('ownerMode') === 'true';
-    const isPremium = localStorage
-      .getItem('premiumStatus') === 'active';
-    const trialStart = localStorage
-      .getItem('trialStartDate');
+    // Ambil status dari localStorage & props
+    const ownerMode = localStorage.getItem('ownerMode') === 'true' || userProfile.isOwner;
+    const isPremium = localStorage.getItem('premiumStatus') === 'active' || userProfile.isPremium;
+    const trialStart = userProfile.trialStartDate || localStorage.getItem('trialStartDate');
     
     // 1. Owner: SEMUA terbuka
     if (ownerMode) return true;
@@ -78,15 +75,24 @@ export default function LessonMap({ userProfile, completedLessons, onSelectLesso
       trialDaysLeft = Math.max(0, 7 - diff);
     }
     
-    // 4. Trial masih aktif: SEMUA terbuka
-    if (trialDaysLeft > 0) return true;
+    const trialActive = trialDaysLeft > 0;
+
+    // ATURAN BARU:
     
-    // 5. Trial expired:
-    // Hanya Level 1 Bab 1-5 gratis
-    // levelIndex 0 = Level 1
-    // babIndex 0-4 = Bab 1-5
-    if (levelIndex === 0 && babIndex <= 4) {
-      return true;
+    // A. Level 1 (levelIndex 0)
+    if (levelIndex === 0) {
+      // Bab 1-5 (babIndex 0-4) SELALU terbuka (Gratis)
+      if (babIndex <= 4) return true;
+      // Bab 6-9 (babIndex 5-8) terbuka jika trial aktif atau premium
+      if (trialActive || isPremium) return true;
+    }
+    
+    // B. Level 2, 3, 4 (levelIndex 1-3)
+    if (levelIndex >= 1 && levelIndex <= 3) {
+      // Jika premium: Semua terbuka
+      if (isPremium) return true;
+      // Jika trial aktif: Hanya Bab 1 (babIndex 0) terbuka sebagai sample
+      if (trialActive && babIndex === 0) return true;
     }
     
     // Semua lainnya TERKUNCI
@@ -105,7 +111,7 @@ export default function LessonMap({ userProfile, completedLessons, onSelectLesso
 
   // --- AUTOMATED TESTING SYSTEM FOR ACCESSIBILITY ---
   useEffect(() => {
-    console.log("=== MEMULAI TEST VERIFIKASI SISTEM AKSES KURIKULUM ===");
+    console.log("=== MEMULAI TEST VERIFIKASI SISTEM AKSES KURIKULUM (VERSI TERBARU) ===");
     
     // Simpan nilai asli localStorage agar tidak merusak state user nyata
     const originalOwnerMode = localStorage.getItem('ownerMode');
@@ -130,16 +136,21 @@ export default function LessonMap({ userProfile, completedLessons, onSelectLesso
       localStorage.removeItem('premiumStatus');
       localStorage.setItem('trialStartDate', new Date().toISOString());
       
-      // Semua bab harus terbuka
+      // Level 1: Semua terbuka (9 bab)
+      // Level 2,3,4: Hanya Bab 1 terbuka
       let testASuccess = true;
       for (let lvlIdx = 0; lvlIdx < CURRICULUM_DATA.length; lvlIdx++) {
         for (let babIdx = 0; babIdx < CURRICULUM_DATA[lvlIdx].lessons.length; babIdx++) {
-          if (!isBabAccessible(lvlIdx, babIdx)) {
-            testASuccess = false;
+          const isAccessible = isBabAccessible(lvlIdx, babIdx);
+          if (lvlIdx === 0) {
+            if (!isAccessible) testASuccess = false;
+          } else if (lvlIdx >= 1 && lvlIdx <= 3) {
+            const expected = babIdx === 0;
+            if (isAccessible !== expected) testASuccess = false;
           }
         }
       }
-      console.log(`Test A — Trial aktif (Semua ${CURRICULUM_DATA.reduce((acc, l) => acc + l.lessons.length, 0)} bab terbuka): ${testASuccess ? "LULUS ✅" : "GAGAL ❌"}`);
+      console.log(`Test A — Trial aktif (Lvl 1 Full, Lvl 2-4 Bab 1 Saja): ${testASuccess ? "LULUS ✅" : "GAGAL ❌"}`);
 
       // --- TEST B: Trial expired (8 hari lalu) ---
       localStorage.removeItem('ownerMode');
@@ -148,7 +159,7 @@ export default function LessonMap({ userProfile, completedLessons, onSelectLesso
       eightDaysAgo.setDate(eightDaysAgo.getDate() - 8);
       localStorage.setItem('trialStartDate', eightDaysAgo.toISOString());
       
-      // Hanya Level 1 Bab 1-5 (levelIndex 0, babIndex 0-4) terbuka, sisanya tertutup
+      // Hanya Level 1 Bab 1-5 terbuka, sisanya tertutup
       let testBSuccess = true;
       for (let lvlIdx = 0; lvlIdx < CURRICULUM_DATA.length; lvlIdx++) {
         for (let babIdx = 0; babIdx < CURRICULUM_DATA[lvlIdx].lessons.length; babIdx++) {

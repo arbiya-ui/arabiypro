@@ -35,6 +35,9 @@ export interface UserProfile {
   trialStartDate?: string;
   trialStatus?: "active" | "expired" | "none";
   trialDaysLeft?: number;
+  isChatPremium?: boolean;
+  chatPremiumExpiresAt?: string | null;
+  activationCode?: string;
 }
 
 export interface LessonContent {
@@ -196,21 +199,23 @@ export interface PaymentProof {
   userId?: string; // ID user dari Supabase (opsional)
   userName: string;
   phone: string;
-  package: "monthly" | "annual";
+  package: "monthly" | "annual" | "chat_addon";
   nominal: number;
   timestamp: string;
   photoBase64: string;
   status: "pending" | "confirmed" | "rejected";
   rejectionReason?: string;
+  purchaseType?: "materi" | "chat";
 }
 
 export interface PremiumToken {
   tokenCode: string; // AA-XXXX-XXXX
   userId?: string; // ID target user jika spesifik
   userName: string;
-  package: "monthly" | "annual";
+  package: "monthly" | "annual" | "chat_addon";
   durationDays: number;
   activeDate?: string;
   expiryDate?: string;
   status: "active" | "used" | "expired";
+  purchaseType?: "materi" | "chat";
 }

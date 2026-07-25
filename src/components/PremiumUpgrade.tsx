@@ -4,9 +4,15 @@
  */
 
 import React, { useState, useEffect, useRef } from "react";
-import { Sparkles, Check, Crown, CreditCard, Award, Zap, HelpCircle, ShieldCheck, Lock, Users, Star, ArrowRight, Clock, Upload, Send, AlertCircle, Banknote } from "lucide-react";
+import { Sparkles, Check, Crown, CreditCard, Award, Zap, HelpCircle, ShieldCheck, Lock, Users, Star, ArrowRight, Clock, Upload, Send, AlertCircle, Banknote, User as UserIcon } from "lucide-react";
 import { UserProfile, PaymentProof } from "../types";
 import { CURRICULUM_DATA } from "../data/curriculum";
+import { useAuth } from "../contexts/AuthContext";
+import AuthModal from "./AuthModal";
+
+interface ExtendedPaymentProof extends PaymentProof {
+  userEmail?: string;
+}
 
 interface PremiumUpgradeProps {
   onSuccessUpgrade: () => void;
@@ -15,9 +21,13 @@ interface PremiumUpgradeProps {
 }
 
 export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, userProfile }: PremiumUpgradeProps) {
+  const { user } = useAuth();
   const [showPaymentModal, setShowPaymentModal] = useState(false);
   const [showProofForm, setShowProofForm] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<"monthly" | "annual">("monthly");
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [pendingPlan, setPendingPlan] = useState<"monthly" | "annual" | "chat_addon" | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<"monthly" | "annual" | "chat_addon">("monthly");
+  const [purchaseType, setPurchaseType] = useState<"materi" | "chat">("materi");
   const [isProcessing, setIsProcessing] = useState(false);
   const [timeLeft, setTimeLeft] = useState({ h: 23, m: 45, s: 12 });
 
@@ -32,7 +42,77 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
   const [photoProof, setPhotoProof] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionStatus, setSubmissionStatus] = useState<"none" | "success" | "pending">("none");
+  const [tempSubmissionData, setTempSubmissionData] = useState<{
+    fullName: string;
+    phone: string;
+    nominal: string;
+    photoProof: string;
+    plan: "monthly" | "annual" | "chat_addon";
+    type: "materi" | "chat";
+  } | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Dynamic Settings
+  const [appSettings, setAppSettings] = useState({
+    prices: { monthly: 49000, annual: 399000, chat_addon: 49000 },
+    contacts: { email: "support@arabiypro.id", whatsapp: "+62 812-3456-7890", instagram: "@arabiypro.official", twitter: "@arabiy_pro" },
+    paymentMethods: {
+      bank_mandiri: { acc: "1800017868961", name: "KARSO" },
+      e_wallet: { acc: "085770480102", name: "Karso" },
+      qris_data: "ArabiyProPayment",
+      qris_image: ""
+    },
+    promo: { text: "HEMAT 51% — Penawaran Terbatas Khusus Hari Ini!", isActive: true }
+  });
+
+  useEffect(() => {
+    const loadSettings = () => {
+      const saved = localStorage.getItem('app_settings');
+      if (saved) setAppSettings(JSON.parse(saved));
+    };
+    loadSettings();
+    window.addEventListener('app-settings-updated', loadSettings);
+    return () => window.removeEventListener('app-settings-updated', loadSettings);
+  }, []);
+
+  // Auto-resume after auth for submission
+  useEffect(() => {
+    if (user && tempSubmissionData) {
+      setIsSubmitting(true);
+      
+      const submitData = async () => {
+        // Simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        const newProof: ExtendedPaymentProof = {
+          id: `PAY-${Date.now()}`,
+          userId: user.id,
+          userEmail: user.email || undefined,
+          userName: tempSubmissionData.fullName,
+          phone: tempSubmissionData.phone,
+          package: tempSubmissionData.plan,
+          purchaseType: tempSubmissionData.type,
+          nominal: Number(tempSubmissionData.nominal),
+          timestamp: new Date().toISOString(),
+          photoBase64: tempSubmissionData.photoProof,
+          status: "pending"
+        };
+
+        const existingJson = localStorage.getItem("pendingPayments");
+        const existing: PaymentProof[] = existingJson ? JSON.parse(existingJson) : [];
+        localStorage.setItem("pendingPayments", JSON.stringify([...existing, newProof]));
+        
+        setIsSubmitting(false);
+        setSubmissionStatus("success");
+        setTempSubmissionData(null);
+        
+        // Update global admin notification badge simulation
+        window.dispatchEvent(new CustomEvent("new-payment-received"));
+      };
+
+      submitData();
+    }
+  }, [user, tempSubmissionData]);
 
   // Check for existing pending payments
   useEffect(() => {
@@ -70,11 +150,11 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
 
   const premiumFeatures = [
     "Akses materi lanjutan (Level 3 Mutaqaddim & Level 4 Mahir)",
-    "Asisten Guru AI Ustadz Ahmad tak terbatas",
+    "Asisten Guru AI Ustadz Ahmad (8 Pesan/Hari)",
     "Analitik progress belajar mingguan",
     "Laporan belajar PDF (Downloadable)",
     "Bebas Iklan & Akses Eksklusif Grup Belajar WhatsApp",
-    "Webinar Zoom Bulanan Tatap Muka bersama Syekh Arab"
+    "Sertifikat Resmi Kelulusan per Level"
   ];
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -95,15 +175,32 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
       return;
     }
 
+    if (!user) {
+      // Save data temporarily and show auth modal
+      setTempSubmissionData({
+        fullName: formData.fullName,
+        phone: formData.phone,
+        nominal: formData.nominal,
+        photoProof: photoProof,
+        plan: selectedPlan,
+        type: purchaseType
+      });
+      setShowProofForm(false);
+      setShowAuthModal(true);
+      return;
+    }
+
     setIsSubmitting(true);
     
     setTimeout(() => {
-      const newProof: PaymentProof = {
+      const newProof: ExtendedPaymentProof = {
         id: `PAY-${Date.now()}`,
-        userId: userProfile.id, // Save userId if available (Supabase UID)
+        userId: user.id,
+        userEmail: user.email || undefined,
         userName: formData.fullName,
         phone: formData.phone,
         package: selectedPlan,
+        purchaseType: purchaseType,
         nominal: Number(formData.nominal),
         timestamp: new Date().toISOString(),
         photoBase64: photoProof,
@@ -115,7 +212,7 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
       localStorage.setItem("pendingPayments", JSON.stringify([...existing, newProof]));
       
       setIsSubmitting(false);
-      setSubmissionStatus("pending");
+      setSubmissionStatus("success");
       setShowProofForm(false);
       
       // Update global admin notification badge simulation
@@ -152,8 +249,8 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
             <div className="p-4 bg-app-background dark:bg-black/20 rounded-2xl border border-app-border dark:border-white/5">
               <h4 className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">Versi Gratis</h4>
               <div className="space-y-2">
-                <p className="text-xs text-gray-400 flex items-center gap-2"><Lock className="w-3.5 h-3.5" /> Bab 3 s/d {totalChapters} Terkunci</p>
-                <p className="text-xs text-gray-400 flex items-center gap-2"><Lock className="w-3.5 h-3.5" /> AI Tutor Sangat Terbatas</p>
+                <p className="text-xs text-gray-400 flex items-center gap-2"><Lock className="w-3.5 h-3.5" /> Bab 6 s/d {totalChapters} Terkunci</p>
+                <p className="text-xs text-gray-400 flex items-center gap-2"><Lock className="w-3.5 h-3.5" /> Kuota AI Chat 3 Pesan/Hari</p>
                 <p className="text-xs text-gray-400 flex items-center gap-2"><Lock className="w-3.5 h-3.5" /> Tanpa Sertifikat Resmi</p>
               </div>
             </div>
@@ -161,7 +258,7 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
               <h4 className="text-[10px] font-black text-app-accent uppercase tracking-widest mb-3">Versi Premium</h4>
               <div className="space-y-2">
                 <p className="text-xs text-app-primary dark:text-app-accent font-bold flex items-center gap-2"><Sparkles className="w-3.5 h-3.5" /> Akses {totalChapters} Bab Lengkap</p>
-                <p className="text-xs text-app-primary dark:text-app-accent font-bold flex items-center gap-2"><Sparkles className="w-3.5 h-3.5" /> AI Tutor 24/7 Tanpa Batas</p>
+                <p className="text-xs text-app-primary dark:text-app-accent font-bold flex items-center gap-2"><Sparkles className="w-3.5 h-3.5" /> Kuota AI Chat 8 Pesan/Hari</p>
                 <p className="text-xs text-app-primary dark:text-app-accent font-bold flex items-center gap-2"><Sparkles className="w-3.5 h-3.5" /> Sertifikat Resmi per Level</p>
               </div>
             </div>
@@ -208,7 +305,11 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
                 </span>
               </div>
             </div>
-            <p className="text-[10px] text-rose-500 font-bold mt-2 uppercase tracking-tighter italic">HEMAT 51% — Penawaran Terbatas Khusus Hari Ini!</p>
+            {appSettings.promo.isActive && (
+              <p className="text-[10px] text-rose-500 font-bold mt-2 uppercase tracking-tighter italic">
+                {appSettings.promo.text}
+              </p>
+            )}
           </div>
         )}
       </div>
@@ -239,9 +340,9 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
               </div>
 
               <div className="space-y-3 pt-2">
-                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Akses Bab 1-5 Level 1</span>
-                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Trial 7 Hari Akses Penuh Level 1-4</span>
-                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Kuota AI Terbatas (10/hari)</span>
+                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Gratis Bab 1-5 Level 1</span>
+                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Trial 7 Hari (Full Lvl 1 + Sample Lvl 2-4)</span>
+                <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Kuota AI Chat 3 Pesan/Hari</span>
                 <span className="text-[11px] text-app-text-muted dark:text-gray-400 block flex items-start gap-2"><Check className="w-3.5 h-3.5 text-gray-400 mt-0.5 shrink-0" /> Iklan di aplikasi</span>
               </div>
             </div>
@@ -263,22 +364,26 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
               <h3 className="text-2xl font-black text-app-primary dark:text-white">Fleksibel</h3>
               
               <div className="py-4 border-b border-app-border dark:border-white/5">
-                <span className="text-gray-400 text-xs line-through block font-mono">Rp99.000 / bln</span>
+                <span className="text-gray-400 text-xs line-through block font-mono">Rp{Math.floor(appSettings.prices.monthly * 2).toLocaleString()} / bln</span>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-3xl font-black text-app-primary dark:text-white font-mono">Rp49.000</span>
+                  <span className="text-3xl font-black text-app-primary dark:text-white font-mono">Rp{appSettings.prices.monthly.toLocaleString()}</span>
                   <span className="text-xs text-app-text-muted font-medium">/bln</span>
                 </div>
               </div>
 
               <div className="space-y-3 pt-2">
                 <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Buka Akses Penuh Level 2, 3 & 4</span>
-                <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Tutor AI Tanpa Batas</span>
+                <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Kuota AI Chat 8 Pesan/Hari</span>
                 <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-primary dark:text-app-accent mt-0.5 shrink-0" /> Laporan PDF & Sertifikat</span>
               </div>
             </div>
 
             <button
-              onClick={() => { setSelectedPlan("monthly"); setShowProofForm(true); }}
+              onClick={() => { 
+                setSelectedPlan("monthly"); 
+                setPurchaseType("materi");
+                setShowProofForm(true); 
+              }}
               className="w-full mt-8 py-3 bg-app-primary hover:bg-[#153d2e] text-white font-bold text-sm rounded-xl active:scale-95 transition-all cursor-pointer text-center shadow-md shadow-app-primary/20"
             >
               Ambil Promo Sekarang!
@@ -303,28 +408,69 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
               <h3 className="text-3xl font-black text-white tracking-tight">Istiqomah</h3>
               
               <div className="py-4 border-b border-app-accent/30">
-                <span className="text-white/40 text-xs line-through block font-mono">Rp799.000 / Tahun</span>
+                <span className="text-white/40 text-xs line-through block font-mono">Rp{Math.floor(appSettings.prices.annual * 2).toLocaleString()} / Tahun</span>
                 <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-4xl font-black text-app-accent font-mono drop-shadow-[0_0_15px_rgba(201,168,76,0.4)]">Rp399.000</span>
+                  <span className="text-4xl font-black text-app-accent font-mono drop-shadow-[0_0_15px_rgba(201,168,76,0.4)]">Rp{appSettings.prices.annual.toLocaleString()}</span>
                   <span className="text-xs text-white/70 font-medium">/thn</span>
                 </div>
               </div>
 
               <div className="space-y-3 pt-2">
-                <span className="text-xs text-white font-semibold flex items-start gap-2"><Check className="w-4 h-4 text-app-accent mt-0.5 shrink-0" /> Hanya Rp33.250/bulan</span>
-                <span className="text-xs text-white font-semibold flex items-start gap-2"><Check className="w-4 h-4 text-app-accent mt-0.5 shrink-0" /> Semua fitur bulanan</span>
+                <span className="text-xs text-white font-semibold flex items-start gap-2"><Check className="w-4 h-4 text-app-accent mt-0.5 shrink-0" /> Hanya Rp{Math.floor(appSettings.prices.annual / 12).toLocaleString()}/bulan</span>
+                <span className="text-xs text-white font-semibold flex items-start gap-2"><Check className="w-4 h-4 text-app-accent mt-0.5 shrink-0" /> Semua fitur bulanan (8 Pesan AI/Hari)</span>
                 <span className="text-xs text-white font-semibold flex items-start gap-2"><Check className="w-4 h-4 text-app-accent mt-0.5 shrink-0" /> Prioritas support 24/7</span>
               </div>
             </div>
 
             <button
-              onClick={() => { setSelectedPlan("annual"); setShowProofForm(true); }}
+              onClick={() => { 
+                setSelectedPlan("annual"); 
+                setPurchaseType("materi");
+                setShowProofForm(true); 
+              }}
               className="w-full mt-8 py-4 bg-gradient-to-r from-amber-400 to-[#C9A84C] hover:from-amber-300 hover:to-amber-500 text-emerald-950 font-black text-sm rounded-2xl active:scale-95 transition-all cursor-pointer text-center shadow-[0_5px_20px_rgba(201,168,76,0.4)] hover:shadow-[0_10px_30px_rgba(201,168,76,0.6)] relative z-10"
             >
               Mulai Langganan Premium ✨
             </button>
           </div>
 
+          {/* TIER 4: AI CHAT PLUS (ADD-ON) */}
+          <div className="p-8 rounded-3xl bg-app-surface border border-app-accent/40 flex flex-col justify-between relative shadow-lg group overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-app-accent/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+            
+            <div className="space-y-4">
+              <span className="text-xs text-app-accent font-extrabold tracking-widest uppercase font-mono flex items-center gap-1">
+                <Zap className="w-3 h-3" /> ADD-ON CHAT
+              </span>
+              <h3 className="text-2xl font-black text-app-primary dark:text-white">AI Chat Plus</h3>
+              
+              <div className="py-4 border-b border-app-border dark:border-white/5">
+                <span className="text-gray-400 text-xs line-through block font-mono">Rp{Math.floor(appSettings.prices.chat_addon * 1.5).toLocaleString()} / bln</span>
+                <div className="flex items-baseline gap-1 mt-1">
+                  <span className="text-3xl font-black text-app-primary dark:text-white font-mono">Rp{appSettings.prices.chat_addon.toLocaleString()}</span>
+                  <span className="text-xs text-app-text-muted font-medium">/bln</span>
+                </div>
+              </div>
+ 
+              <div className="space-y-3 pt-2">
+                <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-accent mt-0.5 shrink-0" /> Kuota 30 Pesan/Hari (Hemat!)</span>
+                <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-accent mt-0.5 shrink-0" /> Respon AI Lebih Cepat</span>
+                <span className="text-[11px] text-app-primary dark:text-white font-semibold flex items-start gap-2"><Check className="w-3.5 h-3.5 text-app-accent mt-0.5 shrink-0" /> Fitur Koreksi Lebih Detail</span>
+              </div>
+            </div>
+ 
+            <button
+              onClick={() => { 
+                setSelectedPlan("chat_addon"); 
+                setPurchaseType("chat");
+                setShowProofForm(true); 
+              }}
+              className="w-full mt-8 py-3 bg-app-accent hover:bg-[#b08d3a] text-white font-bold text-sm rounded-xl active:scale-95 transition-all cursor-pointer text-center shadow-md shadow-app-accent/20"
+            >
+              Upgrade Chat Sekarang
+            </button>
+          </div>
+ 
         </div>
       )}
 
@@ -401,6 +547,35 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
         </div>
       )}
 
+      {/* SUCCESS CONFIRMATION UI */}
+      {submissionStatus === "success" && (
+        <div className="p-10 bg-emerald-500/10 border-2 border-emerald-500/30 rounded-[3rem] text-center space-y-6 mt-8 animate-in fade-in zoom-in duration-500">
+          <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center text-white text-4xl mx-auto shadow-lg shadow-emerald-500/20">
+            <Check className="w-10 h-10 stroke-[4px]" />
+          </div>
+          <div className="space-y-2">
+            <h3 className="text-2xl font-black text-app-primary dark:text-white uppercase tracking-tight">Terima Kasih!</h3>
+            <p className="text-sm text-app-text-muted dark:text-gray-300 font-medium max-w-md mx-auto leading-relaxed">
+              Pembayaran kamu sedang diverifikasi admin. Kamu akan mendapat notifikasi atau kode akses setelah disetujui (Maks 1x24 jam).
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button 
+              onClick={() => setSubmissionStatus("none")}
+              className="px-8 py-3 bg-app-primary text-white font-black text-[10px] uppercase tracking-widest rounded-xl hover:scale-105 transition-all"
+            >
+              KEMBALI KE BERANDA
+            </button>
+            <button 
+              onClick={() => window.open(`https://wa.me/${appSettings.contacts.whatsapp.replace(/[^0-9]/g, '')}`, '_blank')}
+              className="px-8 py-3 bg-white text-app-primary border-2 border-app-primary font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-gray-50 transition-all flex items-center gap-2"
+            >
+              <HelpCircle className="w-4 h-4" /> BUTUH BANTUAN?
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* MANUAL PAYMENT & PROOF FORM MODAL */}
       {showProofForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto">
@@ -420,20 +595,24 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
                 
                 <div className="space-y-4 relative z-10">
                   <div className="p-4 bg-white/5 border border-app-accent/20 rounded-2xl hover:bg-white/10 transition-colors">
-                    <p className="text-[10px] font-black text-app-accent uppercase mb-2">TRANSFER BANK BSI</p>
-                    <p className="text-sm font-bold tracking-widest">2564429140</p>
-                    <p className="text-[10px] opacity-70">A/N: Karso</p>
+                    <p className="text-[10px] font-black text-app-accent uppercase mb-2">TRANSFER BANK MANDIRI</p>
+                    <p className="text-sm font-bold tracking-widest">{appSettings.paymentMethods.bank_mandiri?.acc || "1800017868961"}</p>
+                    <p className="text-[10px] opacity-70">A/N: {appSettings.paymentMethods.bank_mandiri?.name || "KARSO"}</p>
                   </div>
                   
                   <div className="p-4 bg-white/5 border border-app-accent/20 rounded-2xl hover:bg-white/10 transition-colors">
                     <p className="text-[10px] font-black text-app-accent uppercase mb-2">E-WALLET DANA</p>
-                    <p className="text-sm font-bold tracking-widest">085770480102</p>
-                    <p className="text-[10px] opacity-70">A/N: Karso</p>
+                    <p className="text-sm font-bold tracking-widest">{appSettings.paymentMethods.e_wallet.acc}</p>
+                    <p className="text-[10px] opacity-70">A/N: {appSettings.paymentMethods.e_wallet.name}</p>
                   </div>
 
                   <div className="p-4 bg-white/5 border border-app-accent/20 rounded-2xl flex items-center gap-4 hover:bg-white/10 transition-colors">
-                    <div className="w-16 h-16 bg-white rounded-lg p-1 shrink-0 shadow-lg shadow-black/20">
-                       <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=ArabiyProPayment" alt="QRIS" className="w-full h-full grayscale opacity-60" />
+                    <div className="w-16 h-16 bg-white rounded-lg p-1 shrink-0 shadow-lg shadow-black/20 overflow-hidden">
+                       {appSettings.paymentMethods.qris_image ? (
+                         <img src={appSettings.paymentMethods.qris_image} alt="QRIS" className="w-full h-full object-contain" />
+                       ) : (
+                         <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${appSettings.paymentMethods.qris_data}`} alt="QRIS" className="w-full h-full grayscale opacity-60" />
+                       )}
                     </div>
                     <div>
                       <p className="text-[10px] font-black text-app-accent uppercase mb-1">SCAN QRIS</p>
@@ -463,7 +642,15 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
               <div className="p-8 space-y-6">
                 <div className="space-y-1">
                    <h3 className="text-xl font-black text-app-primary dark:text-white">KONFIRMASI</h3>
-                   <p className="text-[10px] text-app-text-muted font-bold uppercase">Paket: {selectedPlan === "annual" ? "TAHUNAN (Rp399.000)" : "BULANAN (Rp49.000)"}</p>
+                   <p className="text-[10px] text-app-text-muted font-bold uppercase">
+                     Paket: {selectedPlan === "annual" ? `TAHUNAN (Rp${appSettings.prices.annual.toLocaleString()})` : selectedPlan === "monthly" ? `BULANAN (Rp${appSettings.prices.monthly.toLocaleString()})` : `AI CHAT PLUS (Rp${appSettings.prices.chat_addon.toLocaleString()})`}
+                   </p>
+                   {user && (
+                     <div className="mt-2 flex items-center gap-2 px-3 py-1.5 bg-app-accent/10 border border-app-accent/20 rounded-lg">
+                       <UserIcon className="w-3 h-3 text-app-accent" />
+                       <span className="text-[9px] font-bold text-app-accent uppercase tracking-wider">Masuk sebagai: {user.email}</span>
+                     </div>
+                   )}
                 </div>
 
                 <form onSubmit={handleSubmitProof} className="space-y-4">
@@ -499,7 +686,7 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
                       value={formData.nominal}
                       onChange={(e) => setFormData({...formData, nominal: e.target.value})}
                       className="w-full px-4 py-3 bg-app-background dark:bg-app-surface/5 border border-app-border dark:border-white/10 rounded-xl text-sm focus:border-app-accent outline-none transition-all"
-                      placeholder={selectedPlan === "annual" ? "399000" : "49000"}
+                      placeholder={selectedPlan === "annual" ? appSettings.prices.annual.toString() : appSettings.prices.monthly.toString()}
                     />
                   </div>
 
@@ -540,6 +727,21 @@ export default function PremiumUpgrade({ onSuccessUpgrade, isAlreadyPremium, use
         </div>
       )}
 
+      {/* AUTH MODAL */}
+      <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+      
+      {/* CSS Injections for forced Auth flow */}
+      {showAuthModal && tempSubmissionData && (
+        <style>{`
+          /* Hide close button in AuthModal during this flow */
+          .fixed.inset-0.z-\\[100\\] .absolute.top-6.right-6 {
+            display: none !important;
+          }
+          /* We can't easily force "Daftar" mode as it's internal state of AuthModal, 
+             but we hope the user clicks 'Daftar' manually or we can try to find a way 
+             if AuthModal were editable. Since it's not, we just hide the X. */
+        `}</style>
+      )}
     </div>
   );
 }

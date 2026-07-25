@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, User, Loader2, Mic, MicOff, Volume2, X, Play, Square } from 'lucide-react';
 import { UserProfile } from '../types';
 import { speakArabic, isSpeaking, stopSpeech, getAudioSpeed, setAudioSpeed } from '../lib/speech';
+import { logAiChatUsage } from '../lib/deviceTracking';
 
 interface Props {
   userProfile: UserProfile;
@@ -28,6 +29,36 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
   }
 
   const isAccessible = ownerMode || isPremium || trialDaysLeft > 0;
+
+  // Tiered Quota System
+  const isChatPremium = userProfile.isChatPremium && 
+                        userProfile.chatPremiumExpiresAt && 
+                        new Date(userProfile.chatPremiumExpiresAt) > new Date();
+  
+  let MAX_MESSAGES = 3;
+  let userTier: 'free' | 'premium' | 'chat_plus' = 'free';
+
+  if (isChatPremium) {
+    MAX_MESSAGES = 30;
+    userTier = 'chat_plus';
+  } else if (ownerMode || isPremium) {
+    MAX_MESSAGES = 8;
+    userTier = 'premium';
+  } else {
+    MAX_MESSAGES = 3;
+    userTier = 'free';
+  }
+
+  const userId = userProfile.id || 'guest';
+  const todayStr = new Date().toISOString().split('T')[0];
+  const todayKey = `ai_chat_count_${userId}_${todayStr}`;
+  
+  const [dailyCount, setDailyCount] = useState<number>(() => {
+    const saved = localStorage.getItem(todayKey);
+    return saved ? parseInt(saved, 10) : 0;
+  });
+
+  const isUserPremium = ownerMode || isPremium;
 
   if (!isAccessible) {
     return (
@@ -165,6 +196,28 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
 
   const sendMessage = async () => {
     if (!input.trim()) return;
+
+    // Check quota based on tier
+    if (dailyCount >= MAX_MESSAGES) {
+      let quotaContent = "";
+      
+      if (userTier === 'chat_plus') {
+        quotaContent = `Alhamdulillah! Terima kasih sudah aktif belajar hari ini. Kuota chat AI Chat Plus kamu sudah habis (${MAX_MESSAGES}/${MAX_MESSAGES}). Kuota akan reset otomatis besok. Sampai jumpa besok!`;
+      } else if (userTier === 'premium') {
+        quotaContent = `MasyaAllah! Kamu sangat aktif hari ini. Kuota chat harian kamu sudah habis (${MAX_MESSAGES}/${MAX_MESSAGES}). Upgrade ke add-on 'AI Chat Plus' untuk chat hingga 30 pesan per hari, atau kembali lagi besok ya 😊`;
+      } else {
+        quotaContent = `Alhamdulillah kamu sudah semangat belajar hari ini! Kuota chat gratis hari ini sudah habis (${MAX_MESSAGES}/${MAX_MESSAGES}). Upgrade ke Premium atau AI Chat Plus untuk chat lebih banyak ya 😊`;
+      }
+
+      const quotaMsg = { 
+        role: 'ai' as const, 
+        content: quotaContent 
+      };
+      setMessages((prev) => [...prev, { role: 'user', content: input }, quotaMsg]);
+      setInput('');
+      return;
+    }
+
     const userMsg = { role: 'user' as const, content: input };
     setMessages((prev) => [...prev, userMsg]);
     setInput('');
@@ -192,6 +245,14 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
       const aiMsg = { role: 'ai' as const, content: data.response };
       setMessages((prev) => [...prev, aiMsg]);
       speak(data.response, messages.length + 1);
+
+      // Increment count
+      const newCount = dailyCount + 1;
+      setDailyCount(newCount);
+      localStorage.setItem(todayKey, newCount.toString());
+      
+      // Log usage to Supabase for tracking
+      logAiChatUsage(userProfile.activationCode);
     } catch (error) {
       console.error(error);
       setMessages((prev) => [...prev, { role: 'ai', content: "Koneksi terputus. Pastikan internet Anda aktif." }]);
@@ -296,6 +357,16 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
                           dir={isArabic ? "rtl" : "ltr"}
                         >
                           {line}
+                          {idx === (m.content || "").split('\n').length - 1 && (m.content.includes("habis (") || m.content.includes("Kuota chat gratis")) && (
+                            <div className="mt-4 flex">
+                              <button 
+                                onClick={() => onNavigate("premium")}
+                                className="px-4 py-2 bg-accent text-primary font-black text-[10px] rounded-xl shadow-lg hover:brightness-110 active:scale-95 transition-all cursor-pointer flex items-center gap-2"
+                              >
+                                <span>✨</span> {userTier === 'premium' ? 'Upgrade ke AI Chat Plus' : 'Lihat Paket Premium'}
+                              </button>
+                            </div>
+                          )}
                         </div>
                       );
                     })
@@ -344,6 +415,16 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
         <div className="max-w-3xl mx-auto flex items-center gap-2 md:gap-3">
           {/* Input Field */}
           <div className="flex-1 relative">
+            <div className="absolute -top-6 left-0 right-0 flex justify-between items-center px-1">
+              <span className="text-[9px] font-black text-accent uppercase tracking-wider">
+                Sisa chat hari ini: {Math.max(0, MAX_MESSAGES - dailyCount)}/{MAX_MESSAGES}
+              </span>
+              {dailyCount >= MAX_MESSAGES && (
+                <span className="text-[9px] font-black text-ruby uppercase tracking-wider animate-pulse">
+                  Kuota Habis
+                </span>
+              )}
+            </div>
             <input 
               value={input} 
               onChange={(e) => setInput(e.target.value)}

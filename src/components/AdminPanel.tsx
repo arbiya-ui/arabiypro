@@ -28,12 +28,20 @@ import {
   Ban,
   Download,
   ExternalLink,
-  Copy,
-  Plus
+  Copy, 
+  Plus,
+  MessageCircle,
+  Zap,
+  CreditCard,
+  Smartphone,
+  Phone,
+  MapPin,
+  MessageSquare
 } from "lucide-react";
 import { UserProfile, PaymentProof, PremiumToken } from "../types";
 import { generatePremiumToken, formatIndoDate } from "../lib/payment";
-import { resetTrial, simulateExpiredTrial, updateSupabasePremium } from "../lib/trial";
+import { resetTrial, simulateExpiredTrial, updateSupabasePremium, updateSupabaseChatPremium } from "../lib/trial";
+import { supabase, isSupabaseConfigured } from "../lib/supabase";
 
 interface AdminPanelProps {
   onClose: () => void;
@@ -46,14 +54,46 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [activeTab, setActiveTab] = useState<"owner" | "payments" | "users" | "global" | "codes" | "stats">("owner");
+  const [activeTab, setActiveTab] = useState<"owner" | "payments" | "users" | "global" | "codes" | "stats" | "settings" | "leads" | "devices">("owner");
   
+  // App Settings state
+  const [appSettings, setAppSettings] = useState({
+    prices: {
+      monthly: 49000,
+      annual: 399000,
+      chat_addon: 49000
+    },
+    contacts: {
+      email: "support@arabiypro.id",
+      whatsapp: "+62 812-3456-7890",
+      instagram: "@arabiypro.official",
+      twitter: "@arabiy_pro"
+    },
+    office: {
+      name: "Gedung Al-Azhar Digital Hub",
+      address: "Jl. Sisingamangaraja No. 1, Kebayoran Baru, Jakarta Selatan, 12110."
+    },
+    paymentMethods: {
+      bank_mandiri: { acc: "1800017868961", name: "KARSO" },
+      e_wallet: { acc: "085770480102", name: "Karso" },
+      qris_data: "ArabiyProPayment",
+      qris_image: ""
+    },
+    promo: {
+      text: "HEMAT 51% — Penawaran Terbatas Khusus Hari Ini!",
+      isActive: true
+    }
+  });
+
   // Local storage based state
   const [savedUsers, setSavedUsers] = useState<any[]>([]);
   const [generatedCodes, setGeneratedCodes] = useState<any[]>([]);
   const [pendingPayments, setPendingPayments] = useState<PaymentProof[]>([]);
   const [transactionHistory, setTransactionHistory] = useState<PaymentProof[]>([]);
   const [premiumTokens, setPremiumTokens] = useState<PremiumToken[]>([]);
+  const [supportLeads, setSupportLeads] = useState<any[]>([]);
+  const [deviceActivities, setDeviceActivities] = useState<any[]>([]);
+  const [isFetchingActivities, setIsFetchingActivities] = useState(false);
   const [showImageModal, setShowImageModal] = useState<string | null>(null);
   const [newManualToken, setNewManualToken] = useState<{name: string, package: "monthly" | "annual"}>({name: "", package: "monthly"});
   const [showManualTokenDialog, setShowManualTokenDialog] = useState(false);
@@ -83,6 +123,12 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
     const settings = JSON.parse(localStorage.getItem("admin_global_settings") || "{}");
     if (Object.keys(settings).length > 0) setGlobalSettings(prev => ({ ...prev, ...settings }));
 
+    const appSet = JSON.parse(localStorage.getItem("app_settings") || "{}");
+    if (Object.keys(appSet).length > 0) setAppSettings(prev => ({ ...prev, ...appSet }));
+
+    const leads = JSON.parse(localStorage.getItem("support_leads") || "[]");
+    setSupportLeads(leads);
+
     // Load Payments & Tokens
     const payments = JSON.parse(localStorage.getItem("pendingPayments") || "[]");
     setPendingPayments(payments.filter((p: PaymentProof) => p.status === "pending"));
@@ -90,11 +136,102 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
 
     const tokens = JSON.parse(localStorage.getItem("premiumTokens") || "[]");
     setPremiumTokens(tokens);
-  }, []);
+
+    if (activeTab === 'devices') {
+      fetchDeviceActivities();
+    }
+  }, [activeTab]);
+
+  const fetchDeviceActivities = async () => {
+    if (!isSupabaseConfigured) return;
+    setIsFetchingActivities(true);
+    try {
+      const { data, error } = await supabase
+        .from('device_activity')
+        .select('*')
+        .order('open_count', { ascending: false });
+      
+      if (error) {
+        if (error.code === '42P01') {
+          console.warn('Supabase: device_activity table not found.');
+        } else {
+          throw error;
+        }
+      }
+      setDeviceActivities(data || []);
+    } catch (err) {
+      if ((err as any)?.code !== '42P01') {
+        console.error("Failed to fetch device activities:", err);
+      }
+    } finally {
+      setIsFetchingActivities(false);
+    }
+  };
+
+  const handleUpdateDeviceStatus = async (deviceId: string, updates: any) => {
+    if (!isSupabaseConfigured) return;
+    try {
+      const { error } = await supabase
+        .from('device_activity')
+        .update(updates)
+        .eq('device_id', deviceId);
+      
+      if (error) throw error;
+      fetchDeviceActivities();
+      alert("Status device berhasil diperbarui!");
+    } catch (err) {
+      console.error("Failed to update device status:", err);
+      alert("Gagal memperbarui status device.");
+    }
+  };
+
+  const handleUpdateCodeExpiry = (codeId: number, newDate: string) => {
+    const updated = generatedCodes.map(c => {
+      if (c.id === codeId) {
+        return { ...c, expiresAt: newDate, duration: `Hingga ${formatIndoDate(newDate)}` };
+      }
+      return c;
+    });
+    setGeneratedCodes(updated);
+    localStorage.setItem("admin_generated_codes", JSON.stringify(updated));
+    alert("Tanggal kedaluwarsa berhasil diperbarui!");
+  };
+
+  const handleUpdateUserExpiry = (userId: string, newDate: string, type: 'materi' | 'chat') => {
+    const updated = savedUsers.map(u => {
+      if (u.id === userId || u.userId === userId) {
+        if (type === 'materi') {
+          return { ...u, isPremium: true, premiumExpiresAt: newDate };
+        } else {
+          return { ...u, isChatPremium: true, chatPremiumExpiresAt: newDate };
+        }
+      }
+      return u;
+    });
+    setSavedUsers(updated);
+    localStorage.setItem("all_users_registry", JSON.stringify(updated));
+    
+    if (isSupabaseConfigured) {
+      if (type === 'materi') {
+        updateSupabasePremium(userId, true, newDate);
+      } else {
+        updateSupabaseChatPremium(userId, true, newDate);
+      }
+    }
+    alert(`Masa aktif ${type} berhasil diperbarui!`);
+  };
 
   const handleSaveGlobalSettings = (newSettings: typeof globalSettings) => {
     setGlobalSettings(newSettings);
     localStorage.setItem("admin_global_settings", JSON.stringify(newSettings));
+  };
+
+  const handleSaveAppSettings = (newSettings: typeof appSettings) => {
+    setAppSettings(newSettings);
+    localStorage.setItem("app_settings", JSON.stringify(newSettings));
+    alert("Pengaturan aplikasi berhasil disimpan!");
+    // Trigger update for other components
+    window.dispatchEvent(new CustomEvent('app-settings-updated'));
   };
 
   const handleLogin = (e: React.FormEvent) => {
@@ -126,10 +263,16 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
     const payment = pendingPayments.find(p => p.id === paymentId);
     if (!payment) return;
 
-    if (!confirm(`Konfirmasi pembayaran Rp${payment.nominal.toLocaleString()} dari ${payment.userName} untuk paket ${payment.package === 'annual' ? 'Tahunan' : 'Bulanan'}? Token akan otomatis digenerate.`)) return;
+    const isChat = payment.purchaseType === 'chat' || payment.package === 'chat_addon';
+    const label = isChat ? 'AI Chat Plus' : 'Premium Materi';
+    const durationLabel = isChat ? '30 Hari' : (payment.package === 'annual' ? '365 Hari' : '30 Hari');
+
+    if (!confirm(`Konfirmasi pembayaran Rp${payment.nominal.toLocaleString()} dari ${payment.userName} untuk ${label} (${durationLabel})? Token akan otomatis digenerate.`)) return;
 
     // 1. Generate Token
-    const newToken = generatePremiumToken(payment.userName, payment.package);
+    const newToken = generatePremiumToken(payment.userName, payment.package as any);
+    newToken.purchaseType = isChat ? 'chat' : 'materi';
+
     // If we have a userId, associate it with the token
     if (payment.userId) {
       newToken.userId = payment.userId;
@@ -142,10 +285,16 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
 
     // Sync to Supabase if userId is present
     if (payment.userId) {
-      const days = payment.package === 'annual' ? 365 : 30;
-      const expiryDate = new Date();
-      expiryDate.setDate(expiryDate.getDate() + days);
-      updateSupabasePremium(payment.userId, true, expiryDate.toISOString());
+      if (isChat) {
+        const expiryDate = new Date();
+        expiryDate.setMonth(expiryDate.getMonth() + 1); // 1 month
+        updateSupabaseChatPremium(payment.userId, true, expiryDate.toISOString());
+      } else {
+        const days = payment.package === 'annual' ? 365 : 30;
+        const expiryDate = new Date();
+        expiryDate.setDate(expiryDate.getDate() + days);
+        updateSupabasePremium(payment.userId, true, expiryDate.toISOString());
+      }
     }
 
     // 3. Update Payment Status
@@ -299,7 +448,10 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
             { id: "users", label: "Manajemen User", icon: Users },
             { id: "global", label: "Kontrol Global", icon: Globe },
             { id: "codes", label: "Kode Akses", icon: Key },
+            { id: "devices", label: "Monitoring Device", icon: Smartphone },
             { id: "stats", label: "Statistik", icon: BarChart3 },
+            { id: "leads", label: "Pesan Masuk", icon: MessageSquare, badge: supportLeads.filter(l => l.status === 'unread').length },
+            { id: "settings", label: "Pengaturan", icon: Settings },
           ].map((item) => (
             <button
               key={item.id}
@@ -340,7 +492,10 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
               {activeTab === 'users' && 'Section 3: Manajemen User'}
               {activeTab === 'global' && 'Section 4: Kontrol Global'}
               {activeTab === 'codes' && 'Section 5: Kode Akses Khusus'}
-              {activeTab === 'stats' && 'Section 6: Statistik Aplikasi'}
+              {activeTab === 'devices' && 'Section 6: Monitoring Aktivitas Device'}
+              {activeTab === 'stats' && 'Section 7: Statistik Aplikasi'}
+              {activeTab === 'leads' && 'Section 8: Pesan Bantuan & Lead'}
+              {activeTab === 'settings' && 'Section 9: Pengaturan Aplikasi'}
             </h2>
           </div>
           <div className="flex items-center gap-3">
@@ -492,7 +647,13 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                                   <td className="px-6 py-4">
                                      <div className="flex flex-col">
                                         <span className="text-sm font-bold text-app-text-main">{p.userName}</span>
-                                        <span className="text-[10px] text-gray-400 font-bold uppercase">{p.phone} • {p.package === 'annual' ? 'TAHUNAN' : 'BULANAN'}</span>
+                                                                                 <div className="flex items-center gap-2 mt-1">
+                                            <span className={`text-[9px] px-1.5 py-0.5 rounded font-black uppercase tracking-wider ${p.purchaseType === 'chat' || p.package === 'chat_addon' ? 'bg-blue-100 text-blue-600' : 'bg-emerald-100 text-emerald-600'}`}>
+                                               {p.purchaseType === 'chat' || p.package === 'chat_addon' ? 'AI Chat Plus' : 'Premium Materi'}
+                                            </span>
+                                            <span className="text-[10px] text-gray-400 font-bold uppercase">{p.phone} • {p.package === 'annual' ? 'TAHUNAN' : p.package === 'chat_addon' ? 'CHAT ADDON' : 'BULANAN'}</span>
+                                         </div>
+
                                      </div>
                                   </td>
                                   <td className="px-6 py-4">
@@ -613,16 +774,43 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                               <span className="text-xs font-mono font-bold text-app-text-muted">Level {user.lastLevel || "1"}</span>
                             </td>
                             <td className="px-6 py-4">
-                              {user.isPremium ? (
-                                <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-600 text-[9px] font-black uppercase tracking-widest">PREMIUM</span>
-                              ) : (
-                                <span className="px-2 py-0.5 rounded bg-gray-100 text-gray-400 text-[9px] font-black uppercase tracking-widest">GRATIS</span>
-                              )}
+                              <div className="flex flex-col gap-1">
+                                {user.isPremium ? (
+                                  <div className="flex flex-col">
+                                    <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-600 text-[9px] font-black uppercase tracking-widest text-center">PREMIUM</span>
+                                    {user.premiumExpiresAt && (
+                                      <span className="text-[8px] text-gray-400 font-bold mt-0.5">Exp: {new Date(user.premiumExpiresAt).toLocaleDateString()}</span>
+                                    )}
+                                  </div>
+                                ) : (
+                                  <span className="px-2 py-0.5 rounded bg-gray-100 text-gray-400 text-[9px] font-black uppercase tracking-widest text-center">GRATIS</span>
+                                )}
+                                {user.isChatPremium && (
+                                  <div className="flex flex-col">
+                                    <span className="px-2 py-0.5 rounded bg-blue-100 text-blue-600 text-[9px] font-black uppercase tracking-widest text-center">CHAT PLUS</span>
+                                    {user.chatPremiumExpiresAt && (
+                                      <span className="text-[8px] text-gray-400 font-bold mt-0.5">Exp: {new Date(user.chatPremiumExpiresAt).toLocaleDateString()}</span>
+                                    )}
+                                  </div>
+                                )}
+                              </div>
                             </td>
-                            <td className="px-6 py-4 text-right space-x-2">
-                              <button className="p-1.5 text-app-accent hover:bg-app-accent/10 rounded-lg transition-all" title="Buka Premium"><Crown className="w-4 h-4" /></button>
-                              <button className="p-1.5 text-emerald-500 hover:bg-emerald-50 rounded-lg transition-all" title="Reset Progress"><RefreshCw className="w-4 h-4" /></button>
-                              <button className="p-1.5 text-rose-500 hover:bg-rose-50 rounded-lg transition-all" title="Kunci Semua"><Lock className="w-4 h-4" /></button>
+                            <td className="px-6 py-4 text-right">
+                              <div className="flex flex-col gap-2 items-end">
+                                <div className="flex items-center gap-1">
+                                  <span className="text-[8px] font-black text-gray-400 uppercase">Set Exp:</span>
+                                  <input 
+                                    type="date" 
+                                    className="px-2 py-1 bg-app-background border border-app-border rounded text-[9px] outline-none"
+                                    onChange={(e) => handleUpdateUserExpiry(user.id || user.userId, e.target.value, 'materi')}
+                                  />
+                                </div>
+                                <div className="flex gap-1">
+                                  <button onClick={() => handleUpdateUserExpiry(user.id || user.userId, "2099-12-31", 'materi')} className="p-1.5 text-app-accent hover:bg-app-accent/10 rounded-lg transition-all" title="Buka Premium Selamanya"><Crown className="w-4 h-4" /></button>
+                                  <button className="p-1.5 text-emerald-500 hover:bg-emerald-50 rounded-lg transition-all" title="Reset Progress"><RefreshCw className="w-4 h-4" /></button>
+                                  <button className="p-1.5 text-rose-500 hover:bg-rose-50 rounded-lg transition-all" title="Kunci Semua"><Lock className="w-4 h-4" /></button>
+                                </div>
+                              </div>
                             </td>
                           </tr>
                         ))
@@ -727,8 +915,15 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                               <td className="px-6 py-3 font-mono font-black text-app-primary">{code.code}</td>
                               <td className="px-6 py-3 font-bold">{code.assignedTo}</td>
                               <td className="px-6 py-3"><span className="px-2 py-0.5 rounded bg-app-accent/20 text-app-accent text-[9px] font-bold">{code.duration}</span></td>
-                              <td className="px-6 py-3 text-right">
-                                <button onClick={() => deleteCode(code.id)} className="p-1.5 text-rose-500 hover:bg-rose-50 rounded-lg transition-all"><Trash2 className="w-3.5 h-3.5" /></button>
+                              <td className="px-6 py-3">
+                                <div className="flex items-center gap-2">
+                                  <input 
+                                    type="date" 
+                                    className="px-2 py-1 bg-app-background border border-app-border rounded text-[9px] outline-none"
+                                    onChange={(e) => handleUpdateCodeExpiry(code.id, e.target.value)}
+                                  />
+                                  <button onClick={() => deleteCode(code.id)} className="p-1.5 text-rose-500 hover:bg-rose-50 rounded-lg transition-all"><Trash2 className="w-3.5 h-3.5" /></button>
+                                </div>
                               </td>
                             </tr>
                           ))
@@ -740,7 +935,137 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
               </div>
             )}
 
-            {/* SECTION 5: STATS */}
+            {/* SECTION 6: DEVICE MONITORING */}
+            {activeTab === "devices" && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xl font-black text-app-primary dark:text-white uppercase tracking-tight">Monitoring Aktivitas Device</h3>
+                    <p className="text-[10px] text-app-text-muted font-bold uppercase tracking-widest mt-1">Lacak penggunaan dan keamanan perangkat</p>
+                  </div>
+                  <button 
+                    onClick={fetchDeviceActivities}
+                    className="p-3 bg-app-accent/10 text-app-accent rounded-2xl hover:bg-app-accent/20 transition-all cursor-pointer shadow-sm shadow-app-accent/10"
+                  >
+                    <RefreshCw className={`w-5 h-5 ${isFetchingActivities ? 'animate-spin' : ''}`} />
+                  </button>
+                </div>
+
+                <div className="bg-app-surface rounded-[2.5rem] border border-app-border shadow-sm overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left">
+                      <thead>
+                        <tr className="bg-app-background text-[10px] font-black text-gray-400 uppercase tracking-wider border-b border-app-border">
+                          <th className="px-6 py-4">Device ID & Tanggal</th>
+                          <th className="px-6 py-4">Activation Code</th>
+                          <th className="px-6 py-4">Open</th>
+                          <th className="px-6 py-4">Chat</th>
+                          <th className="px-6 py-4">Status</th>
+                          <th className="px-6 py-4 text-right">Aksi</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-50 dark:divide-white/5">
+                        {isFetchingActivities ? (
+                          <tr><td colSpan={6} className="px-6 py-20 text-center text-gray-400 italic">Memuat data aktivitas dari database...</td></tr>
+                        ) : deviceActivities.length === 0 ? (
+                          <tr>
+                            <td colSpan={6} className="px-6 py-20 text-center space-y-4">
+                              <p className="text-gray-400 italic">Belum ada data aktivitas terdeteksi.</p>
+                              {isSupabaseConfigured && (
+                                <div className="max-w-md mx-auto p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl text-left">
+                                  <p className="text-xs text-amber-800 dark:text-amber-200 font-bold mb-2">💡 Tips untuk Admin:</p>
+                                  <p className="text-[10px] text-amber-700 dark:text-amber-300 leading-relaxed">
+                                    Jika Anda baru pertama kali menggunakan Supabase, pastikan Anda telah menjalankan perintah SQL yang ada di file <code className="bg-amber-100 dark:bg-amber-800 px-1 rounded">supabase_setup.sql</code> di Supabase SQL Editor untuk membuat tabel yang diperlukan.
+                                  </p>
+                                </div>
+                              )}
+                            </td>
+                          </tr>
+                        ) : (
+                          deviceActivities.map((device) => {
+                            const isSuspicious = device.open_count > 50 || device.ai_chat_count > 60; 
+                            return (
+                              <tr key={device.id} className={`hover:bg-app-background/30 transition-colors ${isSuspicious ? 'bg-amber-500/5' : ''}`}>
+                                <td className="px-6 py-4">
+                                  <div className="flex flex-col">
+                                    <span className="text-xs font-mono font-black text-app-primary dark:text-app-accent">#{device.device_id.substring(0, 8)}</span>
+                                    <span className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">{new Date(device.activity_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                  </div>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <span className="text-[10px] font-black text-app-text-main dark:text-white font-mono">{device.activation_code || "-"}</span>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <span className={`text-sm font-black ${device.open_count > 50 ? 'text-rose-500' : 'text-app-primary dark:text-white'}`}>{device.open_count}</span>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <span className={`text-sm font-black ${device.ai_chat_count > 60 ? 'text-rose-500' : 'text-app-primary dark:text-white'}`}>{device.ai_chat_count}</span>
+                                </td>
+                                <td className="px-6 py-4">
+                                  <div className="flex flex-col gap-1">
+                                    {device.is_blocked ? (
+                                      <span className="px-2 py-0.5 rounded-full bg-rose-500 text-white text-[8px] font-black uppercase text-center shadow-sm shadow-rose-500/20">BLOKIR</span>
+                                    ) : device.is_flagged ? (
+                                      <span className="px-2 py-0.5 rounded-full bg-amber-500 text-white text-[8px] font-black uppercase text-center shadow-sm shadow-amber-500/20">DITANDAI</span>
+                                    ) : (
+                                      <span className="px-2 py-0.5 rounded-full bg-emerald-500 text-white text-[8px] font-black uppercase text-center shadow-sm shadow-emerald-500/20">NORMAL</span>
+                                    )}
+                                    {isSuspicious && !device.is_flagged && !device.is_blocked && (
+                                      <span className="flex items-center gap-1 text-[8px] text-amber-600 font-black uppercase mt-1">
+                                        <ShieldAlert className="w-2.5 h-2.5" /> Mencurigakan
+                                      </span>
+                                    )}
+                                  </div>
+                                </td>
+                                <td className="px-6 py-4 text-right space-x-1.5">
+                                  {!device.is_flagged && !device.is_blocked && (
+                                    <button 
+                                      onClick={() => {
+                                        const reason = prompt("Alasan menandai device ini:");
+                                        if (reason) handleUpdateDeviceStatus(device.device_id, { is_flagged: true, flag_reason: reason });
+                                      }}
+                                      className="p-2 bg-amber-500/10 text-amber-600 rounded-lg hover:bg-amber-500 text-white transition-all cursor-pointer"
+                                      title="Tandai Mencurigakan"
+                                    >
+                                      <ShieldAlert className="w-3.5 h-3.5" />
+                                    </button>
+                                  )}
+                                  {device.is_blocked ? (
+                                    <button 
+                                      onClick={() => handleUpdateDeviceStatus(device.device_id, { is_blocked: false })}
+                                      className="p-2 bg-emerald-500/10 text-emerald-600 rounded-lg hover:bg-emerald-500 text-white transition-all cursor-pointer"
+                                      title="Buka Blokir"
+                                    >
+                                      <Unlock className="w-3.5 h-3.5" />
+                                    </button>
+                                  ) : (
+                                    <button 
+                                      onClick={() => {
+                                        const reason = prompt("Alasan blokir device ini (WAJIB):");
+                                        if (!reason) return;
+                                        if (confirm("Yakin blokir device ini? User tidak akan bisa akses aplikasi sampai kamu buka blokirnya")) {
+                                          handleUpdateDeviceStatus(device.device_id, { is_blocked: true, blocked_reason: reason });
+                                        }
+                                      }}
+                                      className="p-2 bg-rose-500/10 text-rose-600 rounded-lg hover:bg-rose-500 text-white transition-all cursor-pointer"
+                                      title="Blokir Device"
+                                    >
+                                      <Ban className="w-3.5 h-3.5" />
+                                    </button>
+                                  )}
+                                </td>
+                              </tr>
+                            );
+                          })
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* SECTION 7: STATS */}
             {activeTab === "stats" && (
               <div className="space-y-6 animate-fade-in">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -801,6 +1126,433 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
                     </div>
                   </div>
                 </div>
+              </div>
+            )}
+
+            {activeTab === "leads" && (
+              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-xl font-black text-app-primary dark:text-white">Daftar Pesan Bantuan</h3>
+                    <p className="text-[10px] text-app-text-muted font-bold uppercase tracking-widest mt-1">Total {supportLeads.length} Pesan dari User</p>
+                  </div>
+                  <button 
+                    onClick={() => {
+                      if(confirm("Hapus semua pesan?")) {
+                        localStorage.removeItem("support_leads");
+                        setSupportLeads([]);
+                      }
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 bg-rose-500/10 text-rose-500 rounded-xl text-[10px] font-black uppercase hover:bg-rose-500/20 transition-all cursor-pointer"
+                  >
+                    <Trash2 className="w-3 h-3" /> Bersihkan Semua
+                  </button>
+                </div>
+
+                {/* LEAD STATISTICS */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="p-5 bg-app-surface rounded-3xl border border-app-border shadow-sm flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-app-accent/10 text-app-accent flex items-center justify-center">
+                      <MessageSquare className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-gray-400 font-black uppercase tracking-wider block">Total Pesan</span>
+                      <span className="text-lg font-black text-app-text-main font-mono">{supportLeads.length}</span>
+                    </div>
+                  </div>
+                  <div className="p-5 bg-app-surface rounded-3xl border border-app-border shadow-sm flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center">
+                      <Clock className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-gray-400 font-black uppercase tracking-wider block">Belum Dibaca</span>
+                      <span className="text-lg font-black text-app-text-main font-mono">{supportLeads.filter(l => l.status === 'unread').length}</span>
+                    </div>
+                  </div>
+                  <div className="p-5 bg-app-surface rounded-3xl border border-app-border shadow-sm flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+                      <Zap className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-gray-400 font-black uppercase tracking-wider block">Pesan Hari Ini</span>
+                      <span className="text-lg font-black text-app-text-main font-mono">
+                        {supportLeads.filter(l => new Date(l.timestamp).toDateString() === new Date().toDateString()).length}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {supportLeads.length === 0 ? (
+                    <div className="p-20 text-center space-y-4 bg-app-surface rounded-[2.5rem] border border-app-border border-dashed">
+                      <div className="w-16 h-16 bg-app-accent/5 rounded-full flex items-center justify-center mx-auto text-app-accent/30">
+                        <MessageSquare className="w-8 h-8" />
+                      </div>
+                      <p className="text-sm font-bold text-gray-400">Belum ada pesan bantuan masuk.</p>
+                    </div>
+                  ) : (
+                    supportLeads.map((lead) => (
+                      <div 
+                        key={lead.id} 
+                        className={`p-6 bg-app-surface rounded-[2.5rem] border transition-all ${lead.status === 'unread' ? 'border-app-accent bg-app-accent/[0.02]' : 'border-app-border'}`}
+                      >
+                        <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                          <div className="space-y-4 flex-1">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 rounded-2xl bg-app-accent/10 flex items-center justify-center text-app-accent font-black">
+                                {lead.name.charAt(0)}
+                              </div>
+                              <div>
+                                <h4 className="text-sm font-black text-app-primary dark:text-white">{lead.name}</h4>
+                                <div className="flex items-center gap-3 mt-0.5">
+                                  <span className="flex items-center gap-1 text-[10px] text-app-text-muted font-bold">
+                                    <Clock className="w-3 h-3" /> {new Date(lead.timestamp).toLocaleString('id-ID')}
+                                  </span>
+                                  {lead.status === 'unread' && (
+                                    <span className="px-2 py-0.5 rounded-full bg-app-accent text-white text-[8px] font-black uppercase">BARU</span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              <div className="p-3 bg-app-background/50 rounded-xl space-y-1">
+                                <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest flex items-center gap-1.5">
+                                  <Phone className="w-3 h-3" /> WhatsApp
+                                </p>
+                                <p className="text-xs font-bold text-app-primary dark:text-app-accent">{lead.phone}</p>
+                              </div>
+                              <div className="p-3 bg-app-background/50 rounded-xl space-y-1">
+                                <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest flex items-center gap-1.5">
+                                  <MapPin className="w-3 h-3" /> Lokasi
+                                </p>
+                                <p className="text-xs font-bold text-app-primary dark:text-white truncate">{lead.address || "-"}</p>
+                              </div>
+                            </div>
+
+                            <div className="p-4 bg-app-background rounded-2xl border border-app-border">
+                              <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1.5">Pesan:</p>
+                              <p className="text-xs leading-relaxed text-app-text-main font-medium">{lead.message}</p>
+                            </div>
+                          </div>
+
+                          <div className="flex flex-row md:flex-col gap-2 shrink-0">
+                            {lead.status === 'unread' && (
+                              <button 
+                                onClick={() => {
+                                  const newLeads = supportLeads.map(l => l.id === lead.id ? {...l, status: 'read'} : l);
+                                  setSupportLeads(newLeads);
+                                  localStorage.setItem("support_leads", JSON.stringify(newLeads));
+                                }}
+                                className="px-4 py-2 bg-app-accent text-white text-[10px] font-black rounded-xl hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                              >
+                                Tandai Dibaca
+                              </button>
+                            )}
+                            <button 
+                              onClick={() => {
+                                const whatsappUrl = `https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Halo%20${encodeURIComponent(lead.name)},%20kami%20dari%20CS%20ArabiyPro%20ingin%20menanggapi%20pesan%20Anda:%20${encodeURIComponent(lead.message)}`;
+                                window.open(whatsappUrl, '_blank');
+                              }}
+                              className="px-4 py-2 bg-emerald-500 text-white text-[10px] font-black rounded-xl hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-2"
+                            >
+                              <Phone className="w-3 h-3" /> Balas via WA
+                            </button>
+                            <button 
+                              onClick={() => {
+                                const newLeads = supportLeads.filter(l => l.id !== lead.id);
+                                setSupportLeads(newLeads);
+                                localStorage.setItem("support_leads", JSON.stringify(newLeads));
+                              }}
+                              className="px-4 py-2 bg-rose-500/10 text-rose-500 text-[10px] font-black rounded-xl hover:bg-rose-500/20 transition-all cursor-pointer"
+                            >
+                              Hapus
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* SECTION 8: SETTINGS */}
+            {activeTab === "settings" && (
+              <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-20">
+                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {/* HARGA PAKET */}
+                    <div className="p-8 bg-app-surface rounded-[2.5rem] border border-app-border space-y-6">
+                       <div className="flex items-center gap-3 mb-2">
+                          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-500">
+                             <Crown className="w-6 h-6" />
+                          </div>
+                          <div>
+                             <h4 className="text-sm font-black text-app-text-main uppercase tracking-widest">Harga Paket</h4>
+                             <p className="text-[10px] text-gray-400 font-bold">Atur harga langganan ArabiyPro</p>
+                          </div>
+                       </div>
+                       <div className="space-y-4">
+                          <div className="space-y-1.5">
+                             <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Paket Bulanan (IDR)</label>
+                             <input 
+                               type="number" 
+                               value={appSettings.prices.monthly}
+                               onChange={(e) => setAppSettings({...appSettings, prices: {...appSettings.prices, monthly: Number(e.target.value)}})}
+                               className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent font-mono text-sm"
+                             />
+                          </div>
+                          <div className="space-y-1.5">
+                             <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Paket Tahunan (IDR)</label>
+                             <input 
+                               type="number" 
+                               value={appSettings.prices.annual}
+                               onChange={(e) => setAppSettings({...appSettings, prices: {...appSettings.prices, annual: Number(e.target.value)}})}
+                               className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent font-mono text-sm"
+                             />
+                          </div>
+                          <div className="space-y-1.5">
+                             <label className="text-[10px] font-black text-gray-400 uppercase ml-1">AI Chat Plus (IDR)</label>
+                             <input 
+                               type="number" 
+                               value={appSettings.prices.chat_addon}
+                               onChange={(e) => setAppSettings({...appSettings, prices: {...appSettings.prices, chat_addon: Number(e.target.value)}})}
+                               className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent font-mono text-sm"
+                             />
+                          </div>
+                       </div>
+                    </div>
+
+                    {/* KONTAK SUPPORT */}
+                    <div className="p-8 bg-app-surface rounded-[2.5rem] border border-app-border space-y-6">
+                       <div className="flex items-center gap-3 mb-2">
+                          <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-500">
+                             <MessageCircle className="w-6 h-6" />
+                          </div>
+                          <div>
+                             <h4 className="text-sm font-black text-app-text-main uppercase tracking-widest">Kontak & Support</h4>
+                             <p className="text-[10px] text-gray-400 font-bold">Informasi yang tampil di halaman Bantuan</p>
+                          </div>
+                       </div>
+                       <div className="space-y-4">
+                          <div className="space-y-1.5">
+                             <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Email Support</label>
+                             <input 
+                               type="text" 
+                               value={appSettings.contacts.email}
+                               onChange={(e) => setAppSettings({...appSettings, contacts: {...appSettings.contacts, email: e.target.value}})}
+                               className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                             />
+                          </div>
+                          <div className="space-y-1.5">
+                             <label className="text-[10px] font-black text-gray-400 uppercase ml-1">WhatsApp CS</label>
+                             <input 
+                               type="text" 
+                               value={appSettings.contacts.whatsapp}
+                               onChange={(e) => setAppSettings({...appSettings, contacts: {...appSettings.contacts, whatsapp: e.target.value}})}
+                               className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                             />
+                          </div>
+                          <div className="grid grid-cols-2 gap-3">
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Instagram</label>
+                                <input 
+                                  type="text" 
+                                  value={appSettings.contacts.instagram}
+                                  onChange={(e) => setAppSettings({...appSettings, contacts: {...appSettings.contacts, instagram: e.target.value}})}
+                                  className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                                />
+                             </div>
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Twitter / X</label>
+                                <input 
+                                  type="text" 
+                                  value={appSettings.contacts.twitter}
+                                  onChange={(e) => setAppSettings({...appSettings, contacts: {...appSettings.contacts, twitter: e.target.value}})}
+                                  className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                                />
+                             </div>
+                          </div>
+
+                          {/* LOKASI KANTOR */}
+                          <div className="pt-4 border-t border-app-border space-y-4">
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Nama Gedung / Kantor</label>
+                                <input 
+                                  type="text" 
+                                  value={appSettings.office?.name || ""}
+                                  onChange={(e) => setAppSettings({...appSettings, office: {...(appSettings.office || {address: ""}), name: e.target.value}})}
+                                  className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                                  placeholder="Contoh: Gedung Al-Azhar Digital Hub"
+                                />
+                             </div>
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Alamat Lengkap</label>
+                                <textarea 
+                                  value={appSettings.office?.address || ""}
+                                  onChange={(e) => setAppSettings({...appSettings, office: {...(appSettings.office || {name: ""}), address: e.target.value}})}
+                                  className="w-full h-20 px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm resize-none"
+                                  placeholder="Masukkan alamat lengkap kantor..."
+                                />
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+
+                    {/* PEMBAYARAN */}
+                    <div className="p-8 bg-app-surface rounded-[2.5rem] border border-app-border space-y-6">
+                       <div className="flex items-center gap-3 mb-2">
+                          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
+                             <Banknote className="w-6 h-6" />
+                          </div>
+                          <div>
+                             <h4 className="text-sm font-black text-app-text-main uppercase tracking-widest">Metode Pembayaran</h4>
+                             <p className="text-[10px] text-gray-400 font-bold">Rekening & QRIS untuk upgrade</p>
+                          </div>
+                       </div>
+                       <div className="space-y-4">
+                          <div className="grid grid-cols-2 gap-3">
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">No. Rek Mandiri</label>
+                                <input 
+                                  type="text" 
+                                  value={appSettings.paymentMethods.bank_mandiri?.acc || ""}
+                                  onChange={(e) => setAppSettings({...appSettings, paymentMethods: {...appSettings.paymentMethods, bank_mandiri: { acc: e.target.value, name: appSettings.paymentMethods.bank_mandiri?.name || "KARSO" }}})}
+                                  className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm font-mono"
+                                />
+                             </div>
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">A/N Mandiri</label>
+                                <input 
+                                  type="text" 
+                                  value={appSettings.paymentMethods.bank_mandiri?.name || ""}
+                                  onChange={(e) => setAppSettings({...appSettings, paymentMethods: {...appSettings.paymentMethods, bank_mandiri: { name: e.target.value, acc: appSettings.paymentMethods.bank_mandiri?.acc || "1800017868961" }}})}
+                                  className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                                />
+                             </div>
+                          </div>
+                          <div className="grid grid-cols-2 gap-3">
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">No. DANA</label>
+                                <input 
+                                  type="text" 
+                                  value={appSettings.paymentMethods.e_wallet.acc}
+                                  onChange={(e) => setAppSettings({...appSettings, paymentMethods: {...appSettings.paymentMethods, e_wallet: {...appSettings.paymentMethods.e_wallet, acc: e.target.value}}})}
+                                  className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm font-mono"
+                                />
+                             </div>
+                             <div className="space-y-1.5">
+                                <label className="text-[10px] font-black text-gray-400 uppercase ml-1">A/N DANA</label>
+                                <input 
+                                  type="text" 
+                                  value={appSettings.paymentMethods.e_wallet.name}
+                                  onChange={(e) => setAppSettings({...appSettings, paymentMethods: {...appSettings.paymentMethods, e_wallet: {...appSettings.paymentMethods.e_wallet, name: e.target.value}}})}
+                                  className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                                />
+                             </div>
+                          </div>
+                          <div className="space-y-1.5">
+                             <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Update Gambar QRIS</label>
+                             <div 
+                               onClick={() => {
+                                 const input = document.createElement('input');
+                                 input.type = 'file';
+                                 input.accept = 'image/*';
+                                 input.onchange = (e: any) => {
+                                   const file = e.target.files?.[0];
+                                   if (file) {
+                                     const reader = new FileReader();
+                                     reader.onloadend = () => {
+                                       setAppSettings({
+                                         ...appSettings, 
+                                         paymentMethods: {
+                                           ...appSettings.paymentMethods, 
+                                           qris_image: reader.result as string
+                                         }
+                                       });
+                                     };
+                                     reader.readAsDataURL(file);
+                                   }
+                                 };
+                                 input.click();
+                               }}
+                               className="w-full h-24 border-2 border-dashed border-app-border rounded-2xl flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-app-accent/5 transition-all overflow-hidden relative group"
+                             >
+                               {appSettings.paymentMethods.qris_image ? (
+                                 <>
+                                   <img src={appSettings.paymentMethods.qris_image} alt="QRIS Preview" className="w-full h-full object-contain opacity-50 group-hover:opacity-30" />
+                                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                      <p className="text-[10px] font-black text-app-accent bg-white dark:bg-app-surface px-3 py-1 rounded-full shadow-lg">Klik Ganti Gambar</p>
+                                   </div>
+                                 </>
+                               ) : (
+                                 <>
+                                   <Smartphone className="w-5 h-5 text-gray-400" />
+                                   <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Upload QRIS (PNG/JPG)</span>
+                                 </>
+                               )}
+                             </div>
+                          </div>
+                          <div className="space-y-1.5">
+                             <label className="text-[10px] font-black text-gray-400 uppercase ml-1">QRIS Data String (Fallback)</label>
+                             <input 
+                               type="text" 
+                               value={appSettings.paymentMethods.qris_data}
+                               onChange={(e) => setAppSettings({...appSettings, paymentMethods: {...appSettings.paymentMethods, qris_data: e.target.value}})}
+                               className="w-full px-4 py-3 bg-app-background border border-app-border rounded-xl outline-none focus:border-app-accent text-sm"
+                             />
+                          </div>
+                       </div>
+                    </div>
+
+                    {/* PROMO */}
+                    <div className="p-8 bg-app-surface rounded-[2.5rem] border border-app-border space-y-6">
+                       <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-3">
+                             <div className="w-12 h-12 rounded-2xl bg-rose-500/10 flex items-center justify-center text-rose-500">
+                                <Zap className="w-6 h-6" />
+                             </div>
+                             <div>
+                                <h4 className="text-sm font-black text-app-text-main uppercase tracking-widest">Banner Promo</h4>
+                                <p className="text-[10px] text-gray-400 font-bold">Aktifkan diskon/pengumuman</p>
+                             </div>
+                          </div>
+                          <button 
+                            onClick={() => setAppSettings({...appSettings, promo: {...appSettings.promo, isActive: !appSettings.promo.isActive}})}
+                            className={`w-12 h-6 rounded-full relative transition-all ${appSettings.promo.isActive ? 'bg-app-accent' : 'bg-gray-300'}`}
+                          >
+                            <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${appSettings.promo.isActive ? 'right-1' : 'left-1'}`} />
+                          </button>
+                       </div>
+                       <div className="space-y-1.5">
+                          <label className="text-[10px] font-black text-gray-400 uppercase ml-1">Pesan Promo</label>
+                          <textarea 
+                            value={appSettings.promo.text}
+                            onChange={(e) => setAppSettings({...appSettings, promo: {...appSettings.promo, text: e.target.value}})}
+                            className="w-full h-32 px-4 py-3 bg-app-background border border-app-border rounded-2xl outline-none focus:border-app-accent text-sm resize-none"
+                          />
+                       </div>
+                    </div>
+                 </div>
+
+                 <div className="flex justify-end gap-4">
+                    <button 
+                      onClick={() => {
+                         const appSet = JSON.parse(localStorage.getItem("app_settings") || "{}");
+                         if (Object.keys(appSet).length > 0) setAppSettings(appSet);
+                         alert("Perubahan dibatalkan.");
+                      }}
+                      className="px-8 py-4 bg-app-surface border border-app-border text-app-primary dark:text-white font-black uppercase tracking-widest rounded-2xl shadow-xl transition-all active:scale-95 cursor-pointer"
+                    >
+                       Batal
+                    </button>
+                    <button 
+                      onClick={() => handleSaveAppSettings(appSettings)}
+                      className="px-12 py-4 bg-app-accent text-white font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-app-accent/30 hover:scale-[1.05] active:scale-95 transition-all cursor-pointer"
+                    >
+                       Simpan Perubahan
+                    </button>
+                 </div>
               </div>
             )}
 

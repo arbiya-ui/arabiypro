@@ -28,6 +28,7 @@ const Certificate = lazy(() => import("./components/Certificate"));
 
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import AuthModal from "./components/AuthModal";
+import { logAppOpen, checkDeviceBlocked } from "./lib/deviceTracking";
 
 const PageLoader = () => (
   <div className="flex flex-col items-center justify-center h-screen bg-background bg-geometric-dark gap-6">
@@ -101,6 +102,31 @@ function AppContent() {
 
   const { user, loading: authLoading } = useAuth();
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [isBlocked, setIsBlocked] = useState(false);
+  const [blockReason, setBlockReason] = useState<string | null>(null);
+
+  // Device Tracking & Block Check
+  useEffect(() => {
+    const initTracking = async () => {
+      // Get activation code from local storage if exists
+      const savedProfile = localStorage.getItem("arabiyPro_profile");
+      let activationCode = undefined;
+      if (savedProfile) {
+        try {
+          const profile = JSON.parse(savedProfile);
+          activationCode = profile.activationCode;
+        } catch (e) {}
+      }
+
+      await logAppOpen(activationCode);
+      const status = await checkDeviceBlocked();
+      if (status.isBlocked) {
+        setIsBlocked(true);
+        setBlockReason(status.reason);
+      }
+    };
+    initTracking();
+  }, []);
 
   // Sync profile with Supabase on login/auth change
   useEffect(() => {
@@ -537,6 +563,37 @@ function AppContent() {
   };
 
   // FULL VIEW IMMERSIVE RENDERING FOR LANDING
+  if (isBlocked) {
+    return (
+      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0D0D1A] p-8 text-center bg-geometric-dark">
+        <div className="w-24 h-24 bg-rose-500/10 rounded-full flex items-center justify-center border border-rose-500/30 mb-8 animate-pulse shadow-[0_0_50px_rgba(233,69,96,0.2)]">
+          <span className="text-5xl">🚫</span>
+        </div>
+        <h1 className="text-3xl font-black text-white mb-4 uppercase tracking-tight">Akses Dibatasi</h1>
+        <div className="p-6 glass-dark rounded-[2rem] border border-white/10 max-w-md w-full shadow-2xl">
+          <p className="text-white/70 font-semibold leading-relaxed mb-6">
+            Aktivitas mencurigakan terdeteksi pada perangkat ini. Silakan hubungi admin/CS untuk informasi lebih lanjut.
+          </p>
+          {blockReason && (
+            <div className="mb-6 p-4 bg-rose-500/5 border border-rose-500/10 rounded-xl">
+              <p className="text-[10px] font-black text-rose-500 uppercase tracking-widest mb-1">Alasan:</p>
+              <p className="text-xs text-white/90 font-bold">{blockReason}</p>
+            </div>
+          )}
+          <div className="flex flex-col gap-3">
+            <button 
+              onClick={() => window.open(`https://wa.me/${localStorage.getItem('admin_whatsapp') || '6281234567890'}`, '_blank')}
+              className="w-full py-4 bg-accent text-primary font-black rounded-2xl text-xs uppercase tracking-widest shadow-lg shadow-accent/20 transition-all hover:scale-[1.02] active:scale-95 cursor-pointer"
+            >
+              Hubungi CS Sekarang
+            </button>
+            <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">ArabiyPro Security System</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (currentTab === "landing") {
     return (
       <Suspense fallback={<PageLoader />}>

@@ -8,7 +8,7 @@ import { PremiumToken } from "../types";
 /**
  * Generates a random 8-digit token in format AA-XXXX-XXXX
  */
-export function generatePremiumToken(userName: string, pkg: "monthly" | "annual"): PremiumToken {
+export function generatePremiumToken(userName: string, pkg: "monthly" | "annual" | "chat_addon"): PremiumToken {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // No I, O, 1, 0 for clarity
   let part1 = "";
   let part2 = "";
@@ -19,14 +19,16 @@ export function generatePremiumToken(userName: string, pkg: "monthly" | "annual"
   }
   
   const tokenCode = `AA-${part1}-${part2}`;
-  const durationDays = pkg === "monthly" ? 30 : 365;
+  const isChat = pkg === "chat_addon";
+  const durationDays = isChat ? 30 : (pkg === "monthly" ? 30 : 365);
   
   return {
     tokenCode,
     userName,
     package: pkg,
     durationDays,
-    status: "active"
+    status: "active",
+    purchaseType: isChat ? "chat" : "materi"
   };
 }
 

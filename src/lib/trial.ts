@@ -47,7 +47,13 @@ export async function getSupabaseProfile(userId: string): Promise<Partial<UserPr
       };
     }
 
-    if (error) throw error;
+    if (error) {
+      if (error.code === '42P01') {
+        console.warn('Supabase: user_profiles table not found. Please run the setup SQL in supabase_setup.sql');
+        return null;
+      }
+      throw error;
+    }
 
     return {
       trialStartDate: data.trial_start_date,
@@ -86,6 +92,29 @@ export async function updateSupabasePremium(userId: string, isPremium: boolean, 
 }
 
 /**
+ * Updates chat premium status in Supabase
+ */
+export async function updateSupabaseChatPremium(userId: string, isChatPremium: boolean, expiresAt?: string): Promise<boolean> {
+  if (!isSupabaseConfigured) return false;
+
+  try {
+    const { error } = await supabase
+      .from('user_profiles')
+      .update({
+        is_chat_premium: isChatPremium,
+        chat_premium_expires_at: expiresAt || null
+      })
+      .eq('id', userId);
+
+    if (error) throw error;
+    return true;
+  } catch (err) {
+    console.error('Error updating chat premium in Supabase:', err);
+    return false;
+  }
+}
+
+/**
  * Syncs user profile data to Supabase
  */
 export async function syncUserProfileToSupabase(userId: string, profile: Partial<UserProfile>): Promise<boolean> {
@@ -102,6 +131,8 @@ export async function syncUserProfileToSupabase(userId: string, profile: Partial
         completed_lessons: profile.completedLessons,
         is_premium: profile.isPremium,
         premium_expires_at: profile.premiumExpires,
+        is_chat_premium: profile.isChatPremium,
+        chat_premium_expires_at: profile.chatPremiumExpiresAt,
         trial_status: profile.trialStatus,
         trial_start_date: profile.trialStartDate
       })

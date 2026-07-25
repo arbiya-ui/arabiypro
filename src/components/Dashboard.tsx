@@ -66,6 +66,8 @@ const FEATURES_GRID_ITEMS = [
   { tab: "progress", params: null, title: "Analitik", name: "analitik", desc: "Pantau kemajuan", icon: "📈", bgCircle: "bg-teal/70 text-white shadow-xl shadow-teal/20" }
 ];
 
+import { InfoContent } from './InfoPages';
+
 interface DashboardProps {
   userProfile: UserProfile;
   completedLessons?: string[];
@@ -828,7 +830,7 @@ export default function Dashboard({
             🎓 <span className="text-[#0B3D2E]">Arabiy</span><span className="text-accent drop-shadow-[0_0_8px_rgba(201,168,76,0.4)]">Pro</span> <span className="text-[10px] px-2 py-0.5 rounded bg-accent/25 text-accent font-mono border border-accent/20">PRO</span>
           </h3>
           <p className="text-[11px] text-[#0B3D2E]/70 mt-1 font-semibold text-center md:text-left max-w-xs leading-relaxed">
-            Platform Belajar Bahasa Arab Modern Berbasis AI • Versi 2.0.4
+            Platform Belajar Bahasa Arab Modern Berbasis AI • Versi 2.4.0-Gold
           </p>
         </div>
         
@@ -871,19 +873,12 @@ export default function Dashboard({
                   {activeInfoModal === 'Bantuan' ? '🎧' : activeInfoModal === 'Privasi' ? '🔒' : activeInfoModal === 'Syarat' ? '📝' : '📞'}
                 </div>
                 
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-black text-[#0B3D2E] tracking-tight">Halaman {activeInfoModal}</h3>
-                  <p className="text-[#0B3D2E]/60 font-medium">
-                    Konten untuk bagian <span className="text-[#0B3D2E] font-bold">{activeInfoModal}</span> akan segera hadir dalam pembaruan berikutnya. Terima kasih atas kesabaran Anda.
-                  </p>
-                </div>
-
-                <button 
-                  onClick={() => setActiveInfoModal(null)}
-                  className="w-full py-4 bg-[#0B3D2E] hover:bg-[#0B3D2E]/90 text-white font-black text-xs uppercase tracking-[0.2em] rounded-2xl transition-all shadow-xl shadow-[#0B3D2E]/20 cursor-pointer"
-                >
-                  Tutup
-                </button>
+                {activeInfoModal && (
+                  <InfoContent 
+                    type={activeInfoModal as any} 
+                    onClose={() => setActiveInfoModal(null)} 
+                  />
+                )}
               </div>
             </motion.div>
           </div>
