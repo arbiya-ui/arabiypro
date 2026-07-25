@@ -17,6 +17,7 @@ export const logAppOpen = async (activationCode?: string) => {
   const today = new Date().toISOString().split('T')[0];
 
   try {
+    // MENGGUNAKAN SDK RESMI: supabase.from()
     const { data, error } = await supabase
       .from('device_activity')
       .select('*')
@@ -28,12 +29,13 @@ export const logAppOpen = async (activationCode?: string) => {
       if (error.code === '42P01') {
         console.warn('Supabase: device_activity table not found. Please run the setup SQL in supabase_setup.sql');
       } else {
-        console.error('Error fetching device activity:', error);
+        console.error('Error fetching device activity:', error.message, '| Code:', error.code, '| Details:', error.details);
       }
       return;
     }
 
     if (data) {
+      // UPDATE via SDK
       await supabase
         .from('device_activity')
         .update({ 
@@ -43,6 +45,7 @@ export const logAppOpen = async (activationCode?: string) => {
         })
         .eq('id', data.id);
     } else {
+      // INSERT via SDK
       await supabase
         .from('device_activity')
         .insert({
@@ -66,6 +69,7 @@ export const logAiChatUsage = async (activationCode?: string) => {
   const today = new Date().toISOString().split('T')[0];
 
   try {
+    // MENGGUNAKAN SDK RESMI: supabase.from()
     const { data, error } = await supabase
       .from('device_activity')
       .select('*')
@@ -73,7 +77,17 @@ export const logAiChatUsage = async (activationCode?: string) => {
       .eq('activity_date', today)
       .maybeSingle();
 
+    if (error) {
+      if (error.code === '42P01') {
+        console.warn('Supabase: device_activity table not found.');
+      } else {
+        console.error('Error fetching activity in logAiChatUsage:', error.message || error, '| Code:', error.code);
+      }
+      return;
+    }
+
     if (data) {
+      // UPDATE via SDK
       await supabase
         .from('device_activity')
         .update({ 
@@ -83,6 +97,7 @@ export const logAiChatUsage = async (activationCode?: string) => {
         })
         .eq('id', data.id);
     } else {
+      // INSERT via SDK
       await supabase
         .from('device_activity')
         .insert({
@@ -105,7 +120,7 @@ export const checkDeviceBlocked = async (): Promise<{ isBlocked: boolean; reason
   const deviceId = getDeviceId();
 
   try {
-    // Get the most recent record for this device to check block status
+    // MENGGUNAKAN SDK RESMI: supabase.from()
     const { data, error } = await supabase
       .from('device_activity')
       .select('is_blocked, blocked_reason')
@@ -116,9 +131,9 @@ export const checkDeviceBlocked = async (): Promise<{ isBlocked: boolean; reason
 
     if (error) {
       if (error.code === '42P01') {
-        console.warn('Supabase: device_activity table not found. Please run the setup SQL in supabase_setup.sql');
+        console.warn('Supabase: device_activity table not found.');
       } else {
-        console.error('Error checking device status:', error);
+        console.error('Error checking device status:', error.message, '| Code:', error.code, '| Details:', error.details);
       }
       return { isBlocked: false, reason: null };
     }

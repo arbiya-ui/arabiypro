@@ -1,7 +1,13 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+let supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// Fix common mistake where URL includes /rest/v1
+if (supabaseUrl && supabaseUrl.endsWith('/rest/v1')) {
+  console.warn('Supabase: VITE_SUPABASE_URL should not end with /rest/v1. Automatically trimming.');
+  supabaseUrl = supabaseUrl.replace('/rest/v1', '');
+}
 
 let client: SupabaseClient | null = null;
 

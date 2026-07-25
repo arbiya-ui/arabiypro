@@ -159,9 +159,9 @@ export default function AdminPanel({ onClose, userProfile, onUpdateProfile }: Ad
         }
       }
       setDeviceActivities(data || []);
-    } catch (err) {
-      if ((err as any)?.code !== '42P01') {
-        console.error("Failed to fetch device activities:", err);
+    } catch (err: any) {
+      if (err?.code !== '42P01') {
+        console.error("Failed to fetch device activities:", err?.message || err, "| Code:", err?.code);
       }
     } finally {
       setIsFetchingActivities(false);

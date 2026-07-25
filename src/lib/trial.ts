@@ -61,8 +61,8 @@ export async function getSupabaseProfile(userId: string): Promise<Partial<UserPr
       isPremium: data.is_premium,
       premiumExpires: data.premium_expires_at
     };
-  } catch (err) {
-    console.error('Error in getSupabaseProfile:', err);
+  } catch (err: any) {
+    console.error('Error in getSupabaseProfile:', err.message || err, '| Code:', err.code);
     return null;
   }
 }
@@ -85,8 +85,8 @@ export async function updateSupabasePremium(userId: string, isPremium: boolean, 
 
     if (error) throw error;
     return true;
-  } catch (err) {
-    console.error('Error updating premium in Supabase:', err);
+  } catch (err: any) {
+    console.error('Error updating premium in Supabase:', err.message || err, '| Code:', err.code);
     return false;
   }
 }
@@ -108,8 +108,8 @@ export async function updateSupabaseChatPremium(userId: string, isChatPremium: b
 
     if (error) throw error;
     return true;
-  } catch (err) {
-    console.error('Error updating chat premium in Supabase:', err);
+  } catch (err: any) {
+    console.error('Error updating chat premium in Supabase:', err.message || err, '| Code:', err.code);
     return false;
   }
 }
@@ -140,8 +140,8 @@ export async function syncUserProfileToSupabase(userId: string, profile: Partial
 
     if (error) throw error;
     return true;
-  } catch (err) {
-    console.error('Error syncing profile to Supabase:', err);
+  } catch (err: any) {
+    console.error('Error syncing profile to Supabase:', err.message || err, '| Code:', err.code);
     return false;
   }
 }
