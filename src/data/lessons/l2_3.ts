@@ -22,7 +22,7 @@ export const l2_3: Lesson = {
       { icon: "💰", text: "MASTER TRANSAKSI (Mahir Jual Beli & Tawar Menawar)" },
       { icon: "🔢", text: "AHLI BILANGAN (Menguasai Aturan Angka 1-10)" }
     ],
-    totalSentencesDisplay: "285 Kalimat Transaksi",
+    totalSentencesDisplay: "300+ Kalimat Transaksi",
     cards: [
       // KELOMPOK 1 — KATA BENDA & SATUAN (1-15)
       {
@@ -32,16 +32,16 @@ export const l2_3: Lesson = {
         description: "Nilai tukar yang ditetapkan untuk suatu barang.",
         category: "Istilah Bisnis",
         examples: [
-          { ar: "كَمِ الثَّمَنُ لِهَذَا الْقَمِيصِ؟", translation: "Berapa harga kemeja ini?", grammarNote: "Logika: Bertanya harga menggunakan 'Kam'." },
-          { ar: "الثَّمَنُ غَالٍ جِدًّا", translation: "Harganya sangat mahal.", grammarNote: "Logika: Sifat Ghaalin (Mahal) mengikuti benda mudzakkar." },
-          { ar: "هَلْ هَذَا ثَمَنٌ رَخِيصٌ؟", translation: "Apakah ini harga yang murah?", grammarNote: "Logika: Na'at-Man'ut nakirah mudzakkar." },
-          { ar: "دَفَعْتُ ثَمَنًا مُنَاسِبًا", translation: "Saya membayar harga yang sesuai.", grammarNote: "Logika: Sifat mengikuti harakat nashab." },
-          { ar: "الثَّمَنُ مَكْتُوبٌ عَلَى الْوَرَقَةِ", translation: "Harganya tertulis di kertas.", grammarNote: "Logika: Deskripsi posisi informasi." },
-          { ar: "نَزَلَ الثَّمَنُ الْيَوْمَ", translation: "Harganya turun hari ini.", grammarNote: "Logika: Keterangan waktu dalam transaksi." },
-          { ar: "أُرِيدُ ثَمَنًا أَقَلَّ", translation: "Saya ingin harga yang lebih rendah.", grammarNote: "Logika: Isim Tafdhil 'Aqalla' untuk perbandingan harga." },
-          { ar: "الثَّمَنُ ثَابِتٌ لَا فِيهِ تَخْفِيضٌ", translation: "Harganya pas, tidak ada diskon.", grammarNote: "Logika: Penegasan harga tetap." },
-          { ar: "ارْتَفَعَ الثَّمَنُ كَثِيرًا", translation: "Harganya naik banyak.", grammarNote: "Logika: Dinamika pasar." },
-          { ar: "أَعْطِنِي الثَّمَنَ النِّهَائِيَّ", translation: "Berikan saya harga akhirnya.", grammarNote: "Logika: Na'at ma'rifah mudzakkar." }
+          { ar: "ثَمَنٌ وَاحِدٌ", translation: "Satu harga.", grammarNote: "Logika: Angka 1 (Waahid) mengikuti Thaman (Mudzakkar)." },
+          { ar: "ثَمَنَانِ اثْنَانِ", translation: "Dua harga.", grammarNote: "Logika: Tasniyah (dua) mengikuti gender mudzakkar." },
+          { ar: "ثَلَاثَةُ أَثْمَانٍ", translation: "Tiga harga.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَثْمَانٍ", translation: "Empat harga.", grammarNote: "Logika: Ma'dud jamak majrur (Athmaan)." },
+          { ar: "خَمْسَةُ أَثْمَانٍ", translation: "Lima harga.", grammarNote: "Logika: Angka 5 muannats (Khamsah)." },
+          { ar: "سِتَّةُ أَثْمَانٍ", translation: "Enam harga.", grammarNote: "Logika: Angka 6 muannats (Sittah)." },
+          { ar: "سَبْعَةُ أَثْمَانٍ", translation: "Tujuh harga.", grammarNote: "Logika: Angka 7 muannats (Sab'ah)." },
+          { ar: "ثَمَانِيَةُ أَثْمَانٍ", translation: "Delapan harga.", grammarNote: "Logika: Angka 8 muannats (Tsamaaniyah)." },
+          { ar: "تِسْعَةُ أَثْمَانٍ", translation: "Sembilan harga.", grammarNote: "Logika: Angka 9 muannats (Tis'ah)." },
+          { ar: "عَشَرَةُ أَثْمَانٍ", translation: "Sepuluh harga.", grammarNote: "Logika: Angka 10 muannats (Asyarah)." }
         ]
       },
       {
@@ -51,16 +51,16 @@ export const l2_3: Lesson = {
         description: "Alat tukar resmi dalam transaksi (jamak dari Naqd).",
         category: "Istilah Bisnis",
         examples: [
-          { ar: "مَعِي نُقُودٌ كَثِيرَةٌ", translation: "Saya membawa uang banyak.", grammarNote: "Logika: Jamak taksir benda mati dianggap muannats, maka sifatnya 'Katsirah'." },
-          { ar: "أَيْنَ النُّقُودُ؟", translation: "Di mana uangnya?", grammarNote: "Logika: Bertanya keberadaan benda." },
-          { ar: "هَذِهِ نُقُودٌ وَرَقِيَّةٌ", translation: "Ini adalah uang kertas.", grammarNote: "Logika: Sifat muannats untuk jamak benda." },
-          { ar: "ضَاعَتِ النُّقُودُ فِي السُّوقِ", translation: "Uangnya hilang di pasar.", grammarNote: "Logika: Fi'il muannats mengikuti subjek jamak taksir." },
-          { ar: "أَحْتَاجُ إِلَى نُقُودٍ مَعْدَنِيَّةٍ", translation: "Saya butuh uang koin (logam).", grammarNote: "Logika: Sifat muannats mengikuti i'rab majrur." },
-          { ar: "هَلْ عِنْدَكَ نُقُودٌ؟", translation: "Apakah kamu punya uang?", grammarNote: "Logika: Menggunakan 'Indaka' untuk kepemilikan sementara." },
-          { ar: "دَفَعْتُ النُّقُودَ لِلْبَائِعِ", translation: "Saya memberikan uang kepada penjual.", grammarNote: "Logika: Objek transaksi (maf'ul bih)." },
-          { ar: "النُّقُودُ فِي الْمِحْفَظَةِ", translation: "Uangnya ada di dalam dompet.", grammarNote: "Logika: Keterangan tempat." },
-          { ar: "صَرَفْتُ النُّقُودَ", translation: "Saya menukarkan uang.", grammarNote: "Logika: Kata kerja khusus penukaran." },
-          { ar: "لَا تَلْعَبْ بِالنُّقُودِ", translation: "Jangan bermain dengan uang.", grammarNote: "Logika: Larangan penggunaan salah." }
+          { ar: "نُقُودٌ وَاحِدَةٌ", translation: "Satu (keping/lembar) uang.", grammarNote: "Logika: Nuqud dianggap muannats (jamak benda mati)." },
+          { ar: "نُقُودَانِ اثْنَتَانِ", translation: "Dua (keping/lembar) uang.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ نُقُودٍ", translation: "Tiga (keping/lembar) uang.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ نُقُودٍ", translation: "Empat (keping/lembar) uang.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسُ نُقُودٍ", translation: "Lima (keping/lembar) uang.", grammarNote: "Logika: Angka 5 mudzakkar (Khams)." },
+          { ar: "سِتُّ نُقُودٍ", translation: "Enam (keping/lembar) uang.", grammarNote: "Logika: Angka 6 mudzakkar (Sitt)." },
+          { ar: "سَبْعُ نُقُودٍ", translation: "Tujuh (keping/lembar) uang.", grammarNote: "Logika: Angka 7 mudzakkar (Sab')." },
+          { ar: "ثَمَانِي نُقُودٍ", translation: "Delapan (keping/lembar) uang.", grammarNote: "Logika: Angka 8 mudzakkar (Tsamaani)." },
+          { ar: "تِسْعُ نُقُودٍ", translation: "Sembilan (keping/lembar) uang.", grammarNote: "Logika: Angka 9 mudzakkar (Tis')." },
+          { ar: "عَشَرُ نُقُودٍ", translation: "Sepuluh (keping/lembar) uang.", grammarNote: "Logika: Angka 10 mudzakkar (Asyr)." }
         ]
       },
       {
@@ -70,16 +70,16 @@ export const l2_3: Lesson = {
         description: "Sisa uang setelah pembayaran.",
         category: "Istilah Bisnis",
         examples: [
-          { ar: "خُذِ الْبَاقِيَ يَا سَيِّدِي", translation: "Ambil kembaliannya wahai tuan.", grammarNote: "Logika: Pemberian sisa uang." },
-          { ar: "أَيْنَ الْبَاقِي؟", translation: "Di mana kembaliannya?", grammarNote: "Logika: Menanyakan hak pembeli." },
-          { ar: "الْبَاقِي خَمْسَةُ آلَافِ رُوبِيَّةٍ", translation: "Sisa kembaliannya lima ribu rupiah.", grammarNote: "Logika: Menyebutkan jumlah sisa." },
-          { ar: "نَسِيَ الْبَائِعُ الْبَاقِيَ", translation: "Penjual lupa memberikan kembalian.", grammarNote: "Logika: Kejadian dalam pasar." },
-          { ar: "هَذَا بَاقِي النُّقُودِ", translation: "Ini sisa uangnya.", grammarNote: "Logika: Idhafah (Mudhaf-Mudhaf Ilaihi)." },
-          { ar: "لَا يُوجَدُ بَاقِي", translation: "Tidak ada kembalian (uang pas).", grammarNote: "Logika: Kondisi transaksi." },
-          { ar: "أَعْطِنِي الْبَاقِي مِنْ فَضْلِكَ", translation: "Tolong berikan kembalian saya.", grammarNote: "Logika: Permintaan sopan." },
-          { ar: "الْبَاقِي لَكَ", translation: "Sisa/kembaliannya untukmu (sedekah/tips).", grammarNote: "Logika: Pemberian sukarela." },
-          { ar: "كَمِ الْبَاقِي؟", translation: "Berapa kembaliannya?", grammarNote: "Logika: Menanyakan nilai sisa." },
-          { ar: "حَسَبْتُ الْبَاقِيَ جَيِّدًا", translation: "Saya menghitung kembaliannya dengan baik.", grammarNote: "Logika: Ketelitian transaksi." }
+          { ar: "بَاقٍ وَاحِدٌ", translation: "Satu kembalian.", grammarNote: "Logika: Baaqin (M) -> Waahid (M)." },
+          { ar: "بَاقِيَانِ اثْنَانِ", translation: "Dua kembalian.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ بَوَاقٍ", translation: "Tiga kembalian.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ بَوَاقٍ", translation: "Empat kembalian.", grammarNote: "Logika: Ma'dud jamak majrur (Bawaaqin)." },
+          { ar: "خَمْسَةُ بَوَاقٍ", translation: "Lima kembalian.", grammarNote: "Logika: Angka 5 muannats (Khamsah)." },
+          { ar: "سِتَّةُ بَوَاقٍ", translation: "Enam kembalian.", grammarNote: "Logika: Angka 6 muannats (Sittah)." },
+          { ar: "سَبْعَةُ بَوَاقٍ", translation: "Tujuh kembalian.", grammarNote: "Logika: Angka 7 muannats (Sab'ah)." },
+          { ar: "ثَمَانِيَةُ بَوَاقٍ", translation: "Delapan kembalian.", grammarNote: "Logika: Angka 8 muannats (Tsamaaniyah)." },
+          { ar: "تِسْعَةُ بَوَاقٍ", translation: "Sembilan kembalian.", grammarNote: "Logika: Angka 9 muannats (Tis'ah)." },
+          { ar: "عَشَرَةُ بَوَاقٍ", translation: "Sepuluh kembalian.", grammarNote: "Logika: Angka 10 muannats (Asyarah)." }
         ]
       },
       {
@@ -89,16 +89,16 @@ export const l2_3: Lesson = {
         description: "Pengurangan harga dari nilai asli.",
         category: "Istilah Bisnis",
         examples: [
-          { ar: "هَلْ هُنَاكَ تَخْفِيضٌ؟", translation: "Apakah ada diskon?", grammarNote: "Logika: Pertanyaan favorit pembeli." },
-          { ar: "أُرِيدُ تَخْفِيضًا كَبِيرًا", translation: "Saya ingin diskon besar.", grammarNote: "Logika: Na'at-Man'ut nakirah mudzakkar." },
-          { ar: "التَّخْفِيضُ خَمْسُونَ بِالْمِائَةِ", translation: "Diskonnya lima puluh persen.", grammarNote: "Logika: Menyebutkan persentase." },
-          { ar: "هَذَا التَّخْفِيضُ لِلْمَلَابِسِ", translation: "Diskon ini untuk pakaian.", grammarNote: "Logika: Pengkhususan barang." },
-          { ar: "مَوْسِمُ التَّخْفِيضَاتِ", translation: "Musim diskon/obral.", grammarNote: "Logika: Idhafah jamak." },
-          { ar: "لَا يُوجَدُ تَخْفِيضٌ لِهَذَا", translation: "Tidak ada diskon untuk barang ini.", grammarNote: "Logika: Negasi ketersediaan." },
-          { ar: "بَعْدَ التَّخْفِيضِ يَصِيرُ السِّعْرُ رَخِيصًا", translation: "Setelah diskon, harganya jadi murah.", grammarNote: "Logika: Dampak potongan harga." },
-          { ar: "التَّخْفِيضُ يَنْتَهِي غَدًا", translation: "Diskonnya berakhir besok.", grammarNote: "Logika: Keterangan waktu." },
-          { ar: "تَخْفِيضٌ خَاصٌّ لَكَ", translation: "Diskon khusus untukmu.", grammarNote: "Logika: Na'at nakirah." },
-          { ar: "كَمْ نِسْبَةُ التَّخْفِيضِ؟", translation: "Berapa persentase diskonnya?", grammarNote: "Logika: Pertanyaan detail." }
+          { ar: "تَخْفِيضٌ وَاحِدٌ", translation: "Satu diskon.", grammarNote: "Logika: Takhfiidh (M) -> Waahid (M)." },
+          { ar: "تَخْفِيضَانِ اثْنَانِ", translation: "Dua diskon.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ تَخْفِيضَاتٍ", translation: "Tiga diskon.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ تَخْفِيضَاتٍ", translation: "Empat diskon.", grammarNote: "Logika: Ma'dud jamak majrur (Takhfiidhaat)." },
+          { ar: "خَمْسَةُ تَخْفِيضَاتٍ", translation: "Lima diskon.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ تَخْفِيضَاتٍ", translation: "Enam diskon.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ تَخْفِيضَاتٍ", translation: "Tujuh diskon.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ تَخْفِيضَاتٍ", translation: "Delapan diskon.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ تَخْفِيضَاتٍ", translation: "Sembilan diskon.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ تَخْفِيضَاتٍ", translation: "Sepuluh diskon.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -108,16 +108,16 @@ export const l2_3: Lesson = {
         description: "Tempat atau orang yang melayani pembayaran.",
         category: "Lokasi",
         examples: [
-          { ar: "أَيْنَ الْكَاشِيرُ؟", translation: "Di mana kasirnya?", grammarNote: "Logika: Mencari tempat bayar." },
-          { ar: "ادْفَعِ النُّقُودَ عِنْدَ الْكَاشِيرِ", translation: "Bayarlah uangnya di kasir.", grammarNote: "Logika: Instruksi pembayaran." },
-          { ar: "طَابُورٌ طَوِيلٌ أَمَامَ الْكَاشِيرِ", translation: "Antrean panjang di depan kasir.", grammarNote: "Logika: Kondisi toko." },
-          { ar: "الْكَاشِيرُ مُغْلَقٌ", translation: "Kasirnya tutup.", grammarNote: "Logika: Status layanan." },
-          { ar: "يَعْمَلُ أَخِي كَاشِيرًا", translation: "Saudaraku bekerja sebagai kasir.", grammarNote: "Logika: Profesi (Haal/Maf'ul)." },
-          { ar: "الْكَاشِيرُ نَشِيطٌ", translation: "Kasirnya rajin.", grammarNote: "Logika: Sifat orang mudzakkar." },
-          { ar: "اذْهَبْ إِلَى الْكَاشِيرِ", translation: "Pergilah ke kasir.", grammarNote: "Logika: Perintah arah." },
-          { ar: "جَلَسَ الْكَاشِيرُ عَلَى الْكُرْسِيِّ", translation: "Kasir duduk di atas kursi.", grammarNote: "Logika: Deskripsi posisi." },
-          { ar: "سَأَلْتُ الْكَاشِيرَ عَنِ الثَّمَنِ", translation: "Saya bertanya pada kasir tentang harganya.", grammarNote: "Logika: Interaksi pembeli." },
-          { ar: "الْكَاشِيرُ أَمِينٌ", translation: "Kasirnya jujur/amanah.", grammarNote: "Logika: Kualitas profesi." }
+          { ar: "كَاشِيرٌ وَاحِدٌ", translation: "Satu kasir.", grammarNote: "Logika: Kashiir (M) -> Waahid (M)." },
+          { ar: "كَاشِيرَانِ اثْنَانِ", translation: "Dua kasir.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ كَاشِيرِينَ", translation: "Tiga kasir.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ كَاشِيرِينَ", translation: "Empat kasir.", grammarNote: "Logika: Ma'dud jamak majrur (Kashiiriin)." },
+          { ar: "خَمْسَةُ كَاشِيرِينَ", translation: "Lima kasir.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ كَاشِيرِينَ", translation: "Enam kasir.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ كَاشِيرِينَ", translation: "Tujuh kasir.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ كَاشِيرِينَ", translation: "Delapan kasir.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ كَاشِيرِينَ", translation: "Sembilan kasir.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ كَاشِيرِينَ", translation: "Sepuluh kasir.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -127,16 +127,16 @@ export const l2_3: Lesson = {
         description: "Satuan berat standar internasional (Kilogram).",
         category: "Satuan",
         examples: [
-          { ar: "أُرِيدُ كِيلُو مِنَ التُّفَّاحِ", translation: "Saya ingin satu kilo apel.", grammarNote: "Logika: Satuan berat tunggal." },
-          { ar: "بِكَمِ الْكِيلُو؟", translation: "Berapa (harga) per kilonya?", grammarNote: "Logika: Menanyakan harga per satuan." },
-          { ar: "اشْتَرَيْتُ ثَلَاثَةَ كِيلُوجْرَامٍ", translation: "Saya membeli tiga kilogram.", grammarNote: "Logika: Angka 3-10, 'Adad berlawanan gender (Kilu dianggap mudzakkar, maka angka pakai ta marbutah)." },
-          { ar: "هَذَا كِيلُو نَاقِصٌ", translation: "Kiloan ini kurang.", grammarNote: "Logika: Ketidakjujuran timbangan." },
-          { ar: "زِنْ لِي كِيلُو بَصَلٍ", translation: "Timbangkan untukku sekilo bawang.", grammarNote: "Logika: Perintah timbang." },
-          { ar: "كِيلُو وَاحِدٌ فَقَطْ", translation: "Satu kilo saja.", grammarNote: "Logika: Angka 1 mengikuti gender benda." },
-          { ar: "الْكِيلُو بِخَمْسَةِ آلَافٍ", translation: "Sekilo seharga lima ribu.", grammarNote: "Logika: Struktur harga." },
-          { ar: "أَعْطِنِي نِصْفَ كِيلُو", translation: "Berikan saya setengah kilo.", grammarNote: "Logika: Pecahan satuan." },
-          { ar: "هَلْ هَذَا كِيلُو كَامِلٌ؟", translation: "Apakah ini sekilo penuh?", grammarNote: "Logika: Verifikasi timbangan." },
-          { ar: "كِيلُو مِنَ السُّكَّرِ", translation: "Sekilo gula.", grammarNote: "Logika: Idhafah/Min satuan." }
+          { ar: "كِيلُوجْرَامٌ وَاحِدٌ", translation: "Satu kilogram.", grammarNote: "Logika: Kilu (M) -> Waahid (M)." },
+          { ar: "كِيلُوجْرَامَانِ اثْنَانِ", translation: "Dua kilogram.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ كِيلُوجْرَامَاتٍ", translation: "Tiga kilogram.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ كِيلُوجْرَامَاتٍ", translation: "Empat kilogram.", grammarNote: "Logika: Ma'dud jamak majrur (Kiluujraamaat)." },
+          { ar: "خَمْسَةُ كِيلُوجْرَامَاتٍ", translation: "Lima kilogram.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ كِيلُوجْرَامَاتٍ", translation: "Enam kilogram.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ كِيلُوجْرَامَاتٍ", translation: "Tujuh kilogram.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ كِيلُوجْرَامَاتٍ", translation: "Delapan kilogram.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ كِيلُوجْرَامَاتٍ", translation: "Sembilan kilogram.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ كِيلُوجْرَامَاتٍ", translation: "Sepuluh kilogram.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -146,16 +146,16 @@ export const l2_3: Lesson = {
         description: "Satuan panjang untuk kain atau bahan.",
         category: "Satuan",
         examples: [
-          { ar: "أُرِيدُ مِتْرًا مِنَ الْقُمَاشِ", translation: "Saya ingin semeter kain.", grammarNote: "Logika: Satuan panjang tunggal." },
-          { ar: "كَمْ مِتْرًا تَحْتَاجُ؟", translation: "Berapa meter yang kamu butuhkan?", grammarNote: "Logika: Tamyiz untuk 'Kam'." },
-          { ar: "اشْتَرَيْتُ خَمْسَةَ أَمْتَارٍ", translation: "Saya membeli lima meter.", grammarNote: "Logika: Angka 3-10, Ma'dud harus jamak (Amtaar) dan 'Adad berlawanan gender (Mitr mudzakkar -> Khamsata)." },
-          { ar: "الْمِتْرُ بِعَشَرَةِ آلَافٍ", translation: "Semeter seharga sepuluh ribu.", grammarNote: "Logika: Struktur harga panjang." },
-          { ar: "هَذَا مِتْرٌ طَوِيلٌ", translation: "Ini satu meter yang panjang (lebih).", grammarNote: "Logika: Na'at mudzakkar." },
-          { ar: "أَعْطِنِي مِتْرَيْنِ", translation: "Berikan saya dua meter.", grammarNote: "Logika: Tasniyah (dua) untuk satuan." },
-          { ar: "قِسْ لِي مِتْرًا", translation: "Ukurlah untukku semeter.", grammarNote: "Logika: Perintah ukur." },
-          { ar: "عَشَرَةُ أَمْتَارٍ مِنَ الْحَرِيرِ", translation: "Sepuluh meter sutra.", grammarNote: "Logika: 'Adad-Ma'dud batas maksimal 10." },
-          { ar: "الْمِتْرُ الْوَاحِدُ يَكْفِي", translation: "Satu meter saja cukup.", grammarNote: "Logika: Angka 1 mengikuti gender." },
-          { ar: "هَذَا الْمِتْرُ قَصِيرٌ", translation: "Meteran ini pendek (kurang).", grammarNote: "Logika: Keluhan ukuran." }
+          { ar: "مِتْرٌ وَاحِدٌ", translation: "Satu meter.", grammarNote: "Logika: Mitr (M) -> Waahid (M)." },
+          { ar: "مِتْرَانِ اثْنَانِ", translation: "Dua meter.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ أَمْتَارٍ", translation: "Tiga meter.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَمْتَارٍ", translation: "Empat meter.", grammarNote: "Logika: Ma'dud jamak majrur (Amtaar)." },
+          { ar: "خَمْسَةُ أَمْتَارٍ", translation: "Lima meter.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ أَمْتَارٍ", translation: "Enam meter.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ أَمْتَارٍ", translation: "Tujuh meter.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ أَمْتَارٍ", translation: "Delapan meter.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ أَمْتَارٍ", translation: "Sembilan meter.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ أَمْتَارٍ", translation: "Sepuluh meter.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -165,16 +165,16 @@ export const l2_3: Lesson = {
         description: "Satuan untuk barang kecil atau buah secara satuan.",
         category: "Satuan",
         examples: [
-          { ar: "أُرِيدُ حَبَّةً مِنَ الْبُرْتُقَالِ", translation: "Saya ingin sebuah jeruk.", grammarNote: "Logika: Satuan tunggal muannats." },
-          { ar: "كَمْ حَبَّةً تُرِيدُ؟", translation: "Berapa butir yang kamu mau?", grammarNote: "Logika: Tamyiz untuk 'Kam'." },
-          { ar: "اشْتَرَيْتُ أَرْبَعَ حَبَّاتٍ", translation: "Saya membeli empat butir.", grammarNote: "Logika: Angka 3-10, 'Adad berlawanan gender (Habbah muannats -> Arba'a mudzakkar)." },
-          { ar: "الْحَبَّةُ بِأَلْفٍ", translation: "Satu butirnya seribu.", grammarNote: "Logika: Harga per butir." },
-          { ar: "أَعْطِنِي حَبَّةً وَاحِدَةً", translation: "Berikan saya satu butir saja.", grammarNote: "Logika: Angka 1 mengikuti gender muannats." },
-          { ar: "ثَلَاثُ حَبَّاتٍ مِنَ الْبَيْضِ", translation: "Tiga butir telur.", grammarNote: "Logika: 'Adad mudzakkar untuk ma'dud muannats." },
-          { ar: "هَذِهِ حَبَّةٌ كَبِيرَةٌ", translation: "Ini butiran/buah yang besar.", grammarNote: "Logika: Na'at muannats." },
-          { ar: "سِتُّ حَبَّاتٍ فَقَطْ", translation: "Enam butir saja.", grammarNote: "Logika: Angka 6 mudzakkar." },
-          { ar: "الْحَبَّةُ الثَّانِيَةُ مَجَّانًا", translation: "Butir kedua gratis.", grammarNote: "Logika: Angka bertingkat (Tartibi)." },
-          { ar: "عَشَرُ حَبَّاتٍ", translation: "Sepuluh butir.", grammarNote: "Logika: Angka 10 mudzakkar (Asyru) untuk muannats." }
+          { ar: "حَبَّةٌ وَاحِدَةٌ", translation: "Satu butir.", grammarNote: "Logika: Habbah (F) -> Waahidah (F)." },
+          { ar: "حَبَّتَانِ اثْنَتَانِ", translation: "Dua butir.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ حَبَّاتٍ", translation: "Tiga butir.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ حَبَّاتٍ", translation: "Empat butir.", grammarNote: "Logika: Ma'dud jamak majrur (Habbaat)." },
+          { ar: "خَمْسُ حَبَّاتٍ", translation: "Lima butir.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ حَبَّاتٍ", translation: "Enam butir.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ حَبَّاتٍ", translation: "Tujuh butir.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي حَبَّاتٍ", translation: "Delapan butir.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ حَبَّاتٍ", translation: "Sembilan butir.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ حَبَّاتٍ", translation: "Sepuluh butir.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -184,16 +184,16 @@ export const l2_3: Lesson = {
         description: "Satuan untuk sayuran atau barang yang diikat.",
         category: "Satuan",
         examples: [
-          { ar: "أُرِيدُ رَبْطَةً مِنَ الْبَقْدُونِسِ", translation: "Saya ingin seikat seledri.", grammarNote: "Logika: Satuan ikat tunggal muannats." },
-          { ar: "بِكَمِ الرَّبْطَةُ؟", translation: "Berapa seikatnya?", grammarNote: "Logika: Menanyakan harga per ikat." },
-          { ar: "اشْتَرَيْتُ ثَلَاثَ رَبَطَاتٍ", translation: "Saya membeli tiga ikat.", grammarNote: "Logika: Angka 3-10, 'Adad berlawanan gender (Rabthah muannats -> Tsalaatsa mudzakkar)." },
-          { ar: "رَبْطَةٌ وَاحِدَةٌ تَكْفِي", translation: "Seikat saja cukup.", grammarNote: "Logika: Angka 1 muannats." },
-          { ar: "هَذِهِ رَبْطَةٌ صَغِيرَةٌ", translation: "Ini ikatan yang kecil.", grammarNote: "Logika: Na'at muannats." },
-          { ar: "خَمْسُ رَبَطَاتٍ مِنَ الْخُضْرَاوَاتِ", translation: "Lima ikat sayur-sayuran.", grammarNote: "Logika: Angka 5 mudzakkar." },
-          { ar: "أَعْطِنِي رَبْطَتَيْنِ", translation: "Berikan saya dua ikat.", grammarNote: "Logika: Tasniyah untuk muannats." },
-          { ar: "رَبْطَةٌ طَازَجَةٌ", translation: "Ikatan (sayur) yang segar.", grammarNote: "Logika: Sifat muannats." },
-          { ar: "الرَّبْطَةُ بِأَلْفَيْنِ", translation: "Seikat dua ribu.", grammarNote: "Logika: Struktur harga." },
-          { ar: "سَبْعُ رَبَطَاتٍ", translation: "Tujuh ikat.", grammarNote: "Logika: Angka 7 mudzakkar." }
+          { ar: "رَبْطَةٌ وَاحِدَةٌ", translation: "Satu ikat.", grammarNote: "Logika: Rabthah (F) -> Waahidah (F)." },
+          { ar: "رَبْطَتَانِ اثْنَتَانِ", translation: "Dua ikat.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ رَبَطَاتٍ", translation: "Tiga ikat.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ رَبَطَاتٍ", translation: "Empat ikat.", grammarNote: "Logika: Ma'dud jamak majrur (Rabathaat)." },
+          { ar: "خَمْسُ رَبَطَاتٍ", translation: "Lima ikat.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ رَبَطَاتٍ", translation: "Enam ikat.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ رَبَطَاتٍ", translation: "Tujuh ikat.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي رَبَطَاتٍ", translation: "Delapan ikat.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ رَبَطَاتٍ", translation: "Sembilan ikat.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ رَبَطَاتٍ", translation: "Sepuluh ikat.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -203,16 +203,16 @@ export const l2_3: Lesson = {
         description: "Tempat berkumpulnya penjual dan pembeli.",
         category: "Lokasi",
         examples: [
-          { ar: "أَذْهَبُ إِلَى السُّوقِ", translation: "Saya pergi ke pasar.", grammarNote: "Logika: Tujuan perjalanan." },
-          { ar: "هَذَا سُوقٌ كَبِيرٌ", translation: "Ini adalah pasar yang besar.", grammarNote: "Logika: Suuq bisa mudzakkar/muannats." },
-          { ar: "السُّوقُ مَزْدَحِمٌ جِدًّا", translation: "Pasarnya sangat ramai.", grammarNote: "Logika: Sifat kondisi tempat." },
-          { ar: "أَشْتَرِي الْفَوَاكِهَ فِي السُّوقِ", translation: "Saya membeli buah-buahan di pasar.", grammarNote: "Logika: Keterangan tempat aktivitas." },
-          { ar: "سُوقُ الْخُضْرَاوَاتِ بَعِيدٌ", translation: "Pasar sayur itu jauh.", grammarNote: "Logika: Idhafah (Pasar sayur)." },
-          { ar: "فِي السُّوقِ بَائِعُونَ كَثِيرُونَ", translation: "Di pasar ada banyak penjual.", grammarNote: "Logika: Jamak mudzakkar untuk manusia." },
-          { ar: "السُّوقُ مَفْتُوحٌ", translation: "Pasarnya buka.", grammarNote: "Logika: Status operasional." },
-          { ar: "سُوقٌ تَقْلِيدِيٌّ", translation: "Pasar tradisional.", grammarNote: "Logika: Sifat klasifikasi." },
-          { ar: "مَتَى تَذْهَبُ إِلَى السُّوقِ؟", translation: "Kapan kamu pergi ke pasar?", grammarNote: "Logika: Pertanyaan waktu." },
-          { ar: "السُّوقُ قَرِيبٌ مِنْ بَيْتِي", translation: "Pasarnya dekat dari rumahku.", grammarNote: "Logika: Hubungan jarak." }
+          { ar: "سُوقٌ وَاحِدٌ", translation: "Satu pasar.", grammarNote: "Logika: Suuq (M) -> Waahid (M)." },
+          { ar: "سُوقَانِ اثْنَانِ", translation: "Dua pasar.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ أَسْوَاقٍ", translation: "Tiga pasar.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَسْوَاقٍ", translation: "Empat pasar.", grammarNote: "Logika: Ma'dud jamak majrur (Aswaaq)." },
+          { ar: "خَمْسَةُ أَسْوَاقٍ", translation: "Lima pasar.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ أَسْوَاقٍ", translation: "Enam pasar.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ أَسْوَاقٍ", translation: "Tujuh pasar.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ أَسْوَاقٍ", translation: "Delapan pasar.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ أَسْوَاقٍ", translation: "Sembilan pasar.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ أَسْوَاقٍ", translation: "Sepuluh pasar.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -222,16 +222,16 @@ export const l2_3: Lesson = {
         description: "Tempat berdagang yang lebih modern atau permanen.",
         category: "Lokasi",
         examples: [
-          { ar: "الْمَتْجَرُ نَظِيفٌ", translation: "Tokonya bersih.", grammarNote: "Logika: Sifat kondisi mudzakkar." },
-          { ar: "هَذَا مَتْجَرٌ حَدِيثٌ", translation: "Ini adalah toko yang modern.", grammarNote: "Logika: Na'at mudzakkar nakirah." },
-          { ar: "أَعْمَلُ فِي مَتْجَرِ الْمَلَابِسِ", translation: "Saya bekerja di toko pakaian.", grammarNote: "Logika: Idhafah spesifik." },
-          { ar: "الْمَتْجَرُ الْكَبِيرُ مُغْلَقٌ", translation: "Toko besar itu tutup.", grammarNote: "Logika: Na'at ma'rifah." },
-          { ar: "أَشْتَرِي الْخُبْزَ مِنَ الْمَتْجَرِ", translation: "Saya membeli roti dari toko.", grammarNote: "Logika: Sumber barang." },
-          { ar: "فِي الْمَتْجَرِ بَضَائِعُ كَثِيرَةٌ", translation: "Di toko ada banyak barang dagangan.", grammarNote: "Logika: Subjek jamak taksir -> sifat muannats." },
-          { ar: "مَتْجَرٌ رَخِيصٌ", translation: "Toko yang murah.", grammarNote: "Logika: Klasifikasi harga." },
-          { ar: "أَيْنَ أَقْرَبُ مَتْجَرٍ؟", translation: "Di mana toko terdekat?", grammarNote: "Logika: Isim Tafdhil 'Aqrabu'." },
-          { ar: "الْمَتْجَرُ مَفْتُوحٌ لَيْلًا", translation: "Tokonya buka malam hari.", grammarNote: "Logika: Waktu operasional." },
-          { ar: "دَخَلْتُ الْمَتْجَرَ", translation: "Saya masuk ke toko.", grammarNote: "Logika: Kata kerja arah." }
+          { ar: "مَتْجَرٌ وَاحِدٌ", translation: "Satu toko.", grammarNote: "Logika: Matjar (M) -> Waahid (M)." },
+          { ar: "مَتْجَرَانِ اثْنَانِ", translation: "Dua toko.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ مَتَاجِرَ", translation: "Tiga toko.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ مَتَاجِرَ", translation: "Empat toko.", grammarNote: "Logika: Ma'dud jamak majrur (Mataajir - Diptote)." },
+          { ar: "خَمْسَةُ مَتَاجِرَ", translation: "Lima toko.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ مَتَاجِرَ", translation: "Enam toko.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ مَتَاجِرَ", translation: "Tujuh toko.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ مَتَاجِرَ", translation: "Delapan toko.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ مَتَاجِرَ", translation: "Sembilan toko.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ مَتَاجِرَ", translation: "Sepuluh toko.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -241,16 +241,16 @@ export const l2_3: Lesson = {
         description: "Orang yang menawarkan barang dagangan.",
         category: "Orang",
         examples: [
-          { ar: "الْبَائِعُ أَمِينٌ", translation: "Penjual itu jujur.", grammarNote: "Logika: Sifat terpuji mudzakkar." },
-          { ar: "سَأَلْتُ الْبَائِعَ", translation: "Saya bertanya pada penjual.", grammarNote: "Logika: Objek percakapan." },
-          { ar: "هَذَا بَائِعُ الْفَوَاكِهـِ", translation: "Ini penjual buah.", grammarNote: "Logika: Idhafah profesi." },
-          { ar: "الْبَائِعُ الْكَرِيمُ يُعْطِي تَخْفِيضًا", translation: "Penjual yang dermawan memberikan diskon.", grammarNote: "Logika: Sifat perilaku." },
-          { ar: "يَا بَائِعُ، بِكَمْ هَذَا؟", translation: "Wahai penjual, berapa ini?", grammarNote: "Logika: Panggilan (Nida)." },
-          { ar: "الْبَائِعُ نَشِيطٌ فِي السُّوقِ", translation: "Penjual itu rajin di pasar.", grammarNote: "Logika: Deskripsi aktivitas." },
-          { ar: "بَائِعٌ جَدِيدٌ", translation: "Penjual baru.", grammarNote: "Logika: Sifat temporal." },
-          { ar: "الْبَائِعَةُ صَادِقَةٌ", translation: "Penjual (perempuan) itu jujur.", grammarNote: "Logika: Perubahan gender muannats." },
-          { ar: "هُمْ بَائِعُونَ طَيِّبُونَ", translation: "Mereka para penjual yang baik.", grammarNote: "Logika: Jamak mudzakkar salim." },
-          { ar: "انْتَظَرْتُ الْبَائِعَ", translation: "Saya menunggu penjual.", grammarNote: "Logika: Interaksi pembeli." }
+          { ar: "بَائِعٌ وَاحِدٌ", translation: "Satu penjual.", grammarNote: "Logika: Baa'i' (M) -> Waahid (M)." },
+          { ar: "بَائِعَانِ اثْنَانِ", translation: "Dua penjual.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ بَائِعِينَ", translation: "Tiga penjual.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ بَائِعِينَ", translation: "Empat penjual.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ بَائِعِينَ", translation: "Lima penjual.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ بَائِعِينَ", translation: "Enam penjual.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ بَائِعِينَ", translation: "Tujuh penjual.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ بَائِعِينَ", translation: "Delapan penjual.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ بَائِعِينَ", translation: "Sembilan penjual.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ بَائِعِينَ", translation: "Sepuluh penjual.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -260,16 +260,16 @@ export const l2_3: Lesson = {
         description: "Orang yang menukarkan uang dengan barang.",
         category: "Orang",
         examples: [
-          { ar: "الْمُشْتَرِي يَخْتَارُ الْبِضَاعَةَ", translation: "Pembeli memilih barang dagangan.", grammarNote: "Logika: Aktivitas konsumen." },
-          { ar: "أَنَا مُشْتَرٍ جَدِيدٌ", translation: "Saya pembeli baru.", grammarNote: "Logika: Identitas diri." },
-          { ar: "الْمُشْتَرِي الذَّكِيُّ يُسَاوِمُ", translation: "Pembeli yang cerdas menawar harga.", grammarNote: "Logika: Sifat kemampuan." },
-          { ar: "فِي الْمَتْجَرِ مُشْتَرُونَ كَثِيرُونَ", translation: "Di toko ada banyak pembeli.", grammarNote: "Logika: Jamak konsumen." },
-          { ar: "الْمُشْتَرِي يَدْفَعُ النُّقُودَ", translation: "Pembeli membayar uang.", grammarNote: "Logika: Kewajiban transaksi." },
-          { ar: "أَيُّهَا الْمُشْتَرِي، تَفَضَّلْ", translation: "Wahai pembeli, silakan.", grammarNote: "Logika: Sambutan penjual." },
-          { ar: "الْمُشْتَرِيَةُ مَسْرُورَةٌ بِالتَّخْفِيضِ", translation: "Pembeli (perempuan) senang dengan diskonnya.", grammarNote: "Logika: Emosi konsumen muannats." },
-          { ar: "هَلْ أَنْتَ مُشْتَرٍ؟", translation: "Apakah kamu pembeli?", grammarNote: "Logika: Verifikasi peran." },
-          { ar: "الْمُشْتَرِي يُرِيدُ جَوْدَةً عَالِيَةً", translation: "Pembeli ingin kualitas tinggi.", grammarNote: "Logika: Harapan konsumen." },
-          { ar: "رَأَيْتُ مُشْتَرِيًا حَزِينًا", translation: "Saya melihat pembeli yang sedih.", grammarNote: "Logika: Sifat mengikuti nashab." }
+          { ar: "مُشْتَرٍ وَاحِدٌ", translation: "Satu pembeli.", grammarNote: "Logika: Musytarin (M) -> Waahid (M)." },
+          { ar: "مُشْتَرِيَانِ اثْنَانِ", translation: "Dua pembeli.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ مُشْتَرِينَ", translation: "Tiga pembeli.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ مُشْتَرِينَ", translation: "Empat pembeli.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ مُشْتَرِينَ", translation: "Lima pembeli.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ مُشْتَرِينَ", translation: "Enam pembeli.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ مُشْتَرِينَ", translation: "Tujuh pembeli.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ مُشْتَرِينَ", translation: "Delapan pembeli.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ مُشْتَرِينَ", translation: "Sembilan pembeli.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ مُشْتَرِينَ", translation: "Sepuluh pembeli.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -279,16 +279,16 @@ export const l2_3: Lesson = {
         description: "Komoditas yang ditawarkan untuk dijual.",
         category: "Istilah Bisnis",
         examples: [
-          { ar: "هَذِهِ بِضَاعَةٌ جَيِّدَةٌ", translation: "Ini barang dagangan yang bagus.", grammarNote: "Logika: Kualitas produk muannats." },
-          { ar: "الْبِضَاعَةُ غَالِيَةٌ", translation: "Barang dagangannya mahal.", grammarNote: "Logika: Deskripsi harga muannats." },
-          { ar: "عِنْدِي بِضَاعَةٌ جَدِيدَةٌ", translation: "Saya punya barang dagangan baru.", grammarNote: "Logika: Inventaris penjual." },
-          { ar: "الْبِضَاعَةُ مَوْجُودَةٌ فِي الْمَخْزَنِ", translation: "Barangnya ada di gudang.", grammarNote: "Logika: Keterangan tempat." },
-          { ar: "بِضَاعَةٌ رَخِيصَةٌ وَلَكِنْ قَوِيَّةٌ", translation: "Barang murah tapi kuat.", grammarNote: "Logika: Kombinasi sifat." },
-          { ar: "أَيْنَ الْبِضَاعَةُ الثَّمِينَةُ؟", translation: "Di mana barang dagangan yang berharga?", grammarNote: "Logika: Na'at ma'rifah muannats." },
-          { ar: "هَذِهِ الْبِضَاعَةُ مِنَ الْخَارِجِ", translation: "Barang ini dari luar negeri (impor).", grammarNote: "Logika: Sumber produk." },
-          { ar: "نَحْنُ نَبِيعُ بِضَاعَةً طَازَجَةً", translation: "Kami menjual barang dagangan yang segar.", grammarNote: "Logika: Sifat mengikuti nashab." },
-          { ar: "بِضَاعَةٌ مُتَنَوِّعَةٌ", translation: "Barang dagangan yang bermacam-macam.", grammarNote: "Logika: Keragaman produk." },
-          { ar: "انْتَهَتِ الْبِضَاعَةُ", translation: "Barangnya sudah habis.", grammarNote: "Logika: Fi'il muannats untuk subjek muannats." }
+          { ar: "بِضَاعَةٌ وَاحِدَةٌ", translation: "Satu barang.", grammarNote: "Logika: Bidha'ah (F) -> Waahidah (F)." },
+          { ar: "بِضَاعَتَانِ اثْنَتَانِ", translation: "Dua barang.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ بَضَائِعَ", translation: "Tiga barang.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ بَضَائِعَ", translation: "Empat barang.", grammarNote: "Logika: Ma'dud jamak majrur (Badha'i' - Diptote)." },
+          { ar: "خَمْسُ بَضَائِعَ", translation: "Lima barang.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ بَضَائِعَ", translation: "Enam barang.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ بَضَائِعَ", translation: "Tujuh barang.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي بَضَائِعَ", translation: "Delapan barang.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ بَضَائِعَ", translation: "Sembilan barang.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ بَضَائِعَ", translation: "Sepuluh barang.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -298,16 +298,16 @@ export const l2_3: Lesson = {
         description: "Catatan barang yang ingin dibeli.",
         category: "Alat Bantu",
         examples: [
-          { ar: "أَيْنَ قَائِمَةُ التَّسَوُّقِ؟", translation: "Di mana daftar belanjanya?", grammarNote: "Logika: Idhafah spesifik." },
-          { ar: "كَتَبْتُ قَائِمَةً طَوِيلَةً", translation: "Saya menulis daftar yang panjang.", grammarNote: "Logika: Sifat muannats mengikuti nashab." },
-          { ar: "انْظُرْ إِلَى قَائِمَةِ الْأَسْعَارِ", translation: "Lihatlah daftar harga.", grammarNote: "Logika: Informasi toko." },
-          { ar: "الْقَائِمَةُ فِي جَيْبِي", translation: "Daftarnya ada di kantongku.", grammarNote: "Logika: Keterangan tempat." },
-          { ar: "هَلْ نَسِيتَ الْقَائِمَةَ؟", translation: "Apakah kamu lupa daftarnya?", grammarNote: "Logika: Pertanyaan aktivitas." },
-          { ar: "قَائِمَةٌ جَدِيدَةٌ", translation: "Daftar baru.", grammarNote: "Logika: Sifat temporal muannats." },
-          { ar: "فِي الْقَائِمَةِ عَشَرَةُ أَشْيَاءَ", translation: "Di dalam daftar ada sepuluh hal.", grammarNote: "Logika: 'Adad-Ma'dud (Syai' mudzakkar -> Asyarata)." },
-          { ar: "الْقَائِمَةُ مُهِمَّةٌ جِدًّا", translation: "Daftar itu sangat penting.", grammarNote: "Logika: Sifat kualitas muannats." },
-          { ar: "قَرَأْتُ الْقَائِمَةَ مَرَّتَيْنِ", translation: "Saya membaca daftarnya dua kali.", grammarNote: "Logika: Keterangan frekuensi." },
-          { ar: "امْسَحْ هَذَا مِنَ الْقَائِمَةِ", translation: "Hapus ini dari daftar.", grammarNote: "Logika: Perubahan data." }
+          { ar: "قَائِمَةٌ وَاحِدَةٌ", translation: "Satu daftar.", grammarNote: "Logika: Qa'imah (F) -> Waahidah (F)." },
+          { ar: "قَائِمَتَانِ اثْنَتَانِ", translation: "Dua daftar.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ قَوَائِمَ", translation: "Tiga daftar.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ قَوَائِمَ", translation: "Empat daftar.", grammarNote: "Logika: Ma'dud jamak majrur (Qawa'im - Diptote)." },
+          { ar: "خَمْسُ قَوَائِمَ", translation: "Lima daftar.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ قَوَائِمَ", translation: "Enam daftar.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ قَوَائِمَ", translation: "Tujuh daftar.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي قَوَائِمَ", translation: "Delapan daftar.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ قَوَائِمَ", translation: "Sembilan daftar.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ قَوَائِمَ", translation: "Sepuluh daftar.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       // KELOMPOK 2 — KATA KERJA & AKTIVITAS (16-30)
@@ -318,16 +318,16 @@ export const l2_3: Lesson = {
         description: "Aktivitas menukar uang dengan barang.",
         category: "Aktivitas",
         examples: [
-          { ar: "أَنَا أَشْتَرِي الْفَوَاكِهـَ", translation: "Saya membeli buah-buahan.", grammarNote: "Logika: Fi'il mudhari' subjek 'Ana'." },
-          { ar: "مَاذَا تَشْتَرِي؟", translation: "Apa yang kamu beli?", grammarNote: "Logika: Pertanyaan objek." },
-          { ar: "اشْتَرَيْتُ قَمِيصًا جَدِيدًا", translation: "Saya telah membeli kemeja baru.", grammarNote: "Logika: Fi'il madi subjek 'Ana'." },
-          { ar: "هُوَ يُرِيدُ أَنْ يَشْتَرِيَ لَحْمًا", translation: "Dia ingin membeli daging.", grammarNote: "Logika: Fi'il manshub setelah 'An'." },
-          { ar: "نَحْنُ نَشْتَرِي السُّكَّرَ", translation: "Kami membeli gula.", grammarNote: "Logika: Fi'il mudhari' subjek 'Nahnu'." },
-          { ar: "اشْتَرِ هَذَا!", translation: "Belilah ini!", grammarNote: "Logika: Fi'il amar (perintah)." },
-          { ar: "هَلْ تَشْتَرِي هَذِهِ الْبِضَاعَةَ؟", translation: "Apakah kamu membeli barang ini?", grammarNote: "Logika: Verifikasi aksi." },
-          { ar: "اشْتَرَيْتُ ثَلَاثَةَ كُتُبٍ", translation: "Saya membeli tiga buku.", grammarNote: "Logika: 'Adad-Ma'dud (Kitab mudzakkar -> Tsalaatsata)." },
-          { ar: "لَا تَشْتَرِ الْبِضَاعَةَ الْغَالِيَةَ", translation: "Jangan beli barang yang mahal.", grammarNote: "Logika: Larangan (Laa nahiyah)." },
-          { ar: "أُحِبُّ أَنْ أَشْتَرِيَ فِي السُّوقِ", translation: "Saya suka membeli (belanja) di pasar.", grammarNote: "Logika: Preferensi aktivitas." }
+          { ar: "اشْتِرَاءٌ وَاحِدٌ", translation: "Satu pembelian.", grammarNote: "Logika: Isytira' (M) -> Waahid (M)." },
+          { ar: "اشْتِرَاءَانِ اثْنَانِ", translation: "Dua pembelian.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ اشْتِرَاءَاتٍ", translation: "Tiga pembelian.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ اشْتِرَاءَاتٍ", translation: "Empat pembelian.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ اشْتِرَاءَاتٍ", translation: "Lima pembelian.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ اشْتِرَاءَاتٍ", translation: "Enam pembelian.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ اشْتِرَاءَاتٍ", translation: "Tujuh pembelian.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ اشْتِرَاءَاتٍ", translation: "Delapan pembelian.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ اشْتِرَاءَاتٍ", translation: "Sembilan pembelian.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ اشْتِرَاءَاتٍ", translation: "Sepuluh pembelian.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -337,16 +337,16 @@ export const l2_3: Lesson = {
         description: "Aktivitas menawarkan barang untuk mendapatkan uang.",
         category: "Aktivitas",
         examples: [
-          { ar: "الْبَائِعُ يَبِيعُ السَّمَكَ", translation: "Penjual itu menjual ikan.", grammarNote: "Logika: Aktivitas profesi mudzakkar." },
-          { ar: "مَاذَا تَبِيعُ؟", translation: "Apa yang kamu jual?", grammarNote: "Logika: Pertanyaan profesi/dagangan." },
-          { ar: "بِعْتُ سَيَّارَتِي الْقَدِيمَةَ", translation: "Saya telah menjual mobil lama saya.", grammarNote: "Logika: Fi'il madi subjek 'Ana'." },
-          { ar: "هُوَ يَبِيعُ بِثَمَنٍ رَخِيصٍ", translation: "Dia menjual dengan harga murah.", grammarNote: "Logika: Strategi bisnis." },
-          { ar: "نَحْنُ نَبِيعُ الْخُضْرَاوَاتِ", translation: "Kami menjual sayur-sayuran.", grammarNote: "Logika: Komoditas dagang." },
-          { ar: "بِعْ لِي هَذَا!", translation: "Juallah ini padaku!", grammarNote: "Logika: Fi'il amar (perintah)." },
-          { ar: "هَلْ تَبِيعُ هَذَا الْكِتَابَ؟", translation: "Apakah kamu menjual buku ini?", grammarNote: "Logika: Verifikasi dagangan." },
-          { ar: "يَبِيعُ التَّاجِرُ بَضَائِعَ كَثِيرَةً", translation: "Pedagang itu menjual banyak barang.", grammarNote: "Logika: Skala bisnis." },
-          { ar: "لَا تَبِعْ بِدُونِ رِبْحٍ", translation: "Jangan menjual tanpa untung.", grammarNote: "Logika: Larangan bisnis." },
-          { ar: "أُحِبُّ أَنْ أَبِيعَ فِي الْمَتْجَرِ", translation: "Saya suka menjual di toko.", grammarNote: "Logika: Preferensi profesi." }
+          { ar: "بَيْعٌ وَاحِدٌ", translation: "Satu penjualan.", grammarNote: "Logika: Bay' (M) -> Waahid (M)." },
+          { ar: "بَيْعَانِ اثْنَانِ", translation: "Dua penjualan.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ مَبِيعَاتٍ", translation: "Tiga penjualan.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ مَبِيعَاتٍ", translation: "Empat penjualan.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ مَبِيعَاتٍ", translation: "Lima penjualan.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ مَبِيعَاتٍ", translation: "Enam penjualan.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ مَبِيعَاتٍ", translation: "Tujuh penjualan.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ مَبِيعَاتٍ", translation: "Delapan penjualan.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ مَبِيعَاتٍ", translation: "Sembilan penjualan.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ مَبِيعَاتٍ", translation: "Sepuluh penjualan.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -356,16 +356,16 @@ export const l2_3: Lesson = {
         description: "Bernegosiasi untuk mendapatkan harga yang lebih murah.",
         category: "Aktivitas",
         examples: [
-          { ar: "الْمُشْتَرِي يُسَاوِمُ الثَّمَنَ", translation: "Pembeli menawar harganya.", grammarNote: "Logika: Seni belanja." },
-          { ar: "هَلْ يُمْكِنُنِي أَنْ أُسَاوِمَ؟", translation: "Apakah saya boleh menawar?", grammarNote: "Logika: Permintaan izin." },
-          { ar: "سَاوَمْتُ الْبَائِعَ كَثِيرًا", translation: "Saya menawar penjual itu berkalikali.", grammarNote: "Logika: Usaha pembeli." },
-          { ar: "الْبَائِعُ لَا يُرِيدُ الْمُسَاوَمَةَ", translation: "Penjual tidak mau tawar-menawar.", grammarNote: "Logika: Harga pas (fixed price)." },
-          { ar: "نَحْنُ نُسَاوِمُ لِلْحُصُولِ عَلَى تَخْفِيضٍ", translation: "Kami menawar untuk mendapatkan diskon.", grammarNote: "Logika: Tujuan negosiasi." },
-          { ar: "سَاوِمْ جَيِّدًا!", translation: "Tawarlah dengan baik!", grammarNote: "Logika: Perintah taktik." },
-          { ar: "الْمُسَاوَمَةُ مَوْجُودَةٌ فِي السُّوقِ", translation: "Tawar-menawar ada di pasar.", grammarNote: "Logika: Budaya pasar." },
-          { ar: "يَجِبُ أَنْ تُسَاوِمَ بِرِفْقٍ", translation: "Kamu harus menawar dengan lembut.", grammarNote: "Logika: Etika negosiasi." },
-          { ar: "بَعْدَ الْمُسَاوَمَةِ، الثَّمَنُ رَخِيصٌ", translation: "Setelah menawar, harganya jadi murah.", grammarNote: "Logika: Hasil negosiasi." },
-          { ar: "أَنَا لَا أُحِبُّ أَنْ أُسَاوِمَ", translation: "Saya tidak suka menawar.", grammarNote: "Logika: Preferensi belanja." }
+          { ar: "مُسَاوَمَةٌ وَاحِدَةٌ", translation: "Satu tawar-menawar.", grammarNote: "Logika: Musawamah (F) -> Waahidah (F)." },
+          { ar: "مُسَاوَمَتَانِ اثْنَتَانِ", translation: "Dua tawar-menawar.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ مُسَاوَمَاتٍ", translation: "Tiga tawar-menawar.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ مُسَاوَمَاتٍ", translation: "Empat tawar-menawar.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسُ مُسَاوَمَاتٍ", translation: "Lima tawar-menawar.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ مُسَاوَمَاتٍ", translation: "Enam tawar-menawar.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ مُسَاوَمَاتٍ", translation: "Tujuh tawar-menawar.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي مُسَاوَمَاتٍ", translation: "Delapan tawar-menawar.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ مُسَاوَمَاتٍ", translation: "Sembilan tawar-menawar.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ مُسَاوَمَاتٍ", translation: "Sepuluh tawar-menawar.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -375,16 +375,16 @@ export const l2_3: Lesson = {
         description: "Memberikan uang sebagai pemenuhan kewajiban.",
         category: "Aktivitas",
         examples: [
-          { ar: "أَدْفَعُ النُّقُودَ لِلْكَاشِيرِ", translation: "Saya membayar uang ke kasir.", grammarNote: "Logika: Tahap akhir belanja." },
-          { ar: "كَمْ تَدْفَعُ؟", translation: "Berapa kamu bayar?", grammarNote: "Logika: Pertanyaan nilai." },
-          { ar: "دَفَعْتُ عَشَرَةَ آلَافٍ", translation: "Saya telah membayar sepuluh ribu.", grammarNote: "Logika: Nilai pembayaran." },
-          { ar: "هُوَ يَدْفَعُ بِالنُّقُودِ الْوَرَقِيَّةِ", translation: "Dia membayar dengan uang kertas.", grammarNote: "Logika: Metode bayar." },
-          { ar: "نَحْنُ نَدْفَعُ الْآنَ", translation: "Kami membayar sekarang.", grammarNote: "Logika: Keterangan waktu." },
-          { ar: "ادْفَعْ هُنَا!", translation: "Bayarlah di sini!", grammarNote: "Logika: Instruksi tempat." },
-          { ar: "هَلْ دَفَعْتَ الثَّمَنَ؟", translation: "Apakah kamu sudah bayar harganya?", grammarNote: "Logika: Verifikasi transaksi." },
-          { ar: "يَجِبُ أَنْ تَدْفَعَ الثَّمَنَ الْكَامِلَ", translation: "Kamu harus membayar harga penuh.", grammarNote: "Logika: Kewajiban bayar." },
-          { ar: "دَفَعَ الْمُشْتَرِي بِسُرْعَةٍ", translation: "Pembeli membayar dengan cepat.", grammarNote: "Logika: Keterangan cara." },
-          { ar: "لَا تَدْفَعْ قَبْلَ الِاسْتِلَامِ", translation: "Jangan bayar sebelum menerima (barang).", grammarNote: "Logika: Tips keamanan." }
+          { ar: "دَفْعَةٌ وَاحِدَةٌ", translation: "Satu pembayaran.", grammarNote: "Logika: Daf'ah (F) -> Waahidah (F)." },
+          { ar: "دَفْعَتَانِ اثْنَتَانِ", translation: "Dua pembayaran.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ دَفَعَاتٍ", translation: "Tiga pembayaran.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ دَفَعَاتٍ", translation: "Empat pembayaran.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسُ دَفَعَاتٍ", translation: "Lima pembayaran.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ دَفَعَاتٍ", translation: "Enam pembayaran.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ دَفَعَاتٍ", translation: "Tujuh pembayaran.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي دَفَعَاتٍ", translation: "Delapan pembayaran.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ دَفَعَاتٍ", translation: "Sembilan pembayaran.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ دَفَعَاتٍ", translation: "Sepuluh pembayaran.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -394,16 +394,16 @@ export const l2_3: Lesson = {
         description: "Sifat untuk barang yang harganya tinggi.",
         category: "Kualitas",
         examples: [
-          { ar: "هَذَا الثَّمَنُ غَالٍ", translation: "Harga ini mahal.", grammarNote: "Logika: Sifat mudzakkar." },
-          { ar: "الْبِضَاعَةُ غَالِيَةٌ جِدًّا", translation: "Barangnya sangat mahal.", grammarNote: "Logika: Perubahan muannats (Ghaaliyah)." },
-          { ar: "لَا أَشْتَرِي الْغَالِيَ", translation: "Saya tidak membeli yang mahal.", grammarNote: "Logika: Kata sifat sebagai objek." },
-          { ar: "السُّكَّرُ غَالٍ الْيَوْمَ", translation: "Gula mahal hari ini.", grammarNote: "Logika: Kondisi harga pasar." },
-          { ar: "لِمَاذَا هُوَ غَالٍ؟", translation: "Kenapa dia mahal?", grammarNote: "Logika: Pertanyaan alasan." },
-          { ar: "أُرِيدُ شَيْئًا غَيْرَ غَالٍ", translation: "Saya ingin sesuatu yang tidak mahal.", grammarNote: "Logika: Modifikasi negasi." },
-          { ar: "الذَّهَبُ مَعْدَنٌ غَالٍ", translation: "Emas adalah logam yang mahal.", grammarNote: "Logika: Na'at mudzakkar." },
-          { ar: "الْمَلَابِسُ الْغَالِيَةُ جَمِيلَةٌ", translation: "Pakaian yang mahal itu bagus.", grammarNote: "Logika: Na'at ma'rifah muannats." },
-          { ar: "ثَمَنٌ غَالٍ جِدًّا", translation: "Harga yang sangat mahal.", grammarNote: "Logika: Penguatan makna." },
-          { ar: "لَيْسَ غَالِيًا", translation: "Tidak mahal (Laysa).", grammarNote: "Logika: Negasi kondisi." }
+          { ar: "ثَمَنٌ غَالٍ وَاحِدٌ", translation: "Satu harga mahal.", grammarNote: "Logika: Thaman (M) -> Waahid (M)." },
+          { ar: "ثَمَنَانِ غَالِيَانِ اثْنَانِ", translation: "Dua harga mahal.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ أَثْمَانٍ غَالِيَةٍ", translation: "Tiga harga mahal.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَثْمَانٍ غَالِيَةٍ", translation: "Empat harga mahal.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ أَثْمَانٍ غَالِيَةٍ", translation: "Lima harga mahal.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ أَثْمَانٍ غَالِيَةٍ", translation: "Enam harga mahal.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ أَثْمَانٍ غَالِيَةٍ", translation: "Tujuh harga mahal.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ أَثْمَانٍ غَالِيَةٍ", translation: "Delapan harga mahal.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ أَثْمَانٍ غَالِيَةٍ", translation: "Sembilan harga mahal.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ أَثْمَانٍ غَالِيَةٍ", translation: "Sepuluh harga mahal.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -413,16 +413,16 @@ export const l2_3: Lesson = {
         description: "Sifat untuk barang yang harganya terjangkau.",
         category: "Kualitas",
         examples: [
-          { ar: "هَذَا الثَّمَنُ رَخِيصٌ", translation: "Harga ini murah.", grammarNote: "Logika: Sifat mudzakkar." },
-          { ar: "الْبِضَاعَةُ رَخِيصَةٌ الْآنَ", translation: "Barang-barangnya murah sekarang.", grammarNote: "Logika: Sifat muannats." },
-          { ar: "أَبْحَثُ عَنْ مَتْجَرٍ رَخِيصٍ", translation: "Saya mencari toko yang murah.", grammarNote: "Logika: Sifat mengikuti i'rab majrur." },
-          { ar: "الْخُبْزُ رَخِيصٌ جِدًّا", translation: "Rotinya sangat murah.", grammarNote: "Logika: Deskripsi kebutuhan pokok." },
-          { ar: "هَلْ هَذَا رَخِيصٌ؟", translation: "Apakah ini murah?", grammarNote: "Logika: Verifikasi harga." },
-          { ar: "أُرِيدُ بِضَاعَةً رَخِيصَةً", translation: "Saya ingin barang yang murah.", grammarNote: "Logika: Sifat mengikuti nashab." },
-          { ar: "السُّوقُ التَّقْلِيدِيُّ رَخِيصٌ", translation: "Pasar tradisional itu murah.", grammarNote: "Logika: Sifat tempat." },
-          { ar: "الْبِضَاعَةُ الرَّخِيصَةُ لَيْسَتْ جَيِّدَةً", translation: "Barang yang murah (biasanya) tidak bagus.", grammarNote: "Logika: Skeptisisme kualitas." },
-          { ar: "رَخِيصٌ وَجَمِيلٌ", translation: "Murah dan bagus.", grammarNote: "Logika: Kombinasi sifat positif." },
-          { ar: "أَصْبَحَ الثَّمَنُ رَخِيصًا", translation: "Harganya menjadi murah.", grammarNote: "Logika: Perubahan kondisi." }
+          { ar: "ثَمَنٌ رَخِيصٌ وَاحِدٌ", translation: "Satu harga murah.", grammarNote: "Logika: Thaman (M) -> Waahid (M)." },
+          { ar: "ثَمَنَانِ رَخِيصَانِ اثْنَانِ", translation: "Dua harga murah.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Tiga harga murah.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Empat harga murah.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Lima harga murah.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Enam harga murah.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Tujuh harga murah.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Delapan harga murah.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Sembilan harga murah.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ أَثْمَانٍ رَخِيصَةٍ", translation: "Sepuluh harga murah.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -432,16 +432,16 @@ export const l2_3: Lesson = {
         description: "Kualitas barang (biasanya makanan) yang baru dipanen/dibuat.",
         category: "Kualitas",
         examples: [
-          { ar: "الْخُضْرَاوَاتُ طَازَجَةٌ", translation: "Sayur-sayurannya segar.", grammarNote: "Logika: Sifat muannats." },
-          { ar: "أُرِيدُ لَحْمًا طَازَجًا", translation: "Saya ingin daging segar.", grammarNote: "Logika: Sifat mengikuti nashab." },
-          { ar: "هَذَا سَمَكٌ طَازَجٌ", translation: "Ini ikan yang segar.", grammarNote: "Logika: Na'at mudzakkar nakirah." },
-          { ar: "الْحَلِيبُ الطَّازَجُ مُفِيدٌ", translation: "Susu segar itu bermanfaat.", grammarNote: "Logika: Na'at ma'rifah." },
-          { ar: "هَلِ الْفَوَاكِهـُ طَازَجَةٌ؟", translation: "Apakah buah-buahannya segar?", grammarNote: "Logika: Verifikasi kualitas." },
-          { ar: "بَيْضٌ طَازَجٌ", translation: "Telur segar.", grammarNote: "Logika: Deskripsi bahan makanan." },
-          { ar: "فِي الصَّبَاحِ الْخُبْزُ طَازَجٌ", translation: "Di pagi hari rotinya segar.", grammarNote: "Logika: Hubungan waktu." },
-          { ar: "اشْتَرِ التُّفَّاحَ الطَّازَجَ", translation: "Belilah apel yang segar itu.", grammarNote: "Logika: Na'at ma'rifah." },
-          { ar: "رَائِحَةٌ طَازَجَةٌ", translation: "Aroma yang segar.", grammarNote: "Logika: Sifat indra." },
-          { ar: "طَازَجٌ جِدًّا", translation: "Sangat segar.", grammarNote: "Logika: Penguatan kualitas." }
+          { ar: "طَعَامٌ طَازَجٌ وَاحِدٌ", translation: "Satu makanan segar.", grammarNote: "Logika: Tha'aam (M) -> Waahid (M)." },
+          { ar: "طَعَامَانِ طَازَجَانِ اثْنَانِ", translation: "Dua makanan segar.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Tiga makanan segar.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Empat makanan segar.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Lima makanan segar.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Enam makanan segar.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Tujuh makanan segar.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Delapan makanan segar.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Sembilan makanan segar.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ أَطْعِمَةٍ طَازَجَةٍ", translation: "Sepuluh makanan segar.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -451,16 +451,16 @@ export const l2_3: Lesson = {
         description: "Nama buah populer.",
         category: "Barang Dagangan",
         examples: [
-          { ar: "أَشْتَرِي التُّفَّاحَ", translation: "Saya membeli apel.", grammarNote: "Logika: Objek transaksi." },
-          { ar: "تُفَّاحٌ أَحْمَرُ", translation: "Apel merah.", grammarNote: "Logika: Sifat warna." },
-          { ar: "كِيلُو تُفَّاحٍ", translation: "Sekilo apel.", grammarNote: "Logika: Idhafah satuan." },
-          { ar: "تُفَّاحٌ لَذِيذٌ", translation: "Apel lezat.", grammarNote: "Logika: Na'at mudzakkar." },
-          { ar: "ثَلَاثُ حَبَّاتِ تُفَّاحٍ", translation: "Tiga butir apel.", grammarNote: "Logika: 'Adad-Ma'dud." },
-          { ar: "تُفَّاحٌ أَخْضَرُ", translation: "Apel hijau.", grammarNote: "Logika: Warna mudzakkar." },
-          { ar: "أُرِيدُ تُفَّاحًا", translation: "Saya ingin apel.", grammarNote: "Logika: Objek nashab." },
-          { ar: "التُّفَّاحَةُ فِي الْيَدِ", translation: "Apel itu di tangan.", grammarNote: "Logika: Mufradah." },
-          { ar: "هَلْ هَذَا تُفَّاحٌ؟", translation: "Apakah ini apel?", grammarNote: "Logika: Verifikasi benda." },
-          { ar: "التُّفَّاحُ غَالٍ", translation: "Apelnya mahal.", grammarNote: "Logika: Deskripsi harga." }
+          { ar: "تُفَّاحَةٌ وَاحِدَةٌ", translation: "Satu apel.", grammarNote: "Logika: Tuffaahah (F) -> Waahidah (F)." },
+          { ar: "تُفَّاحَتَانِ اثْنَتَانِ", translation: "Dua apel.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ تُفَّاحَاتٍ", translation: "Tiga apel.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ تُفَّاحَاتٍ", translation: "Empat apel.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسُ تُفَّاحَاتٍ", translation: "Lima apel.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ تُفَّاحَاتٍ", translation: "Enam apel.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ تُفَّاحَاتٍ", translation: "Tujuh apel.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي تُفَّاحَاتٍ", translation: "Delapan apel.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ تُفَّاحَاتٍ", translation: "Sembilan apel.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ تُفَّاحَاتٍ", translation: "Sepuluh apel.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -470,16 +470,16 @@ export const l2_3: Lesson = {
         description: "Buah sitrus sumber vitamin C.",
         category: "Barang Dagangan",
         examples: [
-          { ar: "الْبُرْتُقَالُ حُلْوٌ", translation: "Jeruknya manis.", grammarNote: "Logika: Sifat rasa." },
-          { ar: "أُرِيدُ بُرْتُقَالًا", translation: "Saya ingin jeruk.", grammarNote: "Logika: Objek nashab." },
-          { ar: "بُرْتُقَالٌ حَامِضٌ", translation: "Jeruk asam.", grammarNote: "Logika: Klasifikasi rasa." },
-          { ar: "كِيلُو بُرْتُقَالٍ", translation: "Sekilo jeruk.", grammarNote: "Logika: Satuan berat." },
-          { ar: "خَمْسُ حَبَّاتِ بُرْتُقَالٍ", translation: "Lima butir jeruk.", grammarNote: "Logika: 'Adad-Ma'dud." },
-          { ar: "عَصِيرُ الْبُرْتُقَالِ", translation: "Jus jeruk.", grammarNote: "Logika: Idhafah." },
-          { ar: "الْبُرْتُقَالُ طَازَجٌ", translation: "Jeruknya segar.", grammarNote: "Logika: Sifat kondisi." },
-          { ar: "بُرْتُقَالَةٌ وَاحِدَةٌ", translation: "Sebutir jeruk.", grammarNote: "Logika: Angka 1 muannats." },
-          { ar: "هَذَا بُرْتُقَالٌ كَبِيرٌ", translation: "Ini jeruk besar.", grammarNote: "Logika: Na'at mudzakkar." },
-          { ar: "اشْتَرِ الْبُرْتُقَالَ", translation: "Belilah jeruk.", grammarNote: "Logika: Perintah." }
+          { ar: "بُرْتُقَالَةٌ وَاحِدَةٌ", translation: "Satu jeruk.", grammarNote: "Logika: Burtuqaalah (F) -> Waahidah (F)." },
+          { ar: "بُرْتُقَالَتَانِ اثْنَتَانِ", translation: "Dua jeruk.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ بُرْتُقَالَاتٍ", translation: "Tiga jeruk.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ بُرْتُقَالَاتٍ", translation: "Empat jeruk.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسُ بُرْتُقَالَاتٍ", translation: "Lima jeruk.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ بُرْتُقَالَاتٍ", translation: "Enam jeruk.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ بُرْتُقَالَاتٍ", translation: "Tujuh jeruk.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي بُرْتُقَالَاتٍ", translation: "Delapan jeruk.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ بُرْتُقَالَاتٍ", translation: "Sembilan jeruk.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ بُرْتُقَالَاتٍ", translation: "Sepuluh jeruk.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -489,16 +489,16 @@ export const l2_3: Lesson = {
         description: "Buah tropis kuning.",
         category: "Barang Dagangan",
         examples: [
-          { ar: "الْمَوْزُ لَذِيذٌ", translation: "Pisangnya lezat.", grammarNote: "Logika: Sifat rasa." },
-          { ar: "رَبْطَةُ مَوْزٍ", translation: "Seikat pisang.", grammarNote: "Logika: Satuan ikat." },
-          { ar: "مَوْزٌ أَصْفَرُ", translation: "Pisang kuning.", grammarNote: "Logika: Warna mudzakkar." },
-          { ar: "كِيلُو مَوْزٍ", translation: "Sekilo pisang.", grammarNote: "Logika: Satuan berat." },
-          { ar: "أَرْبَعُ حَبَّاتِ مَوْزٍ", translation: "Empat butir pisang.", grammarNote: "Logika: 'Adad-Ma'dud." },
-          { ar: "أُحِبُّ الْمَوْزَ", translation: "Saya suka pisang.", grammarNote: "Logika: Preferensi." },
-          { ar: "مَوْزٌ طَازَجٌ", translation: "Pisang segar.", grammarNote: "Logika: Na'at mudzakkar." },
-          { ar: "مَوْزَةٌ وَاحِدَةٌ", translation: "Sebutir pisang.", grammarNote: "Logika: Mufradah." },
-          { ar: "بِكَمِ الْمَوْزُ؟", translation: "Berapa pisangnya?", grammarNote: "Logika: Pertanyaan harga." },
-          { ar: "اشْتَرَيْتُ مَوْزًا", translation: "Saya membeli pisang.", grammarNote: "Logika: Madi." }
+          { ar: "مَوْزَةٌ وَاحِدَةٌ", translation: "Satu pisang.", grammarNote: "Logika: Mawzah (F) -> Waahidah (F)." },
+          { ar: "مَوْزَتَانِ اثْنَتَانِ", translation: "Dua pisang.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ مَوْزَاتٍ", translation: "Tiga pisang.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ مَوْزَاتٍ", translation: "Empat pisang.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسُ مَوْزَاتٍ", translation: "Lima pisang.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ مَوْزَاتٍ", translation: "Enam pisang.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ مَوْزَاتٍ", translation: "Tujuh pisang.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي مَوْزَاتٍ", translation: "Delapan pisang.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ مَوْزَاتٍ", translation: "Sembilan pisang.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ مَوْزَاتٍ", translation: "Sepuluh pisang.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -508,16 +508,16 @@ export const l2_3: Lesson = {
         description: "Makanan pokok.",
         category: "Barang Dagangan",
         examples: [
-          { ar: "خُبْزٌ سَاخِنٌ", translation: "Roti panas.", grammarNote: "Logika: Kondisi fisik." },
-          { ar: "أَشْتَرِي الْخُبْزَ", translation: "Saya membeli roti.", grammarNote: "Logika: Objek." },
-          { ar: "خُبْزٌ أَبْيَضُ", translation: "Roti putih.", grammarNote: "Logika: Warna." },
-          { ar: "خَمْسُ خُبْزَاتٍ", translation: "Lima roti.", grammarNote: "Logika: 'Adad-Ma'dud." },
-          { ar: "خُبْزٌ لَذِيذٌ", translation: "Roti lezat.", grammarNote: "Logika: Rasa." },
-          { ar: "رَائِحَةُ الْخُبْزِ", translation: "Aroma roti.", grammarNote: "Logika: Idhafah." },
-          { ar: "خُبْزٌ طَازَجٌ", translation: "Roti segar.", grammarNote: "Logika: Kondisi." },
-          { ar: "أُرِيدُ خُبْزًا", translation: "Saya ingin roti.", grammarNote: "Logika: Nashab." },
-          { ar: "الْخُبْزُ رَخِيصٌ", translation: "Rotinya murah.", grammarNote: "Logika: Harga." },
-          { ar: "كُلِ الْخُبْزَ", translation: "Makanlah roti.", grammarNote: "Logika: Perintah." }
+          { ar: "خُبْزَةٌ وَاحِدَةٌ", translation: "Satu roti.", grammarNote: "Logika: Khubzah (F) -> Waahidah (F)." },
+          { ar: "خُبْزَتَانِ اثْنَتَانِ", translation: "Dua roti.", grammarNote: "Logika: Tasniyah muannats." },
+          { ar: "ثَلَاثُ خُبْزَاتٍ", translation: "Tiga roti.", grammarNote: "Logika: Angka 3-10, 'Adad (M) berlawanan gender dengan Ma'dud (F)." },
+          { ar: "أَرْبَعُ خُبْزَاتٍ", translation: "Empat roti.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسُ خُبْزَاتٍ", translation: "Lima roti.", grammarNote: "Logika: Angka 5 mudzakkar." },
+          { ar: "سِتُّ خُبْزَاتٍ", translation: "Enam roti.", grammarNote: "Logika: Angka 6 mudzakkar." },
+          { ar: "سَبْعُ خُبْزَاتٍ", translation: "Tujuh roti.", grammarNote: "Logika: Angka 7 mudzakkar." },
+          { ar: "ثَمَانِي خُبْزَاتٍ", translation: "Delapan roti.", grammarNote: "Logika: Angka 8 mudzakkar." },
+          { ar: "تِسْعُ خُبْزَاتٍ", translation: "Sembilan roti.", grammarNote: "Logika: Angka 9 mudzakkar." },
+          { ar: "عَشَرُ خُبْزَاتٍ", translation: "Sepuluh roti.", grammarNote: "Logika: Angka 10 mudzakkar." }
         ]
       },
       {
@@ -527,16 +527,16 @@ export const l2_3: Lesson = {
         description: "Sumber protein.",
         category: "Barang Dagangan",
         examples: [
-          { ar: "كِيلُو لَحْمٍ", translation: "Sekilo daging.", grammarNote: "Logika: Satuan berat." },
-          { ar: "لَحْمٌ طَازَجٌ", translation: "Daging segar.", grammarNote: "Logika: Kondisi." },
-          { ar: "اللَّحْمُ غَالٍ", translation: "Dagingnya mahal.", grammarNote: "Logika: Harga." },
-          { ar: "لَحْمُ بَقَرٍ", translation: "Daging sapi.", grammarNote: "Logika: Idhafah." },
-          { ar: "أُرِيدُ لَحْمًا", translation: "Saya ingin daging.", grammarNote: "Logika: Nashab." },
-          { ar: "اللَّحْمُ لَذِيذٌ", translation: "Dagingnya lezat.", grammarNote: "Logika: Rasa." },
-          { ar: "طَبَخْتُ اللَّحْمَ", translation: "Saya memasak daging.", grammarNote: "Logika: Madi." },
-          { ar: "لَحْمٌ مَشْوِيٌّ", translation: "Daging panggang.", grammarNote: "Logika: Sifat." },
-          { ar: "بِكَمِ اللَّحْمُ؟", translation: "Berapa dagingnya?", grammarNote: "Logika: Harga." },
-          { ar: "لَا آكُلُ اللَّحْمَ", translation: "Saya tidak makan daging.", grammarNote: "Logika: Negasi." }
+          { ar: "كِيلُو لَحْمٍ وَاحِدٌ", translation: "Satu kilo daging.", grammarNote: "Logika: Kiiluu (M) -> Waahid (M)." },
+          { ar: "كِيلُو لَحْمٍ اثْنَانِ", translation: "Dua kilo daging.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Tiga kilo daging.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M - Kiiluugraam)." },
+          { ar: "أَرْبَعَةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Empat kilo daging.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Lima kilo daging.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Enam kilo daging.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Tujuh kilo daging.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Delapan kilo daging.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Sembilan kilo daging.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ كِيلُوجْرَامَاتِ لَحْمٍ", translation: "Sepuluh kilo daging.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -546,16 +546,16 @@ export const l2_3: Lesson = {
         description: "Sandang.",
         category: "Barang Dagangan",
         examples: [
-          { ar: "مَلَابِسُ جَدِيدَةٌ", translation: "Pakaian baru.", grammarNote: "Logika: Sifat muannats." },
-          { ar: "أَشْتَرِي مَلَابِسَ", translation: "Saya membeli pakaian.", grammarNote: "Logika: Objek." },
-          { ar: "مَلَابِسُ جَمِيلَةٌ", translation: "Pakaian bagus.", grammarNote: "Logika: Estetika." },
-          { ar: "مَحَلُّ مَلَابِسَ", translation: "Toko pakaian.", grammarNote: "Logika: Idhafah." },
-          { ar: "مَلَابِسُ غَالِيَةٌ", translation: "Pakaian mahal.", grammarNote: "Logika: Harga." },
-          { ar: "لَبِسْتُ الْمَلَابِسَ", translation: "Saya memakai pakaian.", grammarNote: "Logika: Madi." },
-          { ar: "مَلَابِسُ نَظِيفَةٌ", translation: "Pakaian bersih.", grammarNote: "Logika: Kondisi." },
-          { ar: "أُرِيدُ مَلَابِسَ", translation: "Saya ingin pakaian.", grammarNote: "Logika: Nashab." },
-          { ar: "الْمَلَابِسُ هُنَا", translation: "Pakaiannya di sini.", grammarNote: "Logika: Lokasi." },
-          { ar: "مَلَابِسُ رَخِيصَةٌ", translation: "Pakaian murah.", grammarNote: "Logika: Harga." }
+          { ar: "ثَوْبٌ وَاحِدٌ", translation: "Satu baju.", grammarNote: "Logika: Thawb (M) -> Waahid (M)." },
+          { ar: "ثَوْبَانِ اثْنَانِ", translation: "Dua baju.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ أَثْوَابٍ", translation: "Tiga baju.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَثْوَابٍ", translation: "Empat baju.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ أَثْوَابٍ", translation: "Lima baju.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ أَثْوَابٍ", translation: "Enam baju.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ أَثْوَابٍ", translation: "Tujuh baju.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ أَثْوَابٍ", translation: "Delapan baju.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ أَثْوَابٍ", translation: "Sembilan baju.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ أَثْوَابٍ", translation: "Sepuluh baju.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -565,16 +565,16 @@ export const l2_3: Lesson = {
         description: "Alat ukur berat.",
         category: "Alat Bantu",
         examples: [
-          { ar: "الْمِيـزَانُ دَقِيقٌ", translation: "Timbangannya teliti.", grammarNote: "Logika: Kualitas." },
-          { ar: "أَيْنَ الْمِيـزَانُ؟", translation: "Di mana timbangannya?", grammarNote: "Logika: Lokasi." },
-          { ar: "هَذَا مِيـزَانٌ", translation: "Ini timbangan.", grammarNote: "Logika: Isim isyarah." },
-          { ar: "مِيـزَانٌ جَدِيدٌ", translation: "Timbangan baru.", grammarNote: "Logika: Sifat." },
-          { ar: "ضَعْ عَلَى الْمِيـزَانِ", translation: "Letakkan di timbangan.", grammarNote: "Logika: Perintah." },
-          { ar: "الْمِيـزَانُ ثَقِيلٌ", translation: "Timbangannya berat.", grammarNote: "Logika: Fisik." },
-          { ar: "مِيـزَانُ السُّوقِ", translation: "Timbangan pasar.", grammarNote: "Logika: Idhafah." },
-          { ar: "اسْتَخْدِمِ الْمِيـزَانَ", translation: "Gunakan timbangan.", grammarNote: "Logika: Perintah." },
-          { ar: "الْمِيـزَانُ هُنَاكَ", translation: "Timbangannya di sana.", grammarNote: "Logika: Lokasi." },
-          { ar: "مِيـزَانٌ صَغِيرٌ", translation: "Timbangan kecil.", grammarNote: "Logika: Sifat." }
+          { ar: "مِيـزَانٌ وَاحِدٌ", translation: "Satu timbangan.", grammarNote: "Logika: Miizaan (M) -> Waahid (M)." },
+          { ar: "مِيـزَانَانِ اثْنَانِ", translation: "Dua timbangan.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ مَوَازِينَ", translation: "Tiga timbangan.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ مَوَازِينَ", translation: "Empat timbangan.", grammarNote: "Logika: Ma'dud jamak majrur (Mawaaziin - Diptote)." },
+          { ar: "خَمْسَةُ مَوَازِينَ", translation: "Lima timbangan.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ مَوَازِينَ", translation: "Enam timbangan.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ مَوَازِينَ", translation: "Tujuh timbangan.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ مَوَازِينَ", translation: "Delapan timbangan.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ مَوَازِينَ", translation: "Sembilan timbangan.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ مَوَازِينَ", translation: "Sepuluh timbangan.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       },
       {
@@ -584,16 +584,16 @@ export const l2_3: Lesson = {
         description: "Wadah barang.",
         category: "Alat Bantu",
         examples: [
-          { ar: "خَمْسَةُ أَكْيَاسٍ", translation: "Lima plastik.", grammarNote: "Logika: 'Adad-Ma'dud." },
-          { ar: "أَحْتَاجُ أَكْيَاسًا", translation: "Saya butuh plastik.", grammarNote: "Logika: Objek." },
-          { ar: "أَكْيَاسٌ قَوِيَّةٌ", translation: "Plastik kuat.", grammarNote: "Logika: Sifat." },
-          { ar: "كِيسٌ وَاحِدٌ", translation: "Satu plastik.", grammarNote: "Logika: Angka 1." },
-          { ar: "أَكْيَاسٌ وَرَقِيَّةٌ", translation: "Kantong kertas.", grammarNote: "Logika: Sifat." },
-          { ar: "ضَعْ فِي الْأَكْيَاسِ", translation: "Letakkan di plastik.", grammarNote: "Logika: Perintah." },
-          { ar: "أَيْنَ الْأَكْيَاسُ؟", translation: "Di mana plastiknya?", grammarNote: "Logika: Lokasi." },
-          { ar: "أَكْيَاسٌ كَثِيرَةٌ", translation: "Banyak plastik.", grammarNote: "Logika: Sifat." },
-          { ar: "اشْتَرَيْتُ أَكْيَاسًا", translation: "Saya membeli plastik.", grammarNote: "Logika: Madi." },
-          { ar: "هَذِهِ أَكْيَاسٌ", translation: "Ini plastik.", grammarNote: "Logika: Isyarah." }
+          { ar: "كِيسٌ وَاحِدٌ", translation: "Satu plastik.", grammarNote: "Logika: Kiis (M) -> Waahid (M)." },
+          { ar: "كِيسَانِ اثْنَانِ", translation: "Dua plastik.", grammarNote: "Logika: Tasniyah mudzakkar." },
+          { ar: "ثَلَاثَةُ أَكْيَاسٍ", translation: "Tiga plastik.", grammarNote: "Logika: Angka 3-10, 'Adad (F) berlawanan gender dengan Ma'dud (M)." },
+          { ar: "أَرْبَعَةُ أَكْيَاسٍ", translation: "Empat plastik.", grammarNote: "Logika: Ma'dud jamak majrur." },
+          { ar: "خَمْسَةُ أَكْيَاسٍ", translation: "Lima plastik.", grammarNote: "Logika: Angka 5 muannats." },
+          { ar: "سِتَّةُ أَكْيَاسٍ", translation: "Enam plastik.", grammarNote: "Logika: Angka 6 muannats." },
+          { ar: "سَبْعَةُ أَكْيَاسٍ", translation: "Tujuh plastik.", grammarNote: "Logika: Angka 7 muannats." },
+          { ar: "ثَمَانِيَةُ أَكْيَاسٍ", translation: "Delapan plastik.", grammarNote: "Logika: Angka 8 muannats." },
+          { ar: "تِسْعَةُ أَكْيَاسٍ", translation: "Sembilan plastik.", grammarNote: "Logika: Angka 9 muannats." },
+          { ar: "عَشَرَةُ أَكْيَاسٍ", translation: "Sepuluh plastik.", grammarNote: "Logika: Angka 10 muannats." }
         ]
       }
     ],
@@ -646,8 +646,8 @@ export const l2_3: Lesson = {
         { speaker: "PEMBELI", arabic: "بِكَمْ كِيلُو التُّفَّاحِ الْيَوْمَ؟", translation: "Berapa sekilo apel hari ini?", note: "Tanya harga." },
         { speaker: "PENJUAL", arabic: "الْكِيلُو بِعَشَرَةِ آلَافِ رُوبِيَّةٍ فَقَطْ.", translation: "Sekilo hanya sepuluh ribu rupiah saja.", note: "Harga murah." },
         { speaker: "PEMBELI", arabic: "هَذَا غَالٍ! هَلْ هُنَاكَ تَخْفِيضٌ؟", translation: "Ini mahal! Apakah ada diskon?", note: "Menawar." },
-        { speaker: "PENJUAL", arabic: "طَيِّبٌ، إِذَا اشْتَرَيْتَ ثَلَاثَةَ كِيلُوجْرَامٍ، الثَّمَنُ خَمْسَةٌ وَعِشْرُونَ أَلْفًا.", translation: "Baiklah, jika kamu beli tiga kilo, harganya dua puluh lima ribu.", note: "Diskon paket." },
-        { speaker: "PEMBELI", arabic: "مُنَاسِبٌ. أُرِيدُ ثَلَاثَةَ كِيلُوجْرَامٍ مِنَ التُّفَّاحِ وَأَرْبَعَ حَبَّاتِ بُرْتُقَالٍ.", translation: "Cocok. Saya mau tiga kilo apel dan empat butir jeruk.", note: "Penerapan angka." },
+        { speaker: "PENJUAL", arabic: "طَيِّبٌ، إِذَا اشْتَرَيْتَ ثَلَاثَةَ كِيلُوجْرَامَاتٍ، الثَّمَنُ خَمْسَةٌ وَعِشْرُونَ أَلْفًا.", translation: "Baiklah, jika kamu beli tiga kilo, harganya dua puluh lima ribu.", note: "Diskon paket." },
+        { speaker: "PEMBELI", arabic: "مُنَاسِبٌ. أُرِيدُ ثَلَاثَةَ كِيلُوجْرَامَاتٍ مِنَ التُّفَّاحِ وَأَرْبَعَ حَبَّاتِ بُرْتُقَالٍ.", translation: "Cocok. Saya mau tiga kilo apel dan empat butir jeruk.", note: "Penerapan angka." },
         { speaker: "PENJUAL", arabic: "هَلْ تُرِيدُ شَيْئًا آخَرَ؟ عِنْدِي مَوْزٌ لَذِيذٌ.", translation: "Apakah kamu mau yang lain? Saya punya pisang lezat.", note: "Upselling." },
         { speaker: "PEMBELI", arabic: "نَعَمْ، أَعْطِنِي رَبْطَةً وَاحِدَةً مِنَ الْمَوْزِ.", translation: "Iya, berikan saya seikat pisang saja.", note: "Satuan ikat." },
         { speaker: "PENJUAL", arabic: "تَفَضَّلْ، هَذِهِ بِضَاعَتُكَ. الْمَجْمُوعُ ثَلَاثُونَ أَلْفًا.", translation: "Silakan, ini barangmu. Totalnya tiga puluh ribu.", note: "Penyerahan barang." },

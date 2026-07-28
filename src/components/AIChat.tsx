@@ -12,7 +12,32 @@ interface Props {
 }
 
 export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onNavigate }: Props) {
-  // Ambil status dari localStorage untuk pengecekan akses
+  // --- 1. HOOK DECLARATIONS (Must be at top level and unconditional) ---
+  const userId = userProfile.id || 'guest';
+  const todayStr = new Date().toISOString().split('T')[0];
+  const todayKey = `ai_chat_count_${userId}_${todayStr}`;
+  
+  const [dailyCount, setDailyCount] = useState<number>(() => {
+    const saved = localStorage.getItem(todayKey);
+    return saved ? parseInt(saved, 10) : 0;
+  });
+
+  const [messages, setMessages] = useState<{ role: 'user' | 'ai'; content: string }[]>([
+    { role: 'ai', content: `السلام عليكم ${userProfile.name}! Saya Ustadz Ahmad. Mari kita belajar Bahasa Arab hari ini.` }
+  ]);
+  const [input, setInput] = useState('');
+  const [inputLang, setInputLang] = useState<'id-ID' | 'ar-SA'>('id-ID');
+  const [loading, setLoading] = useState(false);
+  const [voice, setVoice] = useState<'Ahmad' | 'Fatimah'>('Ahmad');
+  const [selectedScenario, setSelectedScenario] = useState<string | null>(initialScenarioId || null);
+  const [speed, setSpeed] = useState(getAudioSpeed());
+  const [currentlySpeaking, setCurrentlySpeaking] = useState<number | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  
+  const chatEndRef = useRef<HTMLDivElement>(null);
+  const recognitionRef = useRef<any>(null);
+
+  // --- 2. LOGIC & DERIVED STATE ---
   const ownerMode = localStorage.getItem('ownerMode') === 'true';
   const isPremium = localStorage.getItem('premiumStatus') === 'active';
   const trialStart = localStorage.getItem('trialStartDate');
@@ -49,17 +74,7 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
     userTier = 'free';
   }
 
-  const userId = userProfile.id || 'guest';
-  const todayStr = new Date().toISOString().split('T')[0];
-  const todayKey = `ai_chat_count_${userId}_${todayStr}`;
-  
-  const [dailyCount, setDailyCount] = useState<number>(() => {
-    const saved = localStorage.getItem(todayKey);
-    return saved ? parseInt(saved, 10) : 0;
-  });
-
-  const isUserPremium = ownerMode || isPremium;
-
+  // --- 3. CONDITIONAL RETURN (After hooks) ---
   if (!isAccessible) {
     return (
       <div className="flex flex-col items-center justify-center py-16 px-4 text-center min-h-[70vh]">
@@ -95,18 +110,7 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
     );
   }
 
-  const [messages, setMessages] = useState<{ role: 'user' | 'ai'; content: string }[]>([
-    { role: 'ai', content: `السلام عليكم ${userProfile.name}! Saya Ustadz Ahmad. Mari kita belajar Bahasa Arab hari ini.` }
-  ]);
-  const [input, setInput] = useState('');
-  const [inputLang, setInputLang] = useState<'id-ID' | 'ar-SA'>('id-ID');
-  const [loading, setLoading] = useState(false);
-  const [voice, setVoice] = useState<'Ahmad' | 'Fatimah'>('Ahmad');
-  const [selectedScenario, setSelectedScenario] = useState<string | null>(initialScenarioId || null);
-  const [speed, setSpeed] = useState(getAudioSpeed());
-  const [currentlySpeaking, setCurrentlySpeaking] = useState<number | null>(null);
-  const chatEndRef = useRef<HTMLDivElement>(null);
-
+  // --- 4. EFFECTS & HANDLERS ---
   const scenarios = [
     { id: 'market', title: 'Di Pasar', icon: '🛒', prompt: 'Kita sedang di pasar tradisional. Kamu ingin membeli buah-buahan dan sayuran. Mari tawar-menawar.' },
     { id: 'mosque', title: 'Di Masjid', icon: '🕌', prompt: 'Kita sedang di masjid. Kamu ingin bertanya tentang waktu shalat atau arah kiblat.' },
@@ -137,9 +141,6 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
-
-  const [isRecording, setIsRecording] = useState(false);
-  const recognitionRef = useRef<any>(null);
 
   useEffect(() => {
     // Initialize Speech Recognition
@@ -190,7 +191,9 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
     
     const gender = voice.toLowerCase() === 'ahmad' ? 'male' : 'female';
     speakArabic(text, speed, gender, () => {
-      if (index !== undefined) setCurrentlySpeaking(null);
+      if (index !== undefined) {
+        setCurrentlySpeaking(prev => prev === index ? null : prev);
+      }
     });
   };
 
@@ -243,8 +246,12 @@ export default function AIChat({ userProfile, onUpdateXp, initialScenarioId, onN
       }
 
       const aiMsg = { role: 'ai' as const, content: data.response };
+      const currentMessagesLength = messages.length;
       setMessages((prev) => [...prev, aiMsg]);
-      speak(data.response, messages.length + 1);
+      
+      // Use the correct index for speaking state tracking
+      // After user message and AI message are added, the AI message index will be currentMessagesLength + 1
+      speak(data.response, currentMessagesLength + 1);
 
       // Increment count
       const newCount = dailyCount + 1;

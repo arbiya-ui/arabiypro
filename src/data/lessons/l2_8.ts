@@ -74,119 +74,119 @@ export const l2_8: Lesson = {
     cards: [
     {
         "id": "l2_8_c1",
-        "wordAr": "شَعَرَ بِـ",
-        "translation": "Merasakan",
-        "description": "Kata kerja untuk menyatakan keluhan kesehatan (Fi'il Madhi).",
+        "wordAr": "شُعُورٌ",
+        "translation": "Perasaan / Rasa",
+        "description": "Isim masdar untuk menyatakan apa yang dirasakan tubuh.",
         "category": "Gejala",
         "examples": [
             {
-                "ar": "عِنْدِي شَعَرَ بِـ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Merasakan yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي شُعُورٌ بِالتَّعَبِ الشَّدِيدِ",
+                "translation": "Saya merasa sangat lelah.",
+                "grammarNote": "Logika: 'Indii' + Isim 'Shu'uur' + bi (jar) + isim majrur."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ شَعَرَ بِـ هُنَا",
-                "translation": "Pasien merasakan Merasakan di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "هَلْ عِنْدَكَ شُعُورٌ بِالْبَرْدِ؟",
+                "translation": "Apakah kamu merasa kedinginan?",
+                "grammarNote": "Logika: Pertanyaan menggunakan 'Indaka' untuk menanyakan kondisi."
             },
             {
-                "ar": "هَلْ هَذَا شَعَرَ بِـ مُزْمِنٌ؟",
-                "translation": "Apakah Merasakan ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "أُمِّي عِنْدَهَا شُعُورٌ بِالدُّوَارِ",
+                "translation": "Ibuku merasa pusing pening.",
+                "grammarNote": "Logika: 'Indahaa' (khabar) kembali ke 'Ummi' (mubtada muannats)."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ شَعَرَ بِـ",
-                "translation": "Tanganku patah karena Merasakan.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "يَشْعُرُ الْمَرِيضُ بِشُعُورٍ غَرِيبٍ",
+                "translation": "Pasien itu merasakan perasaan yang aneh.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' + bi + isim majrur 'shu'uurin'."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ شَعَرَ بِـ",
-                "translation": "Dokter itu kesakitan karena Merasakan.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الطَّالِبَةُ بِشُعُورٍ جَيِّدٍ الْآنَ",
+                "translation": "Siswi itu merasa baikan sekarang.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' diawali Ta karena subjeknya perempuan."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ شَعَرَ بِـ",
-                "translation": "Ayahku kesakitan karena Merasakan.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الرَّجُلُ يَشْعُرُ بِشُعُورٍ بِالْخَوْفِ",
+                "translation": "Pria itu merasakan perasaan takut.",
+                "grammarNote": "Logika: Kesesuaian gender fi'il mudhari (Ya untuk laki-laki)."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ شَعَرَ بِـ",
-                "translation": "Ibuku kesakitan karena Merasakan.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "لَيْسَ عِنْدِي شُعُورٌ بِالْجُوعِ",
+                "translation": "Saya tidak merasa lapar.",
+                "grammarNote": "Logika: Kalimat negatif menggunakan 'Laisa' untuk meniadakan kondisi."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ شَعَرَ بِـ",
-                "translation": "Temanku kesakitan karena Merasakan.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "كَيْفَ شُعُورُكَ بَعْدَ تَنَاوُلِ الدَّوَاءِ؟",
+                "translation": "Bagaimana perasaanmu setelah minum obat?",
+                "grammarNote": "Logika: Kata tanya 'Kaifa' untuk menanyakan keadaan."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ شَعَرَ بِـ",
-                "translation": "Anak itu kesakitan karena Merasakan.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا شُعُورٌ مُؤْلِمٌ جِدًّا",
+                "translation": "Ini adalah rasa yang sangat menyakitkan.",
+                "grammarNote": "Logika: 'Shu'uur' (mudzakkar) disifati oleh 'mu'limun'."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ شَعَرَ بِـ",
-                "translation": "Pria itu kesakitan karena Merasakan.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَنَا شُعُورٌ بِالسَّعَادَةِ لِشِفَائِكَ",
+                "translation": "Kami merasa bahagia atas kesembuhanmu.",
+                "grammarNote": "Logika: 'Indanaa' (kami memiliki) menunjukkan perasaan kolektif."
             }
         ]
     },
     {
         "id": "l2_8_c2",
-        "wordAr": "أَصَابَ",
-        "translation": "Menimpa / Mengenai",
-        "description": "Kata kerja untuk menyatakan terkena penyakit.",
+        "wordAr": "إِصَابَةٌ",
+        "translation": "Infeksi / Cedera",
+        "description": "Isim untuk menyatakan kondisi terkena penyakit atau luka.",
         "category": "Gejala",
         "examples": [
             {
-                "ar": "عِنْدِي أَصَابَ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Menimpa / Mengenai yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي إِصَابَةٌ فِي الرُّكْبَةِ",
+                "translation": "Saya mengalami cedera di lutut.",
+                "grammarNote": "Logika: 'Indii' diikuti isim 'Isyaabah' sebagai keluhan."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ أَصَابَ هُنَا",
-                "translation": "Pasien merasakan Menimpa / Mengenai di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أُخْتِي عِنْدَهَا إِصَابَةٌ بِالزُّكَامِ",
+                "translation": "Saudariku terkena infeksi flu.",
+                "grammarNote": "Logika: 'Indahaa' digunakan karena subjeknya muannats."
             },
             {
-                "ar": "هَلْ هَذَا أَصَابَ مُزْمِنٌ؟",
-                "translation": "Apakah Menimpa / Mengenai ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ هَذِهِ إِصَابَةٌ خَطِيرَةٌ؟",
+                "translation": "Apakah ini cedera yang berbahaya?",
+                "grammarNote": "Logika: 'Isyaabah' adalah muannats, maka sifatnya 'khatiirah'."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ أَصَابَ",
-                "translation": "Tanganku patah karena Menimpa / Mengenai.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "تَعَرَّضَ الْقَائِدُ لِإِصَابَةٍ بَسِيطَةٍ",
+                "translation": "Pemimpin itu mengalami cedera ringan.",
+                "grammarNote": "Logika: 'Li' (jar) membuat 'isyaabatin' menjadi majrur."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ أَصَابَ",
-                "translation": "Dokter itu kesakitan karena Menimpa / Mengenai.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "أَخِي يَتَأَلَّمُ مِنْ إِصَابَةٍ قَدِيمَةٍ",
+                "translation": "Saudaraku kesakitan karena cedera lama.",
+                "grammarNote": "Logika: 'Min' (jar) diikuti isim majrur 'isyaabatin'."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ أَصَابَ",
-                "translation": "Ayahku kesakitan karena Menimpa / Mengenai.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْمُمَرِّضَةُ بِإِصَابَةٍ فِي يَدِهَا",
+                "translation": "Perawat (Pr) itu merasakan luka di tangannya.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) karena perawatnya perempuan."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ أَصَابَ",
-                "translation": "Ibuku kesakitan karena Menimpa / Mengenai.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْإِصَابَةُ بِالْفَيْرُوسِ سَرِيعَةٌ",
+                "translation": "Infeksi virus itu sangat cepat.",
+                "grammarNote": "Logika: Mubtada 'Al-Isyaabah' disifati oleh khabar 'sarii'ah'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ أَصَابَ",
-                "translation": "Temanku kesakitan karena Menimpa / Mengenai.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "مَتَى حَدَثَتْ هَذِهِ الْإِصَابَةُ؟",
+                "translation": "Kapan cedera ini terjadi?",
+                "grammarNote": "Logika: Fi'il 'hadatsat' (Muannats) karena fa'ilnya 'isyaabah'."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ أَصَابَ",
-                "translation": "Anak itu kesakitan karena Menimpa / Mengenai.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ إِصَابَةٌ بَكْتِيرِيَّةٌ",
+                "translation": "Dia mengalami infeksi bakteri.",
+                "grammarNote": "Logika: Isim mudzakkar 'Indahu' diikuti isim muannats 'isyaabah'."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ أَصَابَ",
-                "translation": "Pria itu kesakitan karena Menimpa / Mengenai.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَحْتَاجُ الْمَرِيضُ عِلَاجًا لِلْإِصَابَةِ",
+                "translation": "Pasien membutuhkan pengobatan untuk cederanya.",
+                "grammarNote": "Logika: 'Lil-isyaabati' (Li + Al) menunjukkan tujuan."
             }
         ]
     },
@@ -194,176 +194,176 @@ export const l2_8: Lesson = {
         "id": "l2_8_c3",
         "wordAr": "أَلَمٌ",
         "translation": "Rasa Sakit / Nyeri",
-        "description": "Kata benda untuk keluhan fisik (Jamak: آلَامٌ).",
+        "description": "Kata benda paling umum untuk keluhan fisik.",
         "category": "Gejala",
         "examples": [
             {
-                "ar": "عِنْدِي أَلَمٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Rasa Sakit / Nyeri yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "أَشْعُرُ بِأَلَمٍ فِي الظَّهْرِ",
+                "translation": "Saya merasakan nyeri di punggung.",
+                "grammarNote": "Logika: Huruf jar 'bi' membuat 'alamin' menjadi majrur (kasratain)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ أَلَمٌ هُنَا",
-                "translation": "Pasien merasakan Rasa Sakit / Nyeri di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "هَلْ عِنْدَكِ أَلَمٌ فِي الْأُذُنِ؟",
+                "translation": "Apakah kamu (Pr) merasa sakit di telinga?",
+                "grammarNote": "Logika: 'Indaki' digunakan untuk menyapa perempuan."
             },
             {
-                "ar": "هَلْ هَذَا أَلَمٌ مُزْمِنٌ؟",
-                "translation": "Apakah Rasa Sakit / Nyeri ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "أُمِّي تَتَأَلَّمُ مِنْ أَلَمٍ فِي الرَّأْسِ",
+                "translation": "Ibuku kesakitan karena nyeri di kepala.",
+                "grammarNote": "Logika: Fi'il 'Tata'allamu' (Ta) karena subjeknya perempuan."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ أَلَمٌ",
-                "translation": "Tanganku patah karena Rasa Sakit / Nyeri.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "يَشْعُرُ الطِّفْلُ بِأَلَمٍ بَسِيطٍ",
+                "translation": "Anak itu merasakan nyeri ringan.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) karena subjeknya laki-laki."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ أَلَمٌ",
-                "translation": "Dokter itu kesakitan karena Rasa Sakit / Nyeri.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا أَلَمٌ مُزْمِنٌ مُنْذُ سَنَوَاتٍ",
+                "translation": "Ini adalah nyeri kronis sejak bertahun-tahun.",
+                "grammarNote": "Logika: 'Alam' (mudzakkar) disifati oleh 'muzmin'."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ أَلَمٌ",
-                "translation": "Ayahku kesakitan karena Rasa Sakit / Nyeri.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدِي أَلَمٌ شَدِيدٌ فِي الْمَعِدَةِ",
+                "translation": "Saya menderita sakit perut yang hebat.",
+                "grammarNote": "Logika: 'Indii' diikuti isim 'alamun' sebagai mubtada muakhkhar."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ أَلَمٌ",
-                "translation": "Ibuku kesakitan karena Rasa Sakit / Nyeri.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْمَرِيضَةُ بِأَلَمٍ عِنْدَ النَّفَسِ",
+                "translation": "Pasien (Pr) merasa sakit saat bernapas.",
+                "grammarNote": "Logika: Kesesuaian gender antara fi'il dan fa'il muannats."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ أَلَمٌ",
-                "translation": "Temanku kesakitan karena Rasa Sakit / Nyeri.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "أَيْنَ مَوْقِعُ الْأَلَمِ تَمَامًا؟",
+                "translation": "Di mana lokasi nyerinya tepatnya?",
+                "grammarNote": "Logika: 'Al-alam' sebagai mudhafun ilaih yang majrur."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ أَلَمٌ",
-                "translation": "Anak itu kesakitan karena Rasa Sakit / Nyeri.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "أَبِي يَشْكُو مِنْ أَلَمٍ فِي الصَّدْرِ",
+                "translation": "Ayahku mengeluh nyeri di dada.",
+                "grammarNote": "Logika: Fi'il 'Yasykuu' (Ya) untuk subjek laki-laki."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ أَلَمٌ",
-                "translation": "Pria itu kesakitan karena Rasa Sakit / Nyeri.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "لَا أَشْعُرُ بِأَيِّ أَلَمٍ الْآنَ",
+                "translation": "Saya tidak merasakan sakit apa pun sekarang.",
+                "grammarNote": "Logika: 'Bi-ayyi alamin' (majrur setelah jar dan mudhaf)."
             }
         ]
     },
     {
         "id": "l2_8_c4",
         "wordAr": "وَجَعٌ",
-        "translation": "Nyeri / Sakit",
-        "description": "Sinonim dari alam, sering untuk bagian tubuh tertentu (Jamak: أَوْجَاعٌ).",
+        "translation": "Sakit / Nyeri",
+        "description": "Sinonim dari alam, sering digunakan untuk area tubuh tertentu.",
         "category": "Gejala",
         "examples": [
             {
-                "ar": "عِنْدِي وَجَعٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Nyeri / Sakit yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي وَجَعٌ فِي الْأَسْنَانِ",
+                "translation": "Saya sakit gigi.",
+                "grammarNote": "Logika: 'Indii' + 'Waja'un' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ وَجَعٌ هُنَا",
-                "translation": "Pasien merasakan Nyeri / Sakit di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِوَجَعٍ فِي عَيْنِي",
+                "translation": "Saya merasa sakit di mataku.",
+                "grammarNote": "Logika: 'Bi' + 'Waja'in' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا وَجَعٌ مُزْمِنٌ؟",
-                "translation": "Apakah Nyeri / Sakit ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ تَشْعُرِينَ بِوَجَعٍ هُنَا؟",
+                "translation": "Apakah kamu (Pr) merasa sakit di sini?",
+                "grammarNote": "Logika: Fi'il 'Tasy'uriina' untuk mukhatabah muannats."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ وَجَعٌ",
-                "translation": "Tanganku patah karena Nyeri / Sakit.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَخِي يَتَأَلَّمُ مِنْ وَجَعِ الرِّجْلِ",
+                "translation": "Saudaraku kesakitan karena sakit kaki.",
+                "grammarNote": "Logika: Fi'il 'Yata'allamu' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ وَجَعٌ",
-                "translation": "Dokter itu kesakitan karena Nyeri / Sakit.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْبِنْتُ بِوَجَعٍ فِي الْحَلْقِ",
+                "translation": "Anak perempuan itu merasa sakit tenggorokan.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ وَجَعٌ",
-                "translation": "Ayahku kesakitan karena Nyeri / Sakit.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا وَجَعٌ لَا يُحْتَمَلُ",
+                "translation": "Ini adalah rasa sakit yang tak tertahankan.",
+                "grammarNote": "Logika: 'Waja'un' sebagai isim mudzakkar."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ وَجَعٌ",
-                "translation": "Ibuku kesakitan karena Nyeri / Sakit.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهَا وَجَعٌ خَفِيفٌ بَعْدَ الْأَكْلِ",
+                "translation": "Dia (Pr) merasa nyeri ringan setelah makan.",
+                "grammarNote": "Logika: 'Indahaa' (khabar) + 'waja'un' (mubtada)."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ وَجَعٌ",
-                "translation": "Temanku kesakitan karena Nyeri / Sakit.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْوَجَعُ يَزْدَادُ فِي اللَّيْلِ",
+                "translation": "Rasa sakitnya bertambah di malam hari.",
+                "grammarNote": "Logika: Alif lam pada 'Al-waja'u' menjadikannya ma'rifah."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ وَجَعٌ",
-                "translation": "Anak itu kesakitan karena Nyeri / Sakit.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "نَحْنُ نَشْعُرُ بِوَجَعٍ فِي الْعَضَلَاتِ",
+                "translation": "Kami merasa nyeri di otot.",
+                "grammarNote": "Logika: 'Nash'uru' untuk dhamir 'Nahnu'."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ وَجَعٌ",
-                "translation": "Pria itu kesakitan karena Nyeri / Sakit.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَلْ خَفَّ الْوَجَعُ بَعْدَ الرَّاحَةِ؟",
+                "translation": "Apakah rasa sakitnya berkurang setelah istirahat?",
+                "grammarNote": "Logika: Fi'il madhi 'khaffa' (berkurang/ringan)."
             }
         ]
     },
     {
         "id": "l2_8_c5",
-        "wordAr": "عَانَى مِنْ",
-        "translation": "Menderita (dari)",
-        "description": "Kata kerja yang menyatakan penyakit kronis/lama (Fi'il Madhi).",
+        "wordAr": "مُعَانَاةٌ",
+        "translation": "Penderitaan / Keluhan",
+        "description": "Isim masdar untuk menyatakan kondisi menderita sesuatu yang lama.",
         "category": "Gejala",
         "examples": [
             {
-                "ar": "عِنْدِي عَانَى مِنْ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Menderita (dari) yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي مُعَانَاةٌ مَعَ السُّعَالِ",
+                "translation": "Saya menderita karena batuk (yang lama).",
+                "grammarNote": "Logika: 'Indii' diikuti isim 'mu'aanaahatun'."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ عَانَى مِنْ هُنَا",
-                "translation": "Pasien merasakan Menderita (dari) di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "تَشْعُرُ الْمَرِيضَةُ بِمُعَانَاةٍ كَبِيرَةٍ",
+                "translation": "Pasien (Pr) itu merasakan penderitaan yang besar.",
+                "grammarNote": "Logika: 'Bi' + 'mu'aanaahatin' (majrur muannats)."
             },
             {
-                "ar": "هَلْ هَذَا عَانَى مِنْ مُزْمِنٌ؟",
-                "translation": "Apakah Menderita (dari) ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "أَبِي عِنْدَهُ مُعَانَاةٌ مِنَ الْأَرَقِ",
+                "translation": "Ayahku menderita susah tidur (insomnia).",
+                "grammarNote": "Logika: 'Indahu' kembali ke 'Abi'."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ عَانَى مِنْ",
-                "translation": "Tanganku patah karena Menderita (dari).",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "هَذِهِ مُعَانَاةٌ طَوِيلَةٌ لِلْغَايَةِ",
+                "translation": "Ini adalah penderitaan yang sangat panjang.",
+                "grammarNote": "Logika: 'Mu'aanaah' adalah muannats, sifatnya 'thawiilah'."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ عَانَى مِنْ",
-                "translation": "Dokter itu kesakitan karena Menderita (dari).",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الرَّجُلُ بِمُعَانَاةٍ فِي التَّنَفُسِ",
+                "translation": "Pria itu menderita sesak napas.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ عَانَى مِنْ",
-                "translation": "Ayahku kesakitan karena Menderita (dari).",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "أُمِّي تَتَأَلَّمُ مِنْ مُعَانَاةِ الْمَفَاصِلِ",
+                "translation": "Ibuku menderita sakit sendi.",
+                "grammarNote": "Logika: Fi'il 'Tata'allamu' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ عَانَى مِنْ",
-                "translation": "Ibuku kesakitan karena Menderita (dari).",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَلْ عِنْدَكَ مُعَانَاةٌ مَعَ الْحَسَاسِيَّةِ؟",
+                "translation": "Apakah kamu menderita alergi?",
+                "grammarNote": "Logika: 'Mu'aanaah' sebagai kata benda abstrak untuk keluhan."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ عَانَى مِنْ",
-                "translation": "Temanku kesakitan karena Menderita (dari).",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْمُعَانَاةُ تَنْتَهِي بِالْعِلَاجِ الصَّحِيحِ",
+                "translation": "Penderitaan berakhir dengan pengobatan yang benar.",
+                "grammarNote": "Logika: Fi'il 'tantahii' (Ta) karena subjeknya 'Al-mu'aanaah'."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ عَانَى مِنْ",
-                "translation": "Anak itu kesakitan karena Menderita (dari).",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "نَحْنُ نَفْهَمُ مُعَانَاةَ الْمَرْضَى",
+                "translation": "Kami memahami penderitaan para pasien.",
+                "grammarNote": "Logika: 'Mu'aanaata' sebagai maf'ul bihi (manshub)."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ عَانَى مِنْ",
-                "translation": "Pria itu kesakitan karena Menderita (dari).",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "لَيْسَ هُنَاكَ مُعَانَاةٌ بَعْدَ الْآنَ",
+                "translation": "Tidak ada lagi penderitaan setelah sekarang.",
+                "grammarNote": "Logika: 'Laisa hunaka' untuk meniadakan keberadaan sesuatu."
             }
         ]
     },
@@ -371,58 +371,58 @@ export const l2_8: Lesson = {
         "id": "l2_8_c6",
         "wordAr": "صُدَاعٌ",
         "translation": "Sakit Kepala / Pusing",
-        "description": "Rasa nyeri di area kepala.",
+        "description": "Rasa nyeri di area kepala (Mudzakkar).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي صُدَاعٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Sakit Kepala / Pusing yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي صُدَاعٌ نِصْفِيٌّ",
+                "translation": "Saya menderita migrain (sakit kepala sebelah).",
+                "grammarNote": "Logika: 'Indii' + 'Shudaa'un' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ صُدَاعٌ هُنَا",
-                "translation": "Pasien merasakan Sakit Kepala / Pusing di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِصُدَاعٍ قَوِيٍّ",
+                "translation": "Saya merasakan sakit kepala yang kuat.",
+                "grammarNote": "Logika: 'Bi' + 'shudaa'in' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا صُدَاعٌ مُزْمِنٌ؟",
-                "translation": "Apakah Sakit Kepala / Pusing ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ صُدَاعٌ الْآنَ؟",
+                "translation": "Apakah kamu sedang sakit kepala sekarang?",
+                "grammarNote": "Logika: 'Indaka' untuk menanyakan kondisi fisik."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ صُدَاعٌ",
-                "translation": "Tanganku patah karena Sakit Kepala / Pusing.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أُمِّي تَتَأَلَّمُ مِنْ صُدَاعٍ شَدِيدٍ",
+                "translation": "Ibuku kesakitan karena sakit kepala yang hebat.",
+                "grammarNote": "Logika: Fi'il 'Tata'allamu' (Ta) untuk subjek perempuan."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ صُدَاعٌ",
-                "translation": "Dokter itu kesakitan karena Sakit Kepala / Pusing.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الْمُدِيرُ بِصُدَاعٍ بِسَبَبِ الْعَمَلِ",
+                "translation": "Direktur itu pusing karena pekerjaan.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk subjek laki-laki."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ صُدَاعٌ",
-                "translation": "Ayahku kesakitan karena Sakit Kepala / Pusing.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْبِنْتُ بِصُدَاعٍ خَفِيفٍ",
+                "translation": "Anak perempuan itu merasa pusing ringan.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ صُدَاعٌ",
-                "translation": "Ibuku kesakitan karena Sakit Kepala / Pusing.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا الصُّدَاعُ لَا يَنْقَطِعُ",
+                "translation": "Sakit kepala ini tidak berhenti.",
+                "grammarNote": "Logika: 'Shudaa'u' mudzakkar, maka fi'ilnya 'yanqathi'u'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ صُدَاعٌ",
-                "translation": "Temanku kesakitan karena Sakit Kepala / Pusing.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ صُدَاعٌ مُسْتَمِرٌّ",
+                "translation": "Dia menderita sakit kepala terus-menerus.",
+                "grammarNote": "Logika: 'Shudaa'un' disifati oleh 'mustamirrun'."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ صُدَاعٌ",
-                "translation": "Anak itu kesakitan karena Sakit Kepala / Pusing.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَحْتَاجُ الطَّالِبُ رَاحَةً لِلصُّدَاعِ",
+                "translation": "Siswa itu butuh istirahat untuk sakit kepalanya.",
+                "grammarNote": "Logika: 'Lish-shudaa'i' (Li + Al + Majrur)."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ صُدَاعٌ",
-                "translation": "Pria itu kesakitan karena Sakit Kepala / Pusing.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "شَرِبْتُ دَوَاءً لِلصُّدَاعِ",
+                "translation": "Saya minum obat untuk sakit kepala.",
+                "grammarNote": "Logika: 'Dawaa'an' sebagai maf'ul bihi."
             }
         ]
     },
@@ -430,117 +430,117 @@ export const l2_8: Lesson = {
         "id": "l2_8_c7",
         "wordAr": "حُمَّى",
         "translation": "Demam",
-        "description": "Suhu tubuh yang meninggi (Kata Muannats maqsur).",
+        "description": "Suhu tubuh tinggi (Muannats Maqsur).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي حُمَّى شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Demam yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي حُمَّى عَالِيَةٌ",
+                "translation": "Saya demam tinggi.",
+                "grammarNote": "Logika: 'Hummaa' adalah muannats, maka sifatnya 'aalitah'."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ حُمَّى هُنَا",
-                "translation": "Pasien merasakan Demam di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِحُمَّى فِي جِسْمِي",
+                "translation": "Saya merasakan panas demam di tubuhku.",
+                "grammarNote": "Logika: 'Bi-hummaa' (majrur, harakat tidak tampak karena maqsur)."
             },
             {
-                "ar": "هَلْ هَذَا حُمَّى مُزْمِنٌ؟",
-                "translation": "Apakah Demam ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ حُمَّى مُنْذُ الصَّبَاحِ؟",
+                "translation": "Apakah kamu demam sejak pagi?",
+                "grammarNote": "Logika: Kata keterangan waktu 'mundzu' (sejak)."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ حُمَّى",
-                "translation": "Tanganku patah karena Demam.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أُخْتِي تَتَأَلَّمُ مِنْ حُمَّى شَدِيدَةٍ",
+                "translation": "Saudariku kesakitan karena demam yang parah.",
+                "grammarNote": "Logika: Fi'il 'Tata'allamu' (Ta) untuk subjek perempuan."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ حُمَّى",
-                "translation": "Dokter itu kesakitan karena Demam.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الطِّفْلُ بِحُمَّى خَفِيفَةٍ",
+                "translation": "Anak itu merasa demam ringan.",
+                "grammarNote": "Logika: 'Hummaa' disifati oleh 'khafiifah' (muannats)."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ حُمَّى",
-                "translation": "Ayahku kesakitan karena Demam.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْمَرِيضَةُ بِحُمَّى دَاخِلِيَّةٍ",
+                "translation": "Pasien (Pr) itu merasa panas dalam.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk fa'il muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ حُمَّى",
-                "translation": "Ibuku kesakitan karena Demam.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْحُمَّى تَنْزِلُ بَعْدَ الدَّوَاءِ",
+                "translation": "Demamnya turun setelah minum obat.",
+                "grammarNote": "Logika: Fi'il 'tanzilu' (Ta) karena subjeknya 'Al-hummaa'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ حُمَّى",
-                "translation": "Temanku kesakitan karena Demam.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهَا حُمَّى وَرِعْشَةٌ",
+                "translation": "Dia (Pr) demam dan menggigil.",
+                "grammarNote": "Logika: 'Indahaa' menunjukkan kepemilikan kondisi."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ حُمَّى",
-                "translation": "Anak itu kesakitan karena Demam.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "لَا نَعْرِفُ سَبَبَ الْحُمَّى",
+                "translation": "Kami tidak tahu penyebab demamnya.",
+                "grammarNote": "Logika: 'Al-hummaa' sebagai mudhafun ilaih."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ حُمَّى",
-                "translation": "Pria itu kesakitan karena Demam.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَجِبُ قِيَاسُ الْحُمَّى بِالْمِيزَانِ",
+                "translation": "Harus mengukur suhu demam dengan termometer.",
+                "grammarNote": "Logika: 'Qiyaasu' (mengukur) isim masdar."
             }
         ]
     },
     {
         "id": "l2_8_c8",
         "wordAr": "زُكَامٌ",
-        "translation": "Selesma / Pilek",
-        "description": "Penyakit ringan saluran pernapasan.",
+        "translation": "Flu / Pilek / Selesma",
+        "description": "Gangguan saluran napas ringan (Mudzakkar).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي زُكَامٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Selesma / Pilek yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي زُكَامٌ وَسُعَالٌ",
+                "translation": "Saya sedang flu dan batuk.",
+                "grammarNote": "Logika: 'Indii' + 'Zukaamun' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ زُكَامٌ هُنَا",
-                "translation": "Pasien merasakan Selesma / Pilek di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِزُكَامٍ بَسِيطٍ",
+                "translation": "Saya merasa pilek ringan.",
+                "grammarNote": "Logika: 'Bi' + 'zukaamin' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا زُكَامٌ مُزْمِنٌ؟",
-                "translation": "Apakah Selesma / Pilek ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكِ زُكَامٌ يَا فَاطِمَةُ؟",
+                "translation": "Apakah kamu sedang flu wahai Fatimah?",
+                "grammarNote": "Logika: 'Indaki' untuk menyapa perempuan."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ زُكَامٌ",
-                "translation": "Tanganku patah karena Selesma / Pilek.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَبِي يَتَأَلَّمُ مِنْ زُكَامٍ حَادٍّ",
+                "translation": "Ayahku kesakitan karena flu yang akut.",
+                "grammarNote": "Logika: Fi'il 'Yata'allamu' (Ya) untuk subjek laki-laki."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ زُكَامٌ",
-                "translation": "Dokter itu kesakitan karena Selesma / Pilek.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الْوَلَدُ بِزُكَامٍ فِي الشِّتَاءِ",
+                "translation": "Anak laki-laki itu merasa pilek di musim dingin.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ زُكَامٌ",
-                "translation": "Ayahku kesakitan karena Selesma / Pilek.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْأُمُّ بِزُكَامٍ مُنْذُ أَيَّامٍ",
+                "translation": "Ibu merasa flu sejak beberapa hari.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ زُكَامٌ",
-                "translation": "Ibuku kesakitan karena Selesma / Pilek.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا الزُّكَامُ يَنْتَقِلُ بِالْعَدْوَى",
+                "translation": "Flu ini menular melalui infeksi.",
+                "grammarNote": "Logika: 'Zukaam' mudzakkar, fi'ilnya 'yantaqilu'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ زُكَامٌ",
-                "translation": "Temanku kesakitan karena Selesma / Pilek.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ زُكَامٌ يُتْعِبُهُ جِدًّا",
+                "translation": "Dia sedang flu yang sangat melelahkannya.",
+                "grammarNote": "Logika: 'Zukaamun' disifati oleh jumlah fi'liyah."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ زُكَامٌ",
-                "translation": "Anak itu kesakitan karena Selesma / Pilek.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الزُّكَامُ يَحْتَاجُ إِلَى فِيتَامِين سِي",
+                "translation": "Flu membutuhkan vitamin C.",
+                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ زُكَامٌ",
-                "translation": "Pria itu kesakitan karena Selesma / Pilek.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "شُفِيَ الْمَرِيضُ مِنَ الزُّكَامِ",
+                "translation": "Pasien telah sembuh dari flu.",
+                "grammarNote": "Logika: Fi'il majhul 'syufiya' (telah disembuhkan)."
             }
         ]
     },
@@ -548,176 +548,176 @@ export const l2_8: Lesson = {
         "id": "l2_8_c9",
         "wordAr": "سُعَالٌ",
         "translation": "Batuk",
-        "description": "Respons tubuh mengeluarkan udara dari paru.",
+        "description": "Kondisi mengeluarkan udara secara paksa (Mudzakkar).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي سُعَالٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Batuk yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي سُعَالٌ جَافٌّ",
+                "translation": "Saya batuk kering.",
+                "grammarNote": "Logika: 'Indii' + 'Su'aalun' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ سُعَالٌ هُنَا",
-                "translation": "Pasien merasakan Batuk di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِسُعَالٍ مُزْعِجٍ",
+                "translation": "Saya merasa batuk yang mengganggu.",
+                "grammarNote": "Logika: 'Bi' + 'su'aalin' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا سُعَالٌ مُزْمِنٌ؟",
-                "translation": "Apakah Batuk ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ سُعَالٌ مَعَ بَلْغَمٍ؟",
+                "translation": "Apakah kamu batuk berdahak?",
+                "grammarNote": "Logika: 'Ma'a balghamin' (dengan dahak)."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ سُعَالٌ",
-                "translation": "Tanganku patah karena Batuk.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَبِي يَتَأَلَّمُ مِنْ سُعَالٍ مُزْمِنٍ",
+                "translation": "Ayahku kesakitan karena batuk kronis.",
+                "grammarNote": "Logika: 'Su'aalun' disifati oleh 'muzminun'."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ سُعَالٌ",
-                "translation": "Dokter itu kesakitan karena Batuk.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الطَّبِيبُ بِسُعَالٍ الْيَوْمَ",
+                "translation": "Dokter itu merasa batuk hari ini.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ سُعَالٌ",
-                "translation": "Ayahku kesakitan karena Batuk.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الطِّفْلَةُ بِسُعَالٍ فِي اللَّيْلِ",
+                "translation": "Anak perempuan itu merasa batuk di malam hari.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ سُعَالٌ",
-                "translation": "Ibuku kesakitan karena Batuk.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا السُّعَالُ مُزْمِنٌ لِلْغَايَةِ",
+                "translation": "Batuk ini sangat kronis.",
+                "grammarNote": "Logika: 'Al-Su'aal' mudzakkar, sifatnya 'muzminun'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ سُعَالٌ",
-                "translation": "Temanku kesakitan karena Batuk.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ سُعَالٌ يَحْتَاجُ عِلَاجًا",
+                "translation": "Dia batuk yang butuh pengobatan.",
+                "grammarNote": "Logika: 'Su'aalun' sebagai mubtada muakhkhar."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ سُعَالٌ",
-                "translation": "Anak itu kesakitan karena Batuk.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْمَرِيضُ يَشْكُو مِنْ سُعَالٍ فِي الصَّدْرِ",
+                "translation": "Pasien mengeluh batuk di dada.",
+                "grammarNote": "Logika: 'Min su'aalin' (jar + majrur)."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ سُعَالٌ",
-                "translation": "Pria itu kesakitan karena Batuk.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "شَرِبْتُ دَوَاءً لِلسُّعَالِ الْيَوْمَ",
+                "translation": "Saya minum obat batuk hari ini.",
+                "grammarNote": "Logika: 'Dawaa-an' (maf'ul bihi) + 'lis-su'aali' (Li + majrur)."
             }
         ]
     },
     {
         "id": "l2_8_c10",
-        "wordAr": "إِسْهَالٌ",
-        "translation": "Diare",
-        "description": "Gangguan pencernaan perut.",
+        "wordAr": "عِطَاسٌ",
+        "translation": "Bersin",
+        "description": "Keluarnya udara secara tiba-tiba dari hidung.",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي إِسْهَالٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Diare yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي عِطَاسٌ كَثِيرٌ",
+                "translation": "Saya sering bersin-bersin.",
+                "grammarNote": "Logika: 'Indii' + 'Ithaasun' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ إِسْهَالٌ هُنَا",
-                "translation": "Pasien merasakan Diare di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِعِطَاسٍ شَدِيدٍ",
+                "translation": "Saya merasa bersin yang hebat.",
+                "grammarNote": "Logika: 'Bi' + 'ithaasin' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا إِسْهَالٌ مُزْمِنٌ؟",
-                "translation": "Apakah Diare ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ عِطَاسٌ بَعْدَ الْأَكْلِ؟",
+                "translation": "Apakah kamu bersin setelah makan?",
+                "grammarNote": "Logika: 'Ba'dal akli' (setelah makan)."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ إِسْهَالٌ",
-                "translation": "Tanganku patah karena Diare.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَخِي يَتَأَلَّمُ مِنْ عِطَاسٍ مُسْتَمِرٍّ",
+                "translation": "Saudaraku kesakitan karena bersin terus menerus.",
+                "grammarNote": "Logika: 'Ithaas' disifati oleh 'mustamirrun'."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ إِسْهَالٌ",
-                "translation": "Dokter itu kesakitan karena Diare.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الْوَلَدُ بِعِطَاسٍ فِي الشَّمْسِ",
+                "translation": "Anak itu bersin di bawah sinar matahari.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ إِسْهَالٌ",
-                "translation": "Ayahku kesakitan karena Diare.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْبِنْتُ بِعِطَاسٍ مِنَ الْغُبَارِ",
+                "translation": "Anak perempuan itu bersin karena debu.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ إِسْهَالٌ",
-                "translation": "Ibuku kesakitan karena Diare.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا الْعِطَاسُ هُوَ رَدُّ فِعْلٍ",
+                "translation": "Bersin ini adalah sebuah reaksi.",
+                "grammarNote": "Logika: 'Ithaas' mudzakkar, kata gantinya 'huwa'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ إِسْهَالٌ",
-                "translation": "Temanku kesakitan karena Diare.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهَا عِطَاسٌ وَحَسَاسِيَّةٌ",
+                "translation": "Dia (Pr) bersin dan alergi.",
+                "grammarNote": "Logika: 'Indahaa' menunjukkan kepemilikan kondisi."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ إِسْهَالٌ",
-                "translation": "Anak itu kesakitan karena Diare.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْعِطَاسُ يُنَظِّفُ الْأَنْفَ",
+                "translation": "Bersin itu membersihkan hidung.",
+                "grammarNote": "Logika: Fi'il 'yunazhzhifu' (Ya) untuk subjek mudzakkar."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ إِسْهَالٌ",
-                "translation": "Pria itu kesakitan karena Diare.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "قُلْ 'الْحَمْدُ لِلَّهِ' بَعْدَ الْعِطَاسِ",
+                "translation": "Ucapkan 'Alhamdulillah' setelah bersin.",
+                "grammarNote": "Logika: 'Ba'dal ithaasi' (mudhafun ilaih)."
             }
         ]
     },
     {
         "id": "l2_8_c11",
         "wordAr": "قَيْءٌ",
-        "translation": "Muntah",
-        "description": "Isi perut yang keluar (Fi'il: تَقَيَّأَ).",
+        "translation": "Muntah / Ekspulsi Perut",
+        "description": "Isim untuk menyatakan kondisi keluarnya isi perut (Mudzakkar).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي قَيْءٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Muntah yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي قَيْءٌ مُسْتَمِرٌّ",
+                "translation": "Saya muntah terus-menerus.",
+                "grammarNote": "Logika: 'Indii' + 'Qay-un' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ قَيْءٌ هُنَا",
-                "translation": "Pasien merasakan Muntah di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِقَيْءٍ وَغَثَيَانٍ",
+                "translation": "Saya merasa ingin muntah dan mual.",
+                "grammarNote": "Logika: 'Bi' + 'qay-in' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا قَيْءٌ مُزْمِنٌ؟",
-                "translation": "Apakah Muntah ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ قَيْءٌ مُنْذُ اللَّيْلِ؟",
+                "translation": "Apakah kamu muntah-muntah sejak semalam?",
+                "grammarNote": "Logika: Pertanyaan tentang durasi gejala."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ قَيْءٌ",
-                "translation": "Tanganku patah karena Muntah.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَخِي يَتَأَلَّمُ مِنْ قَيْءٍ شَدِيدٍ",
+                "translation": "Saudaraku kesakitan karena muntah yang hebat.",
+                "grammarNote": "Logika: Fi'il 'Yata'allamu' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ قَيْءٌ",
-                "translation": "Dokter itu kesakitan karena Muntah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الطِّفْلُ بِقَيْءٍ بَعْدَ الْأَكْلِ",
+                "translation": "Anak itu muntah setelah makan.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ قَيْءٌ",
-                "translation": "Ayahku kesakitan karena Muntah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الطِّفْلَةُ بِقَيْءٍ خَفِيفٍ",
+                "translation": "Anak perempuan itu merasa mual muntah ringan.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ قَيْءٌ",
-                "translation": "Ibuku kesakitan karena Muntah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا الْقَيْءُ سَبَبُهُ التَّسَمُّمُ",
+                "translation": "Muntah ini penyebabnya adalah keracunan.",
+                "grammarNote": "Logika: 'Qay-' mudzakkar, mubtada kedua 'sababuhu'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ قَيْءٌ",
-                "translation": "Temanku kesakitan karena Muntah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ قَيْءٌ مَعَ دَمٍ",
+                "translation": "Dia muntah darah.",
+                "grammarNote": "Logika: 'Ma'a damin' (bersama darah)."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ قَيْءٌ",
-                "translation": "Anak itu kesakitan karena Muntah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْقَيْءُ يُتْعِبُ الْمَعِدَةَ",
+                "translation": "Muntah itu melelahkan perut.",
+                "grammarNote": "Logika: Fi'il 'yut'ibu' (Ya) untuk subjek mudzakkar."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ قَيْءٌ",
-                "translation": "Pria itu kesakitan karena Muntah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَحْتَاجُ الْمَرِيضُ دَوَاءً لِلْقَيْءِ",
+                "translation": "Pasien butuh obat untuk muntah.",
+                "grammarNote": "Logika: 'Lil-qay-i' (Li + Al + Majrur)."
             }
         ]
     },
@@ -725,235 +725,235 @@ export const l2_8: Lesson = {
         "id": "l2_8_c12",
         "wordAr": "حَسَاسِيَّةٌ",
         "translation": "Alergi",
-        "description": "Reaksi tubuh terhadap zat tertentu.",
+        "description": "Reaksi tubuh terhadap zat tertentu (Muannats).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي حَسَاسِيَّةٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Alergi yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي حَسَاسِيَّةٌ مِنَ السَّمَكِ",
+                "translation": "Saya alergi ikan.",
+                "grammarNote": "Logika: 'Indii' + 'Hasaasiyyah' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ حَسَاسِيَّةٌ هُنَا",
-                "translation": "Pasien merasakan Alergi di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِحَسَاسِيَّةٍ فِي جِلْدِي",
+                "translation": "Saya merasakan alergi di kulitku.",
+                "grammarNote": "Logika: 'Bi' + 'hasaasiyyatin' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا حَسَاسِيَّةٌ مُزْمِنٌ؟",
-                "translation": "Apakah Alergi ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ حَسَاسِيَّةٌ مُزْمِنَةٌ؟",
+                "translation": "Apakah kamu menderita alergi kronis?",
+                "grammarNote": "Logika: 'Hasaasiyyah' muannats, sifatnya 'muzminah'."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ حَسَاسِيَّةٌ",
-                "translation": "Tanganku patah karena Alergi.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أُخْتِي تَتَأَلَّمُ مِنْ حَسَاسِيَّةِ الْغُبَارِ",
+                "translation": "Saudariku menderita alergi debu.",
+                "grammarNote": "Logika: 'Hasaasiyyat' sebagai mudhaf (majrur)."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ حَسَاسِيَّةٌ",
-                "translation": "Dokter itu kesakitan karena Alergi.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الْوَلَدُ بِحَسَاسِيَّةٍ صَدْرِيَّةٍ",
+                "translation": "Anak laki-laki itu menderita alergi dada (asma).",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ حَسَاسِيَّةٌ",
-                "translation": "Ayahku kesakitan karena Alergi.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْبِنْتُ بِحَسَاسِيَّةٍ حَادَّةٍ",
+                "translation": "Anak perempuan itu menderita alergi akut.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ حَسَاسِيَّةٌ",
-                "translation": "Ibuku kesakitan karena Alergi.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذِهِ الْحَسَاسِيَّةُ تَظْهَرُ فِي الصَّيْفِ",
+                "translation": "Alergi ini muncul di musim panas.",
+                "grammarNote": "Logika: Fi'il 'tazh-haru' (Ta) untuk subjek muannats."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ حَسَاسِيَّةٌ",
-                "translation": "Temanku kesakitan karena Alergi.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ حَسَاسِيَّةٌ ضِدَّ الْبِنِسِلِين",
+                "translation": "Dia alergi terhadap penisilin.",
+                "grammarNote": "Logika: 'Dhidda' (terhadap/melawan) + Mudhafun ilaih."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ حَسَاسِيَّةٌ",
-                "translation": "Anak itu kesakitan karena Alergi.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْحَسَاسِيَّةُ تُسَبِّبُ الْحِكَّةَ",
+                "translation": "Alergi menyebabkan gatal-gatal.",
+                "grammarNote": "Logika: Fi'il 'tusabbibu' (Ta) untuk subjek muannats."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ حَسَاسِيَّةٌ",
-                "translation": "Pria itu kesakitan karena Alergi.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَحْتَاجُ الْمَرِيضُ حُقْنَةً لِلْحَسَاسِيَّةِ",
+                "translation": "Pasien butuh suntikan untuk alergi.",
+                "grammarNote": "Logika: 'Lil-hasaasiyyati' (Li + Al + Majrur)."
             }
         ]
     },
     {
         "id": "l2_8_c13",
         "wordAr": "مَغَصٌ",
-        "translation": "Mulas / Kram Perut",
-        "description": "Nyeri tajam di daerah perut.",
-        "category": "Penyakit",
+        "translation": "Mulas / Kram / Kolik",
+        "description": "Nyeri tajam di perut (Mudzakkar).",
+        "category": "Gejala",
         "examples": [
             {
-                "ar": "عِنْدِي مَغَصٌ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Mulas / Kram Perut yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي مَغَصٌ فِي الْمَعِدَةِ",
+                "translation": "Saya mulas di lambung.",
+                "grammarNote": "Logika: 'Indii' + 'Maghashun' (mubtada muakhkhar)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ مَغَصٌ هُنَا",
-                "translation": "Pasien merasakan Mulas / Kram Perut di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِمَغَصٍ بَعْدَ الْأَكْلِ",
+                "translation": "Saya merasa mulas setelah makan.",
+                "grammarNote": "Logika: 'Bi' + 'maghashin' (majrur/kasratain)."
             },
             {
-                "ar": "هَلْ هَذَا مَغَصٌ مُزْمِنٌ؟",
-                "translation": "Apakah Mulas / Kram Perut ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكِ مَغَصٌ كُلَّ يَوْمٍ؟",
+                "translation": "Apakah kamu (Pr) mulas setiap hari?",
+                "grammarNote": "Logika: 'Indaki' untuk menyapa perempuan."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ مَغَصٌ",
-                "translation": "Tanganku patah karena Mulas / Kram Perut.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَخِي يَتَأَلَّمُ مِنْ مَغَصٍ كَلَوِيٍّ",
+                "translation": "Saudaraku menderita kolik ginjal.",
+                "grammarNote": "Logika: Fi'il 'Yata'allamu' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ مَغَصٌ",
-                "translation": "Dokter itu kesakitan karena Mulas / Kram Perut.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الرَّجُلُ بِمَغَصٍ شَدِيدٍ",
+                "translation": "Pria itu merasakan mulas yang parah.",
+                "grammarNote": "Logika: 'Maghash' mudzakkar, sifatnya 'syadiid'."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ مَغَصٌ",
-                "translation": "Ayahku kesakitan karena Mulas / Kram Perut.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الطِّفْلَةُ بِمَغَصٍ فِي الْبَطْنِ",
+                "translation": "Anak perempuan itu merasa mulas di perut.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ مَغَصٌ",
-                "translation": "Ibuku kesakitan karena Mulas / Kram Perut.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا الْمَغَصُ سَبَبُهُ الْبَرْدُ",
+                "translation": "Mulas ini penyebabnya adalah udara dingin.",
+                "grammarNote": "Logika: 'Maghash' mudzakkar, isim isyarah 'haadzaa'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ مَغَصٌ",
-                "translation": "Temanku kesakitan karena Mulas / Kram Perut.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ مَغَصٌ وَإِسْهَالٌ",
+                "translation": "Dia mulas dan diare.",
+                "grammarNote": "Logika: Penggabungan dua gejala dengan 'waw' athaf."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ مَغَصٌ",
-                "translation": "Anak itu kesakitan karena Mulas / Kram Perut.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "الْمَغَصُ يَزْدَادُ مَعَ الْحَرَكَةِ",
+                "translation": "Mulasnya bertambah saat bergerak.",
+                "grammarNote": "Logika: Fi'il 'yazdaadu' (Ya) untuk subjek mudzakkar."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ مَغَصٌ",
-                "translation": "Pria itu kesakitan karena Mulas / Kram Perut.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "خُذْ مَاءً دَافِئًا لِلْمَغَصِ",
+                "translation": "Minumlah air hangat untuk mulas.",
+                "grammarNote": "Logika: 'Lil-maghashi' (Li + Al + Majrur)."
             }
         ]
     },
     {
         "id": "l2_8_c14",
         "wordAr": "ضَغْطُ الدَّمِ",
-        "translation": "Tekanan Darah",
-        "description": "Ukuran medis (Tensi).",
+        "translation": "Tekanan Darah / Tensi",
+        "description": "Ukuran sirkulasi darah (Mudhafun Ilaih).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي ضَغْطُ الدَّمِ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Tekanan Darah yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي ضَغْطُ الدَّمِ الْمُرْتَفِعُ",
+                "translation": "Saya menderita tekanan darah tinggi.",
+                "grammarNote": "Logika: 'Indii' + Isim 'Dhaghtu' (Mudhaf) + 'Ad-dami' (Mudhaf ilaih)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ ضَغْطُ الدَّمِ هُنَا",
-                "translation": "Pasien merasakan Tekanan Darah di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِضَغْطِ الدَّمِ فِي رَأْسِي",
+                "translation": "Saya merasakan tekanan darah di kepalaku.",
+                "grammarNote": "Logika: 'Bi' + 'Dhaghti' (majrur) + 'Ad-dami' (mudhafun ilaih)."
             },
             {
-                "ar": "هَلْ هَذَا ضَغْطُ الدَّمِ مُزْمِنٌ؟",
-                "translation": "Apakah Tekanan Darah ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ ضَغْطُ الدَّمِ الْمُنْخَفِضُ؟",
+                "translation": "Apakah kamu menderita tekanan darah rendah?",
+                "grammarNote": "Logika: 'Al-munkhafidhu' sebagai sifat untuk 'Dhaghtu'."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ ضَغْطُ الدَّمِ",
-                "translation": "Tanganku patah karena Tekanan Darah.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَبِي يَتَأَلَّمُ مِنْ ضَغْطِ الدَّمِ",
+                "translation": "Ayahku menderita penyakit darah tinggi.",
+                "grammarNote": "Logika: Fi'il 'Yata'allamu' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ ضَغْطُ الدَّمِ",
-                "translation": "Dokter itu kesakitan karena Tekanan Darah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الْمَرِيضُ بِضَغْطٍ فِي الصَّدْرِ",
+                "translation": "Pasien merasakan tekanan di dada.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk subjek laki-laki."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ ضَغْطُ الدَّمِ",
-                "translation": "Ayahku kesakitan karena Tekanan Darah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ أُمِّي بِضَغْطٍ عَالٍ الْيَوْمَ",
+                "translation": "Ibuku merasa tensinya tinggi hari ini.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk subjek perempuan."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ ضَغْطُ الدَّمِ",
-                "translation": "Ibuku kesakitan karena Tekanan Darah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا ضَغْطٌ طَبِيعِيٌّ لِسِنِّكَ",
+                "translation": "Ini adalah tensi yang normal untuk usiamu.",
+                "grammarNote": "Logika: 'Dhaghtun' mudzakkar, sifatnya 'thabii'iyyun'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ ضَغْطُ الدَّمِ",
-                "translation": "Temanku kesakitan karena Tekanan Darah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ ضَغْطُ الدَّمِ مُنْذُ زَمَنٍ",
+                "translation": "Dia menderita darah tinggi sejak lama.",
+                "grammarNote": "Logika: 'Indahu' (khabar) + 'Dhaghtu' (mubtada)."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ ضَغْطُ الدَّمِ",
-                "translation": "Anak itu kesakitan karena Tekanan Darah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "ضَغْطُ الدَّمِ يَحْتَاجُ إِلَى فُحُوصَاتٍ",
+                "translation": "Tekanan darah membutuhkan pemeriksaan.",
+                "grammarNote": "Logika: Isim mudzakkar 'Dhaghtu', maka fi'ilnya 'yahtaaju'."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ ضَغْطُ الدَّمِ",
-                "translation": "Pria itu kesakitan karena Tekanan Darah.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "نَحْنُ نَقِيسُ ضَغْطَ الدَّمِ كُلَّ يَوْمٍ",
+                "translation": "Kami mengukur tekanan darah setiap hari.",
+                "grammarNote": "Logika: 'Dhaghta' sebagai maf'ul bihi (manshub)."
             }
         ]
     },
     {
         "id": "l2_8_c15",
         "wordAr": "سُكَّرِيٌّ",
-        "translation": "Diabetes",
-        "description": "Penyakit gula.",
+        "translation": "Diabetes / Penyakit Gula",
+        "description": "Kondisi kadar gula darah tinggi (Mudzakkar).",
         "category": "Penyakit",
         "examples": [
             {
-                "ar": "عِنْدِي سُكَّرِيٌّ شَدِيدٌ (مِثَال 1)",
-                "translation": "Saya menderita Diabetes yang parah (contoh 1).",
-                "grammarNote": "Logika: Menggunakan 'Indii' (saya memiliki) diikuti nama penyakit/gejala."
+                "ar": "عِنْدِي مَرَضُ السُّكَّرِيِّ",
+                "translation": "Saya menderita penyakit diabetes.",
+                "grammarNote": "Logika: 'Indii' + 'Maradhu' (Mudhaf) + 'As-sukkariyyi' (Mudhaf ilaih)."
             },
             {
-                "ar": "يَشْعُرُ الْمَرِيضُ بِـ سُكَّرِيٌّ هُنَا",
-                "translation": "Pasien merasakan Diabetes di sini.",
-                "grammarNote": "Logika: Menggunakan 'Yasy'uru' (merasakan) diikuti harf jar 'bi'."
+                "ar": "أَشْعُرُ بِأَعْرَاضِ السُّكَّرِيِّ",
+                "translation": "Saya merasakan gejala diabetes.",
+                "grammarNote": "Logika: 'Bi' + 'a'raadhi' (majrur) + 'as-sukkariyyi' (mudhafun ilaih)."
             },
             {
-                "ar": "هَلْ هَذَا سُكَّرِيٌّ مُزْمِنٌ؟",
-                "translation": "Apakah Diabetes ini kronis?",
-                "grammarNote": "Logika: Pertanyaan menggunakan 'Hal' (Apakah)."
+                "ar": "هَلْ عِنْدَكَ سُكَّرِيٌّ وِرَاثِيٌّ؟",
+                "translation": "Apakah kamu menderita diabetes keturunan?",
+                "grammarNote": "Logika: 'Sukkariyyun' disifati oleh 'wiraatsiyyun'."
             },
             {
-                "ar": "يَدِي مَكْسُورَةٌ بِسَبَبِ سُكَّرِيٌّ",
-                "translation": "Tanganku patah karena Diabetes.",
-                "grammarNote": "Logika: 'Yadii' (tanganku) adalah muannats, sehingga isim maf'ulnya 'maksuuratun'."
+                "ar": "أَبِي يَتَأَلَّمُ مِنْ مَرَضِ السُّكَّرِيِّ",
+                "translation": "Ayahku menderita karena penyakit diabetes.",
+                "grammarNote": "Logika: Fi'il 'Yata'allamu' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "الطَّبِيبُ يَتَأَلَّمُ مِنْ سُكَّرِيٌّ",
-                "translation": "Dokter itu kesakitan karena Diabetes.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "يَشْعُرُ الْمَرِيضُ بِارْتِفَاعِ السُّكَّرِ",
+                "translation": "Pasien merasakan kenaikan kadar gula.",
+                "grammarNote": "Logika: Fi'il 'Yasy'uru' (Ya) untuk subjek laki-laki."
             },
             {
-                "ar": "أَبِي يَتَأَلَّمُ مِنْ سُكَّرِيٌّ",
-                "translation": "Ayahku kesakitan karena Diabetes.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "تَشْعُرُ الْمَرِيضَةُ بِانْخِفَاضِ السُّكَّرِ",
+                "translation": "Pasien (Pr) merasakan penurunan kadar gula.",
+                "grammarNote": "Logika: Fi'il 'Tasy'uru' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَتَأَلَّمُ مِنْ سُكَّرِيٌّ",
-                "translation": "Ibuku kesakitan karena Diabetes.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "هَذَا السُّكَّرِيُّ صَعْبٌ جِدًّا",
+                "translation": "Penyakit gula ini sangat sulit.",
+                "grammarNote": "Logika: 'Sukkariyy' mudzakkar, khabarnya 'sha'bun'."
             },
             {
-                "ar": "صَدِيقِي يَتَأَلَّمُ مِنْ سُكَّرِيٌّ",
-                "translation": "Temanku kesakitan karena Diabetes.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "عِنْدَهُ سُكَّرِيٌّ مُنْذُ الطُّفُولَةِ",
+                "translation": "Dia menderita diabetes sejak kecil.",
+                "grammarNote": "Logika: 'Indahu' (khabar) + 'sukkariyyun' (mubtada)."
             },
             {
-                "ar": "الطِّفْلُ يَتَأَلَّمُ مِنْ سُكَّرِيٌّ",
-                "translation": "Anak itu kesakitan karena Diabetes.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "السُّكَّرِيُّ يَحْتَاجُ إِلَى نِظَامٍ غِذَائِيٍّ",
+                "translation": "Diabetes membutuhkan pola makan yang teratur.",
+                "grammarNote": "Logika: Isim mudzakkar 'As-sukkariyyu', maka fi'ilnya 'yahtaaju'."
             },
             {
-                "ar": "الرَّجُلُ يَتَأَلَّمُ مِنْ سُكَّرِيٌّ",
-                "translation": "Pria itu kesakitan karena Diabetes.",
-                "grammarNote": "Logika: Harf jar 'min' (dari/karena) digunakan untuk menunjukkan penyebab."
+                "ar": "نَحْنُ نَفْحَصُ السُّكَّرَ بِالْجِهَازِ",
+                "translation": "Kami memeriksa kadar gula dengan alat.",
+                "grammarNote": "Logika: 'As-sukkara' sebagai maf'ul bihi (manshub)."
             }
         ]
     },
@@ -961,58 +961,58 @@ export const l2_8: Lesson = {
         "id": "l2_8_c16",
         "wordAr": "طَبِيبٌ",
         "translation": "Dokter",
-        "description": "Pakar medis profesional (Jamak: أَطِبَّاءُ).",
+        "description": "Profesional medis yang mengobati pasien (Mudzakkar).",
         "category": "Rumah Sakit",
         "examples": [
             {
-                "ar": "ذَهَبْتُ إِلَى طَبِيبٌ",
-                "translation": "Saya pergi ke Dokter.",
-                "grammarNote": "Logika: Harf jar 'ila' (ke) membuat kata setelahnya menjadi majrur (kasrah)."
+                "ar": "ذَهَبْتُ إِلَى الطَّبِيبِ الْيَوْمَ",
+                "translation": "Saya pergi ke dokter hari ini.",
+                "grammarNote": "Logika: 'Ila' + 'At-thabiibi' (majrur/kasrah)."
             },
             {
-                "ar": "هَذَا طَبِيبٌ جَدِيدٌ",
-                "translation": "Ini adalah Dokter yang baru.",
-                "grammarNote": "Logika: Mubtada' dan Khabar dalam jumlah ismiyyah."
+                "ar": "هَذَا طَبِيبٌ مَاهِرٌ جِدًّا",
+                "translation": "Ini adalah dokter yang sangat mahir.",
+                "grammarNote": "Logika: 'Thabiib' mudzakkar, sifatnya 'maahir'."
             },
             {
-                "ar": "أَيْنَ طَبِيبٌ؟",
-                "translation": "Di mana Dokter?",
-                "grammarNote": "Logika: Kata tanya 'Ayna' (Di mana)."
+                "ar": "أَيْنَ الطَّبِيبُ الْمَنَاوِبُ؟",
+                "translation": "Di mana dokter yang bertugas?",
+                "grammarNote": "Logika: 'Ayna' kata tanya lokasi."
             },
             {
-                "ar": "رِجْلِي مَجْرُوحَةٌ فَذَهَبْتُ إِلَى طَبِيبٌ",
-                "translation": "Kakiku terluka maka aku pergi ke Dokter.",
-                "grammarNote": "Logika: 'Rijl' (kaki) muannats, isim maf'ulnya 'majruuhatun'."
+                "ar": "أُمِّي تَحْتَاجُ إِلَى طَبِيبَةٍ",
+                "translation": "Ibuku butuh dokter perempuan.",
+                "grammarNote": "Logika: Fi'il 'Tahtaaju' (Ta) karena subjeknya muannats."
             },
             {
-                "ar": "الطَّبِيبُ يَحْتَاجُ إِلَى طَبِيبٌ",
-                "translation": "Dokter itu membutuhkan Dokter.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "يَفْحَصُ الطَّبِيبُ عَيْنَ الْمَرِيضِ",
+                "translation": "Dokter memeriksa mata pasien.",
+                "grammarNote": "Logika: Fi'il 'Yafhashu' (Ya) untuk subjek mudzakkar."
             },
             {
-                "ar": "أَبِي يَحْتَاجُ إِلَى طَبِيبٌ",
-                "translation": "Ayahku membutuhkan Dokter.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "تَسْأَلُ الطَّبِيبَةُ عَنِ الْأَلَمِ",
+                "translation": "Dokter (Pr) bertanya tentang rasa sakitnya.",
+                "grammarNote": "Logika: Fi'il 'Tas-alu' (Ta) untuk subjek muannats."
             },
             {
-                "ar": "أُمِّي يَحْتَاجُ إِلَى طَبِيبٌ",
-                "translation": "Ibuku membutuhkan Dokter.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "هَذَا طَبِيبُ الْقَلْبِ الْمَعْرُوفُ",
+                "translation": "Ini adalah dokter jantung yang terkenal.",
+                "grammarNote": "Logika: 'Thabiibu' (Mudhaf) + 'Al-qalbi' (Mudhaf ilaih)."
             },
             {
-                "ar": "صَدِيقِي يَحْتَاجُ إِلَى طَبِيبٌ",
-                "translation": "Temanku membutuhkan Dokter.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "عِنْدَنَا طَبِيبٌ فِي الْعَائِلَةِ",
+                "translation": "Kami punya dokter di keluarga.",
+                "grammarNote": "Logika: 'Indanaa' menunjukkan kepemilikan."
             },
             {
-                "ar": "الطِّفْلُ يَحْتَاجُ إِلَى طَبِيبٌ",
-                "translation": "Anak itu membutuhkan Dokter.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "الطَّبِيبُ يَنْصَحُ بِالرَّاحَةِ",
+                "translation": "Dokter menyarankan untuk istirahat.",
+                "grammarNote": "Logika: Fi'il 'Yanshahu' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "الرَّجُلُ يَحْتَاجُ إِلَى طَبِيبٌ",
-                "translation": "Pria itu membutuhkan Dokter.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "نَحْنُ نَحْتَرِمُ الطَّبِيبَ كَثِيرًا",
+                "translation": "Kami sangat menghormati dokter.",
+                "grammarNote": "Logika: 'At-thabiiba' sebagai maf'ul bihi (manshub)."
             }
         ]
     },
@@ -1020,58 +1020,235 @@ export const l2_8: Lesson = {
         "id": "l2_8_c17",
         "wordAr": "مُسْتَشْفَى",
         "translation": "Rumah Sakit",
-        "description": "Instalasi kesehatan besar (Muannats maqsur).",
+        "description": "Tempat pengobatan medis lengkap (Mudzakkar Maqsur).",
         "category": "Rumah Sakit",
         "examples": [
             {
-                "ar": "ذَهَبْتُ إِلَى مُسْتَشْفَى",
-                "translation": "Saya pergi ke Rumah Sakit.",
-                "grammarNote": "Logika: Harf jar 'ila' (ke) membuat kata setelahnya menjadi majrur (kasrah)."
+                "ar": "ذَهَبْتُ إِلَى الْمُسْتَشْفَى الْكَبِيرِ",
+                "translation": "Saya pergi ke rumah sakit yang besar.",
+                "grammarNote": "Logika: 'Ila' + 'Al-mustasyfa' (majrur, harakat tersembunyi)."
             },
             {
-                "ar": "هَذَا مُسْتَشْفَى جَدِيدٌ",
-                "translation": "Ini adalah Rumah Sakit yang baru.",
-                "grammarNote": "Logika: Mubtada' dan Khabar dalam jumlah ismiyyah."
+                "ar": "هَذَا مُسْتَشْفَى حُكُومِيٌّ",
+                "translation": "Ini adalah rumah sakit pemerintah.",
+                "grammarNote": "Logika: 'Mustasyfa' mudzakkar, sifatnya 'hukuumiyyun'."
             },
             {
-                "ar": "أَيْنَ مُسْتَشْفَى؟",
-                "translation": "Di mana Rumah Sakit?",
-                "grammarNote": "Logika: Kata tanya 'Ayna' (Di mana)."
+                "ar": "أَيْنَ أَقْرَبُ مُسْتَشْفَى هُنَا؟",
+                "translation": "Di mana rumah sakit terdekat di sini?",
+                "grammarNote": "Logika: 'Aqrabu' (paling dekat) isim tafdhil."
             },
             {
-                "ar": "رِجْلِي مَجْرُوحَةٌ فَذَهَبْتُ إِلَى مُسْتَشْفَى",
-                "translation": "Kakiku terluka maka aku pergi ke Rumah Sakit.",
-                "grammarNote": "Logika: 'Rijl' (kaki) muannats, isim maf'ulnya 'majruuhatun'."
+                "ar": "أَبِي يَعْمَلُ فِي الْمُسْتَشْفَى",
+                "translation": "Ayahku bekerja di rumah sakit.",
+                "grammarNote": "Logika: Fi'il 'Ya'malu' (Ya) untuk mudzakkar."
             },
             {
-                "ar": "الطَّبِيبُ يَحْتَاجُ إِلَى مُسْتَشْفَى",
-                "translation": "Dokter itu membutuhkan Rumah Sakit.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "يَنْتَظِرُ الْمَرِيضُ فِي الْمُسْتَشْفَى",
+                "translation": "Pasien menunggu di rumah sakit.",
+                "grammarNote": "Logika: Fi'il 'Yantadhiru' (Ya) untuk subjek mudzakkar."
             },
             {
-                "ar": "أَبِي يَحْتَاجُ إِلَى مُسْتَشْفَى",
-                "translation": "Ayahku membutuhkan Rumah Sakit.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "تَذْهَبُ الْمُمَرِّضَةُ إِلَى الْمُسْتَشْفَى",
+                "translation": "Perawat (Pr) pergi ke rumah sakit.",
+                "grammarNote": "Logika: Fi'il 'Tadz-habu' (Ta) untuk subjek muannats."
             },
             {
-                "ar": "أُمِّي يَحْتَاجُ إِلَى مُسْتَشْفَى",
-                "translation": "Ibuku membutuhkan Rumah Sakit.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "الْمُسْتَشْفَى مَلِيءٌ بِالْمَرْضَى",
+                "translation": "Rumah sakit penuh dengan pasien.",
+                "grammarNote": "Logika: 'Al-mustasyfa' mudzakkar, khabarnya 'mali-un'."
             },
             {
-                "ar": "صَدِيقِي يَحْتَاجُ إِلَى مُسْتَشْفَى",
-                "translation": "Temanku membutuhkan Rumah Sakit.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "عِنْدِي مَوْعِدٌ فِي الْمُسْتَشْفَى",
+                "translation": "Saya punya janji temu di rumah sakit.",
+                "grammarNote": "Logika: 'Mau'idun' (janji temu) mubtada muakhkhar."
             },
             {
-                "ar": "الطِّفْلُ يَحْتَاجُ إِلَى مُسْتَشْفَى",
-                "translation": "Anak itu membutuhkan Rumah Sakit.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "الْمُسْتَشْفَى بَعِيدٌ عَنِ الْبَيْتِ",
+                "translation": "Rumah sakit jauh dari rumah.",
+                "grammarNote": "Logika: Isim mudzakkar 'Al-mustasyfa', khabarnya 'ba'iidun'."
             },
             {
-                "ar": "الرَّجُلُ يَحْتَاجُ إِلَى مُسْتَشْفَى",
-                "translation": "Pria itu membutuhkan Rumah Sakit.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "نَحْنُ نَزُورُ الصَّدِيقَ فِي الْمُسْتَشْفَى",
+                "translation": "Kami menjenguk teman di rumah sakit.",
+                "grammarNote": "Logika: Fi'il 'Nazuuru' untuk dhamir 'Nahnu'."
+            }
+        ]
+    },
+    {
+        "id": "l2_8_c18",
+        "wordAr": "عِيَادَةٌ",
+        "translation": "Klinik / Praktek",
+        "description": "Tempat pemeriksaan dokter yang lebih kecil (Muannats).",
+        "category": "Rumah Sakit",
+        "examples": [
+            {
+                "ar": "ذَهَبْتُ إِلَى عِيَادَةِ الْأَسْنَانِ",
+                "translation": "Saya pergi ke klinik gigi.",
+                "grammarNote": "Logika: 'Ila' + 'Iyaadati' (majrur) + 'Al-asnaani' (mudhafun ilaih)."
+            },
+            {
+                "ar": "هَذِهِ عِيَادَةٌ نَظِيفَةٌ جِدًّا",
+                "translation": "Ini adalah klinik yang sangat bersih.",
+                "grammarNote": "Logika: 'Iyaadah' muannats, sifatnya 'nadhiifah'."
+            },
+            {
+                "ar": "أَيْنَ عِيَادَةُ الدُّكْتُورِ أَحْمَد؟",
+                "translation": "Di mana klinik Dokter Ahmad?",
+                "grammarNote": "Logika: 'Iyaadatu' (Mudhaf) + 'Ad-duktuuri' (Mudhaf ilaih)."
+            },
+            {
+                "ar": "أُخْتِي تَعْمَلُ فِي عِيَادَةٍ خَاصَّةٍ",
+                "translation": "Saudariku bekerja di klinik swasta.",
+                "grammarNote": "Logika: Fi'il 'Ta'malu' (Ta) untuk subjek muannats."
+            },
+            {
+                "ar": "يَفْتَحُ الطَّبِيبُ عِيَادَتَهُ كُلَّ يَوْمٍ",
+                "translation": "Dokter membuka kliniknya setiap hari.",
+                "grammarNote": "Logika: Fi'il 'Yaftahu' (Ya) untuk mudzakkar."
+            },
+            {
+                "ar": "تَنْتَظِرُ الْمَرِيضَةُ فِي الْعِيَادَةِ",
+                "translation": "Pasien (Pr) menunggu di klinik.",
+                "grammarNote": "Logika: Fi'il 'Yantadhiru' (Ta) untuk subjek muannats."
+            },
+            {
+                "ar": "الْعِيَادَةُ قَرِيبَةٌ مِنَ السُّوقِ",
+                "translation": "Kliniknya dekat dari pasar.",
+                "grammarNote": "Logika: 'Al-iyaadah' muannats, khabarnya 'qariibatun'."
+            },
+            {
+                "ar": "عِنْدِي مَوْعِدٌ فِي الْعِيَادَةِ غَدًا",
+                "translation": "Saya punya janji temu di klinik besok.",
+                "grammarNote": "Logika: 'Mau'idun' mubtada muakhkhar."
+            },
+            {
+                "ar": "الْعِيَادَةُ لَا تَفْتَحُ فِي الْعُطْلَةِ",
+                "translation": "Klinik tidak buka di hari libur.",
+                "grammarNote": "Logika: Fi'il 'taftahu' (Ta) untuk subjek muannats."
+            },
+            {
+                "ar": "نَحْنُ نَذْهَبُ إِلَى عِيَادَةِ الْأَطْفَالِ",
+                "translation": "Kami pergi ke klinik anak.",
+                "grammarNote": "Logika: 'Iyaadati' majrur karena didahului 'Ila'."
+            }
+        ]
+    },
+    {
+        "id": "l2_8_c19",
+        "wordAr": "صَيْدَلِيَّةٌ",
+        "translation": "Apotek",
+        "description": "Tempat membeli obat-obatan (Muannats).",
+        "category": "Rumah Sakit",
+        "examples": [
+            {
+                "ar": "اشْتَرَيْتُ الدَّوَاءَ مِنَ الصَّيْدَلِيَّةِ",
+                "translation": "Saya membeli obat dari apotek.",
+                "grammarNote": "Logika: 'Min' + 'As-shaidaliyyati' (majrur/kasrah)."
+            },
+            {
+                "ar": "هَذِهِ صَيْدَلِيَّةٌ كَبِيرَةٌ",
+                "translation": "Ini adalah apotek yang besar.",
+                "grammarNote": "Logika: 'Shaidaliyyah' muannats, sifatnya 'kabiirah'."
+            },
+            {
+                "ar": "أَيْنَ الصَّيْدَلِيَّةُ الْمَنَاوِبَةُ؟",
+                "translation": "Di mana apotek yang buka 24 jam?",
+                "grammarNote": "Logika: 'Al-manaawibah' (yang bertugas/piket)."
+            },
+            {
+                "ar": "أَخِي يَعْمَلُ فِي صَيْدَلِيَّةٍ جَدِيدَةٍ",
+                "translation": "Saudaraku bekerja di apotek baru.",
+                "grammarNote": "Logika: Fi'il 'Ya'malu' (Ya) untuk mudzakkar."
+            },
+            {
+                "ar": "يَبِيعُ الصَّيْدَلِيُّ الدَّوَاءَ",
+                "translation": "Apoteker menjual obat.",
+                "grammarNote": "Logika: 'As-shaidaliyyu' (Apoteker laki-laki)."
+            },
+            {
+                "ar": "تَعْمَلُ الصَّيْدَلِيَّةُ لَيْلًا وَنَهَارًا",
+                "translation": "Apotek itu beroperasi siang dan malam.",
+                "grammarNote": "Logika: Fi'il 'Ta'malu' (Ta) untuk subjek muannats."
+            },
+            {
+                "ar": "الصَّيْدَلِيَّةُ بَجِوَارِ الْمُسْتَشْفَى",
+                "translation": "Apoteknya di samping rumah sakit.",
+                "grammarNote": "Logika: 'Bijiwaari' (di samping) + Mudhafun ilaih."
+            },
+            {
+                "ar": "عِنْدِي وَصْفَةٌ لِلصَّيْدَلِيَّةِ",
+                "translation": "Saya punya resep untuk ke apotek.",
+                "grammarNote": "Logika: 'Wasyfatun' (resep) muannats."
+            },
+            {
+                "ar": "الصَّيْدَلِيَّةُ مَفْتُوحَةٌ الْآنَ",
+                "translation": "Apoteknya buka sekarang.",
+                "grammarNote": "Logika: 'As-shaidaliyyah' muannats, khabarnya 'maftuuhatun'."
+            },
+            {
+                "ar": "نَحْنُ نَحْتَاجُ إِلَى الصَّيْدَلِيَّةِ",
+                "translation": "Kami butuh ke apotek.",
+                "grammarNote": "Logika: Fi'il 'Nahtaaju' untuk dhamir 'Nahnu'."
+            }
+        ]
+    },
+    {
+        "id": "l2_8_c20",
+        "wordAr": "مُمَرِّضَةٌ",
+        "translation": "Perawat (Pr)",
+        "description": "Petugas kesehatan yang membantu dokter (Muannats).",
+        "category": "Rumah Sakit",
+        "examples": [
+            {
+                "ar": "تُسَاعِدُ الْمُمَرِّضَةُ الطَّبِيبَ",
+                "translation": "Perawat (Pr) itu membantu dokter.",
+                "grammarNote": "Logika: Fi'il 'Tusa'idu' (Ta) untuk subjek muannats."
+            },
+            {
+                "ar": "هَذِهِ مُمَرِّضَةٌ رَحِيمَةٌ جِدًّا",
+                "translation": "Ini adalah perawat yang sangat penyayang.",
+                "grammarNote": "Logika: 'Mumarridhah' muannats, sifatnya 'rahiimah'."
+            },
+            {
+                "ar": "أَيْنَ الْمُمَرِّضَةُ الْمَسْؤُولَةُ؟",
+                "translation": "Di mana perawat penanggung jawabnya?",
+                "grammarNote": "Logika: 'Ayna' kata tanya lokasi."
+            },
+            {
+                "ar": "أُمِّي تَتَحَدَّثُ مَعَ الْمُمَرِّضَةِ",
+                "translation": "Ibuku sedang berbicara dengan perawat.",
+                "grammarNote": "Logika: Fi'il 'Tata-haddatsu' (Ta) untuk subjek perempuan."
+            },
+            {
+                "ar": "يَعْمَلُ الْمُمَرِّضُ فِي قِسْمِ الطَّوَارِئِ",
+                "translation": "Perawat (Lk) bekerja di bagian darurat.",
+                "grammarNote": "Logika: 'Al-mumarridhu' (Perawat laki-laki)."
+            },
+            {
+                "ar": "تَقِيسُ الْمُمَرِّضَةُ حَرَارَةَ الْمَرِيضِ",
+                "translation": "Perawat mengukur suhu tubuh pasien.",
+                "grammarNote": "Logika: Fi'il 'Taqiisu' (Ta) untuk subjek muannats."
+            },
+            {
+                "ar": "الْمُمَرِّضَةُ لَبِسَتْ مَلَابِسَ بَيْضَاءَ",
+                "translation": "Perawat mengenakan pakaian putih.",
+                "grammarNote": "Logika: Fi'il madhi 'labisat' (dia perempuan memakai)."
+            },
+            {
+                "ar": "عِنْدَنَا مُمَرِّضَةٌ فِي الْمَدْرَسَةِ",
+                "translation": "Kami punya perawat di sekolah.",
+                "grammarNote": "Logika: 'Indanaa' menunjukkan kepemilikan."
+            },
+            {
+                "ar": "الْمُمَرِّضَةُ تَعْتَنِي بِالْمَرْضَى",
+                "translation": "Perawat merawat para pasien.",
+                "grammarNote": "Logika: Fi'il 'Ta'tanii' (Ta) untuk subjek muannats."
+            },
+            {
+                "ar": "نَحْنُ نَشْكُرُ الْمُمَرِّضَةَ عَلَى خِدْمَتِهَا",
+                "translation": "Kami berterima kasih kepada perawat atas jasanya.",
+                "grammarNote": "Logika: 'Al-mumarridhata' sebagai maf'ul bihi (manshub)."
             }
         ]
     },
@@ -1079,58 +1256,58 @@ export const l2_8: Lesson = {
         "id": "l2_8_c18",
         "wordAr": "عِيَادَةٌ",
         "translation": "Klinik / Ruang Praktek",
-        "description": "Tempat pemeriksaan dokter.",
+        "description": "Tempat pemeriksaan dokter (Muannats).",
         "category": "Rumah Sakit",
         "examples": [
             {
-                "ar": "ذَهَبْتُ إِلَى عِيَادَةٌ",
-                "translation": "Saya pergi ke Klinik / Ruang Praktek.",
-                "grammarNote": "Logika: Harf jar 'ila' (ke) membuat kata setelahnya menjadi majrur (kasrah)."
+                "ar": "ذَهَبْتُ إِلَى عِيَادَةٍ",
+                "translation": "Saya pergi ke klinik.",
+                "grammarNote": "Logika: 'Ila' + 'Iyaadatin' (majrur)."
             },
             {
-                "ar": "هَذَا عِيَادَةٌ جَدِيدٌ",
-                "translation": "Ini adalah Klinik / Ruang Praktek yang baru.",
-                "grammarNote": "Logika: Mubtada' dan Khabar dalam jumlah ismiyyah."
+                "ar": "هَذِهِ عِيَادَةٌ قَرِيبَةٌ",
+                "translation": "Ini adalah klinik yang dekat.",
+                "grammarNote": "Logika: 'Iyaadah' muannats, sifatnya 'qariibah'."
             },
             {
-                "ar": "أَيْنَ عِيَادَةٌ؟",
-                "translation": "Di mana Klinik / Ruang Praktek?",
-                "grammarNote": "Logika: Kata tanya 'Ayna' (Di mana)."
+                "ar": "عِنْدِي مَوْعِدٌ فِي الْعِيَادَةِ",
+                "translation": "Saya punya janji di klinik.",
+                "grammarNote": "Logika: 'Al-iyaadah' (ma'rifah) setelah harf jar."
             },
             {
-                "ar": "رِجْلِي مَجْرُوحَةٌ فَذَهَبْتُ إِلَى عِيَادَةٌ",
-                "translation": "Kakiku terluka maka aku pergi ke Klinik / Ruang Praktek.",
-                "grammarNote": "Logika: 'Rijl' (kaki) muannats, isim maf'ulnya 'majruuhatun'."
+                "ar": "تَعْمَلُ الطَّبِيبَةُ فِي عِيَادَتِهَا",
+                "translation": "Dokter (Pr) bekerja di kliniknya.",
+                "grammarNote": "Logika: Dhamir 'haa' kembali ke dokter perempuan."
             },
             {
-                "ar": "الطَّبِيبُ يَحْتَاجُ إِلَى عِيَادَةٌ",
-                "translation": "Dokter itu membutuhkan Klinik / Ruang Praktek.",
+                "ar": "أَبِي يَحْتَاجُ إِلَى عِيَادَةٍ",
+                "translation": "Ayahku membutuhkan klinik.",
                 "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
             },
             {
-                "ar": "أَبِي يَحْتَاجُ إِلَى عِيَادَةٌ",
-                "translation": "Ayahku membutuhkan Klinik / Ruang Praktek.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "أُمِّي تَحْتَاجُ إِلَى عِيَادَةٍ",
+                "translation": "Ibuku membutuhkan klinik.",
+                "grammarNote": "Logika: Fi'il 'tahtaaju' (Ta) untuk muannats."
             },
             {
-                "ar": "أُمِّي يَحْتَاجُ إِلَى عِيَادَةٌ",
-                "translation": "Ibuku membutuhkan Klinik / Ruang Praktek.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "صَدِيقِي يَحْتَاجُ إِلَى عِيَادَةٍ",
+                "translation": "Temanku membutuhkan klinik.",
+                "grammarNote": "Logika: 'Shadiiqii' mudzakkar, fi'ilnya 'yahtaaju'."
             },
             {
-                "ar": "صَدِيقِي يَحْتَاجُ إِلَى عِيَادَةٌ",
-                "translation": "Temanku membutuhkan Klinik / Ruang Praktek.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "الطِّفْلُ يَحْتَاجُ إِلَى عِيَادَةٍ",
+                "translation": "Anak itu membutuhkan klinik.",
+                "grammarNote": "Logika: Subjek mudzakkar."
             },
             {
-                "ar": "الطِّفْلُ يَحْتَاجُ إِلَى عِيَادَةٌ",
-                "translation": "Anak itu membutuhkan Klinik / Ruang Praktek.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "الرَّجُلُ يَحْتَاجُ إِلَى عِيَادَةٍ",
+                "translation": "Pria itu membutuhkan klinik.",
+                "grammarNote": "Logika: Kesesuaian fi'il dan fa'il."
             },
             {
-                "ar": "الرَّجُلُ يَحْتَاجُ إِلَى عِيَادَةٌ",
-                "translation": "Pria itu membutuhkan Klinik / Ruang Praktek.",
-                "grammarNote": "Logika: Fi'il 'yahtaaju' diikuti harf jar 'ila'."
+                "ar": "الْعِيَادَةُ مَفْتُوحَةٌ الْآنَ",
+                "translation": "Klinik itu buka sekarang.",
+                "grammarNote": "Logika: Mubtada muannats, khabarnya 'maftuuhah'."
             }
         ]
     },

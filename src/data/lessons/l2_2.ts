@@ -287,7 +287,7 @@ export const l2_2: Lesson = {
           { ar: "ثَوْبٌ ضَيِّقٌ", translation: "Baju yang sempit (ketat).", grammarNote: "Logika: Kualitas pakaian." },
           { ar: "حَيَاةٌ ضَيِّقَةٌ", translation: "Kehidupan yang sempit (susah).", grammarNote: "Logika: Deskripsi batin/ekonomi." },
           { ar: "أَضْيَقُ مِنَ الْبَابِ", translation: "Lebih sempit dari pintu.", grammarNote: "Logika: Perbandingan fisik." },
-          { ar: "بَالٌ ضَيِّقٌ", grammarNote: "Pikiran yang sempit.", translation: "Kualitas kognitif." },
+          { ar: "بَالٌ ضَيِّقٌ", translation: "Pikiran yang sempit.", grammarNote: "Logika: Kualitas kognitif." },
           { ar: "ضَيِّقٌ جِدًّا", translation: "Sangat sempit.", grammarNote: "Logika: Penguatan intensitas." }
         ]
       },

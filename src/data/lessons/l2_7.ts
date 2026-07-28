@@ -1946,392 +1946,132 @@ export const l2_7: Lesson = {
       {
         "id": "q2_7_mc1",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 1)?",
+        "question": "Apa arti dari 'الصَّلَاةُ عِمَادُ الدِّينِ'?",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "Shalat adalah tiang agama",
+          "Shalat adalah kunci surga",
+          "Shalat adalah cahaya hati",
+          "Shalat adalah penolong mukmin"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "Shalat adalah tiang agama",
+        "explanation": "Hadits menyatakan bahwa shalat adalah tiang penopang agama Islam."
       },
       {
         "id": "q2_7_mc2",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 2)?",
+        "question": "Pilih harakat yang benar untuk kata 'صلاة' dalam kalimat: 'أُحَافِظُ عَلَى ال...'",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "الصَّلَاةِ",
+          "الصَّلَاةُ",
+          "الصَّلَاةَ",
+          "الصَّلَاةً"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "الصَّلَاةِ",
+        "explanation": "Setelah harf jar 'Ala', kata benda harus majrur (berharakat kasrah)."
       },
       {
         "id": "q2_7_mc3",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 3)?",
+        "question": "Apa lawan kata (Antonim) dari Syukur (شُكْرٌ) dalam istilah agama?",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "Kufur (كُفْرٌ)",
+          "Sabar (صَبْرٌ)",
+          "Ikhlas (إِخْلَاصٌ)",
+          "Hasad (حَسَدٌ)"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "Kufur (كُفْرٌ)",
+        "explanation": "Kufur nikmat adalah lawan dari syukur nikmat."
       },
       {
         "id": "q2_7_mc4",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 4)?",
+        "question": "Asma'ul Husna 'الرَّزَّاقُ' memiliki arti...",
         "options": [
+          "Maha Pemberi Rezeki",
           "Maha Pengasih",
           "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "Maha Pencipta"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "Maha Pemberi Rezeki",
+        "explanation": "Ar-Razzaaq berasal dari akar kata 'Razaqa' yang berarti memberi rezeki."
       },
       {
         "id": "q2_7_mc5",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 5)?",
+        "question": "Pola (Wazan) apa yang digunakan pada kata 'الْغَفُورُ'?",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "فَعُول (Fa'uul)",
+          "فَعِيل (Fa'iil)",
+          "فَعَّال (Fa'aal)",
+          "فَاعِل (Faa'il)"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "فَعُول (Fa'uul)",
+        "explanation": "Al-Ghafuur mengikuti pola Fa'uul yang menunjukkan sifat 'Maha' atau sangat banyak."
       },
       {
         "id": "q2_7_mc6",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 6)?",
+        "question": "Apa arti dari 'تَدَبُّرُ الْقُرْآنِ'?",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "Merenungi makna Al-Quran",
+          "Menghafal Al-Quran",
+          "Menulis Al-Quran",
+          "Mencetak Al-Quran"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "Merenungi makna Al-Quran",
+        "explanation": "Tadabbur berarti memikirkan dan merenungi kandungan ayat-ayat Al-Quran."
       },
       {
         "id": "q2_7_mc7",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 7)?",
+        "question": "Manakah kalimat yang benar secara tata bahasa?",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "أَقْرَأُ الْقُرْآنَ",
+          "أَقْرَأُ الْقُرْآنُ",
+          "أَقْرَأُ الْقُرْآنِ",
+          "أَقْرَأُ الْقُرْآنٌ"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "أَقْرَأُ الْقُرْآنَ",
+        "explanation": "Al-Quran adalah objek (Maf'ul Bih), maka harus manshub (fathah)."
       },
       {
         "id": "q2_7_mc8",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 8)?",
+        "question": "Apa makna dari 'خُشُوعٌ'?",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "Kekhusyukan/Ketundukan",
+          "Keberanian",
+          "Kesenangan",
+          "Ketakutan"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "Kekhusyukan/Ketundukan",
+        "explanation": "Khusyu' adalah kondisi hati yang tunduk dan tenang saat beribadah."
       },
       {
         "id": "q2_7_mc9",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 9)?",
+        "question": "Kata 'تَوَكُّلٌ' berasal dari akar kata...",
         "options": [
-          "Maha Pengasih",
-          "Maha Mengetahui",
-          "Maha Pencipta",
-          "Maha Bijaksana"
+          "و-ك-ل (Wakala)",
+          "ت-و-ك (Tawaka)",
+          "ك-ل-ل (Kalala)",
+          "و-ل-ي (Waliya)"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
+        "correctAnswer": "و-ك-ل (Wakala)",
+        "explanation": "Tawakkal berasal dari akar kata wa-ka-la yang berarti mewakilkan atau berserah diri."
       },
       {
         "id": "q2_7_mc10",
         "type": "multiple-choice",
-        "question": "Apa arti dari Asma'ul Husna 'الرَّحْمَنُ' (soal 10)?",
+        "question": "Apa arti dari Asma'ul Husna 'الْعَلِيمُ'?",
         "options": [
-          "Maha Pengasih",
           "Maha Mengetahui",
-          "Maha Pencipta",
+          "Maha Mendengar",
+          "Maha Melihat",
           "Maha Bijaksana"
         ],
-        "correctAnswer": "Maha Pengasih",
-        "explanation": "Ar-Rahmaan berarti Yang Maha Pengasih kepada seluruh makhluk."
-      },
-      {
-        "id": "q2_7_akar1",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 1)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar2",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 2)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar3",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 3)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar4",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 4)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar5",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 5)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar6",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 6)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar7",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 7)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar8",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 8)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar9",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 9)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_akar10",
-        "type": "multiple-choice",
-        "question": "Apa akar kata dari 'الْغَفُور' (soal 10)?",
-        "options": [
-          "غ-ف-ر (Ghafara)",
-          "غ-ف-ف (Ghaffafa)",
-          "ف-غ-ر (Faghara)",
-          "ر-غ-ف (Raghafa)"
-        ],
-        "correctAnswer": "غ-ف-ر (Ghafara)",
-        "explanation": "Akar kata (Fi'il Tsulasi) dari Al-Ghafuur adalah Ghafara (غَفَرَ)."
-      },
-      {
-        "id": "q2_7_pola1",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 1)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola2",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 2)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola3",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 3)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola4",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 4)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola5",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 5)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola6",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 6)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola7",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 7)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola8",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 8)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola9",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 9)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
-      },
-      {
-        "id": "q2_7_pola10",
-        "type": "multiple-choice",
-        "question": "Pola (Shighah) apa yang digunakan pada Asma'ul Husna 'الرَّزَّاقُ' (soal 10)?",
-        "options": [
-          "فَعَّال (Fa'aal)",
-          "فَعِيل (Fa'iil)",
-          "فَعُول (Fa'uul)",
-          "فَاعِل (Faa'il)"
-        ],
-        "correctAnswer": "فَعَّال (Fa'aal)",
-        "explanation": "Tasydid pada huruf 'Za' menunjukkan pola فَعَّال (Fa'aal) yang berarti sangat banyak/terus-menerus."
+        "correctAnswer": "Maha Mengetahui",
+        "explanation": "Al-'Aliim berarti Yang Maha Mengetahui segala sesuatu."
       }
     ]
   }

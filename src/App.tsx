@@ -13,7 +13,7 @@ import { checkTrialStatus, getSupabaseProfile, syncUserProfileToSupabase } from 
 const LandingPage = lazy(() => import("./components/LandingPage"));
 const Sidebar = lazy(() => import("./components/Sidebar"));
 const Dashboard = lazy(() => import("./components/Dashboard"));
-const LessonMap = lazy(() => import("./components/LessonMap.tsx"));
+const LessonMap = lazy(() => import("./components/LessonMap"));
 const LessonView = lazy(() => import("./components/LessonView"));
 const PracticeHub = lazy(() => import("./components/PracticeHub"));
 const AIChat = lazy(() => import("./components/AIChat"));

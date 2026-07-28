@@ -52,8 +52,9 @@ export const speakArabic = (text: string, speed?: number, gender: 'male' | 'fema
     // Helper to split text into language segments
     const splitTextByLanguage = (input: string) => {
       const segments: { text: string; lang: 'ar' | 'id' }[] = [];
-      // This regex identifies Arabic blocks including basic punctuation
-      const arabicRegex = /[\u0600-\u06FF\u060C\u061B\u061F]+/g;
+      // Improved regex to catch Arabic characters, harakat (tashkeel), and common Arabic punctuation
+      // We also allow internal spaces to keep phrases together in one segment
+      const arabicRegex = /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\u060C\u061B\u061F]+(\s+[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF\u060C\u061B\u061F]+)*/g;
       
       let lastIndex = 0;
       let match;
@@ -108,18 +109,28 @@ export const speakArabic = (text: string, speed?: number, gender: 'male' | 'fema
 
       const loadVoicesAndSpeak = () => {
         const voices = window.speechSynthesis.getVoices();
+        
+        // Priority voices matching
+        const findVoice = (langCode: string) => {
+          const langVoices = voices.filter(v => v.lang.toLowerCase().includes(langCode.toLowerCase()));
+          if (langVoices.length === 0) return null;
+          
+          // Try to find a high-quality/natural voice first
+          return langVoices.find(v => 
+            v.name.includes('Google') || 
+            v.name.includes('Natural') || 
+            v.name.includes('Online')
+          ) || langVoices[0];
+        };
+
         if (segment.lang === 'ar') {
           utterance.lang = 'ar-SA';
-          const arVoices = voices.filter(v => v.lang.toLowerCase().includes('ar'));
-          if (arVoices.length > 0) {
-            utterance.voice = arVoices.find(v => v.name.includes('Google') || v.name.includes('Natural')) || arVoices[0];
-          }
+          const arVoice = findVoice('ar');
+          if (arVoice) utterance.voice = arVoice;
         } else {
           utterance.lang = 'id-ID';
-          const idVoices = voices.filter(v => v.lang.toLowerCase().includes('id'));
-          if (idVoices.length > 0) {
-            utterance.voice = idVoices.find(v => v.name.includes('Google') || v.name.includes('Natural')) || idVoices[0];
-          }
+          const idVoice = findVoice('id');
+          if (idVoice) utterance.voice = idVoice;
         }
 
         utterance.onend = () => {
@@ -128,13 +139,15 @@ export const speakArabic = (text: string, speed?: number, gender: 'male' | 'fema
         };
 
         utterance.onerror = (e: any) => {
-          console.error(`Speech segment error (${segment.lang}):`, e.error, e);
-          // If it was interrupted by another speak call, don't continue the queue
+          // If it was interrupted by another speak call or manual stop, don't log as error
           if (e.error === 'interrupted' || e.error === 'canceled') {
             currentUtterance = null;
+            if (onEnd) onEnd();
             resolve();
             return;
           }
+          
+          console.error(`Speech segment error (${segment.lang}):`, e.error);
           currentSegmentIndex++;
           playNextSegment();
         };

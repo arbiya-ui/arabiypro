@@ -218,7 +218,7 @@ export const l2_9: Lesson = {
         id: "l2_9_q9",
         type: "translate",
         question: "Terjemahkan: 'Buku yang baru itu indah'",
-        options: ["الْكِتَابُ الْجَدِيدُ جَمِيلٌ", "كِتَابٌ جَدِيدٌ جَمِيلٌ", "الْكِتَابُ جَدِيدٌ جَمِيلٌ", "الْكِتَابُ الْجَدِIDُ الْجَمِيلُ"],
+        options: ["الْكِتَابُ الْجَدِيدُ جَمِيلٌ", "كِتَابٌ جَدِيدٌ جَمِيلٌ", "الْكِتَابُ جَدِيدٌ جَمِيلٌ", "الْكِتَابُ الْجَدِيدُ الْجَمِيلُ"],
         correctAnswer: "الْكِتَابُ الْجَدِيدُ جَمِيلٌ",
         explanation: "Materi Bab 2: Susunan Mubtada-Khabar dengan Na'at pada Mubtada.",
         difficulty: "medium",
@@ -611,7 +611,7 @@ export const l2_9: Lesson = {
         type: "multiple-choice",
         question: "Manakah kalimat yang benar untuk 'Tangan saya patah'?",
         options: ["يَدِي مَكْسُورٌ", "يَدِي مَكْسُورَةٌ", "يَدِي كَاسِرٌ", "يَدِي كَسَرَ"],
-        correctAnswer: "يَدِي مَكْسُORَةٌ",
+        correctAnswer: "يَدِي مَكْسُورَةٌ",
         explanation: "Materi Bab 8: Anggota tubuh berpasangan dianggap muannats.",
         difficulty: "hard",
         points: 3
